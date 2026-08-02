@@ -1,0 +1,8 @@
+{
+  "markdown-preview-enhanced.markdownParser": "markdown-it",
+  "markdown-preview-enhanced.breakOnSingleNewLine": true,
+  "markdown-preview-enhanced.enableTypographer": false,
+  "markdown-preview-enhanced.enableLinkify": false,
+  "markdown-preview-enhanced.mathRenderingOption": "MathJax",
+  "markdown-preview-enhanced.mathjaxScriptSrc": "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"
+}

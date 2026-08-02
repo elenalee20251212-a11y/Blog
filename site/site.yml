@@ -1,0 +1,24 @@
+title: Elena's Blog
+description: 关于数学、笔记及其它
+brand:
+  # 直接替换 content/public/brand/avatar.svg，或改为另一张 public 图片。
+  mark: ''
+  image: /brand/58471136_p0.png
+  imageAlt: Elena's Blog 头像
+  imageFit: contain
+typography:
+  # 文章正文与主页分别在手机、电脑字号之间随屏幕宽度平滑变化。
+  contentSize:
+    mobile: 15
+    desktop: 18
+  homeSize:
+    mobile: 16
+    desktop: 18
+content:
+  # 新建的占位文章先进入这个第三级分类；文章内的 category 可以随时修改。
+  defaultCategory: miscellaneous/inbox/unclassified
+deploy:
+  repository: https://github.com/elenalee20251212-a11y/Blog.git
+  branch: main
+  basePath: /Blog/
+  siteUrl: https://elenalee20251212-a11y.github.io/Blog/

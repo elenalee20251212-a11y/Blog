@@ -1,0 +1,26 @@
+{
+  "name": "elena-blog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "math:normalize": "node scripts/normalize-math.mjs",
+    "content:check": "node scripts/check-content.mjs",
+    "check": "node --check blog.mjs && node --check scripts/blog.mjs && node --check scripts/categories.mjs && node --check scripts/deploy.mjs && node --check scripts/dev-server.mjs && node --check scripts/preview-server.mjs && node --check scripts/clean-generated.mjs && node --check content/.vitepress/config.mjs && node scripts/test-math-compat.mjs && npm run content:check",
+    "clean": "node scripts/clean-generated.mjs",
+    "settings": "node scripts/render-site-settings.mjs",
+    "tikz": "node scripts/render-tikz.mjs",
+    "prepare:site": "node scripts/categories.mjs sync && npm run content:check && npm run settings && npm run tikz",
+    "dev": "npm run prepare:site && vitepress dev content",
+    "build": "npm run prepare:site && vitepress build content",
+    "deploy": "node blog.mjs deploy",
+    "preview": "node scripts/preview-server.mjs"
+  },
+  "devDependencies": {
+    "gray-matter": "4.0.3",
+    "markdown-it-mathjax3": "4.3.2",
+    "minisearch": "^7.2.0",
+    "node-tikzjax": "1.0.5",
+    "vitepress": "1.6.4",
+    "yaml": "2.8.1"
+  }
+}

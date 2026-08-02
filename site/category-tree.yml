@@ -1,0 +1,94 @@
+# 三级分类树。数组中的先后顺序就是网页中的分类顺序。
+# 修改结构后，执行 node blog.mjs sync。
+
+changes: []
+tree:
+  - id: mathematics
+    title: 数学
+    children:
+      - id: algebra
+        title: 杂项
+        children:
+          - id: algebra-topics
+            title: 代数专题
+          - id: etingof-representation-theory
+            title: Etingof 表示论
+          - id: fulton-representation-theory
+            title: Fulton 表示论
+          - id: serre-finite-groups
+            title: Serre 有限群
+          - id: galois-theory
+            title: Galois 理论
+          - id: weibel-homological-algebra
+            title: Weibel 同调代数
+      - id: algebraic-geometry
+        title: 交换代数与代数几何
+        children:
+          - id: atiyah-macdonald
+            title: Atiyah交换代数笔记
+          - id: commutative-algebra
+            title: Borcherds交换代数专题
+          - id: hartshorne-algebraic-geometry
+            title: 52笔记
+          - id: fulton-algebraic-curves
+            title: Fulton 代数曲线
+          - id: mit-18-875
+            title: MIT 18.875
+          - id: algebraic-geometry-topics
+            title: 其它
+      - id: number-theory
+        title: 数论与算术几何
+        children:
+          - id: mit-18-785
+            title: MIT 18.785 代数数论
+          - id: neukirch-number-theory
+            title: Neukirch 代数数论
+          - id: p-adic-hodge-theory
+            title: p-adic Hodge 理论
+          - id: serre-local-fields
+            title: Serre 局部域
+      - id: analysis-topology
+        title: 其它数学
+        children:
+          - id: complex-analysis
+            title: 复分析
+          - id: elementary-math
+            title: 初等数学
+      - id: other-mathematics
+        title: 其他数学笔记
+        children:
+          - id: mathematical-notes
+            title: 数学杂记
+  - id: programming
+    title: 编程
+    children:
+      - id: languages
+        title: 编程语言
+        children:
+          - id: python
+            title: Python
+  - id: writing
+    title: 随笔与创作
+    children:
+      - id: personal-writing
+        title: 个人写作
+        children:
+          - id: essays
+            title: 记录
+          - id: creative-writing
+            title: 随笔
+  - id: miscellaneous
+    title: 杂项
+    children:
+      - id: archive
+        title: 资料与站点
+        children:
+          - id: collections
+            title: 摘录与资源
+          - id: site-notes
+            title: 站点记录
+      - id: inbox
+        title: 待整理
+        children:
+          - id: unclassified
+            title: 待分类
