@@ -19,7 +19,7 @@
   --vp-font-family-base: Roboto, Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --vp-font-family-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
   --vp-layout-max-width: 1520px;
-  --vp-sidebar-width: 272px;
+  --vp-sidebar-width: 296px;
   --kerodon-orange: #c46f98;
   --kerodon-green: #70ad55;
   --kerodon-cream: #f3f1ec;
@@ -129,7 +129,7 @@ body {
 }
 
 .VPSidebarItem .caret {
-  margin-right: 1.25rem !important;
+  margin-right: 0.45rem !important;
 }
 
 .VPSidebarItem .text {
@@ -881,6 +881,8 @@ body {
 }
 
 @media (max-width: 767px) {
+  :root,
+  .dark { --vp-sidebar-width: 272px; }
   html { scroll-padding-top: 72px; }
   .VPDoc { padding-right: 18px !important; padding-left: 18px !important; }
   .vp-doc { font-size: var(--site-content-font-size, 15px); line-height: 1.7; }
