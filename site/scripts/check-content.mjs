@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { ARTICLE_ROOT, readAllArticles, readCategoryDefinitions, readSite, SITE_CONFIG_PATH } from './site-lib.mjs'
+import { findInternalReferences } from './internal-references.mjs'
 
 const errors = []
 const warnings = []
@@ -15,6 +16,17 @@ const categoryPathsIgnoringCase = new Map()
 const articleIdsIgnoringCase = new Map()
 const articles = readAllArticles()
 const existingArticleIds = new Set(articles.map((article) => article.id))
+const internalTargets = new Map()
+
+function registerInternalTarget(id, owner, content) {
+  const folded = id.toLocaleLowerCase('en-US')
+  const existing = internalTargets.get(folded)
+  if (existing) {
+    errors.push(`内部引用名称不能重复：${existing.owner} 与 ${owner} 都使用 ${id}`)
+    return
+  }
+  internalTargets.set(folded, { id, owner, content })
+}
 
 if (!defaultCategoryPath) {
   errors.push('site.yml 缺少 content.defaultCategory')
@@ -25,6 +37,7 @@ if (!defaultCategoryPath) {
 }
 
 for (const category of taxonomy.definitions) {
+  registerInternalTarget(category.id, `分类 ${category.path}`, category.content)
   if (!category.id || !/^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/.test(category.id)) {
     errors.push(`分类目录名必须使用英文字母、数字和短横线：${category.path}`)
   }
@@ -69,6 +82,7 @@ for (const article of articles) {
   const data = article.frontmatter
   const categoryPath = String(data.category ?? '')
   const category = taxonomy.byPath.get(categoryPath)
+  registerInternalTarget(id, `文章 ${id}`, article.content)
 
   if (!/^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/.test(id)) errors.push(`文章文件名必须使用英文字母、数字和短横线：${id}`)
   const foldedId = id.toLocaleLowerCase('en-US')
@@ -110,6 +124,28 @@ for (const article of articles) {
   }
 }
 
+function markdownHeadings(markdown) {
+  const withoutFences = markdown.replace(/^ {0,3}(`{3,}|~{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm, '')
+  return new Set([...withoutFences.matchAll(/^#{1,6}\s+(.+?)\s*#*\s*$/gm)]
+    .map((match) => match[1].replace(/[*_`~]/g, '').trim()))
+}
+
+function checkInternalReferences(owner, markdown) {
+  for (const reference of findInternalReferences(markdown)) {
+    const target = internalTargets.get(reference.id.toLocaleLowerCase('en-US'))
+    if (!target) {
+      errors.push(`${owner} 引用了不存在的文章或分类：${reference.id}`)
+      continue
+    }
+    if (target.id !== reference.id) {
+      errors.push(`${owner} 的内部引用大小写不正确：${reference.id}；应为 ${target.id}`)
+    }
+    if (reference.fragment && !markdownHeadings(target.content).has(reference.fragment)) {
+      errors.push(`${owner} 引用了 ${reference.id} 中不存在的标题：${reference.fragment}`)
+    }
+  }
+}
+
 function checkArticleLinks(owner, markdown) {
   for (const match of markdown.matchAll(/\/articles\/([A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)\//g)) {
     if (!existingArticleIds.has(match[1])) {
@@ -120,6 +156,8 @@ function checkArticleLinks(owner, markdown) {
 
 for (const article of articles) checkArticleLinks(`文章 ${article.id}`, article.content)
 for (const category of taxonomy.definitions) checkArticleLinks(`分类 ${category.path}`, category.content)
+for (const article of articles) checkInternalReferences(`文章 ${article.id}`, article.content)
+for (const category of taxonomy.definitions) checkInternalReferences(`分类 ${category.path}`, category.content)
 
 for (const category of taxonomy.definitions.filter((item) => item.depth === 3)) {
   if (category.path !== defaultCategoryPath && !categoryArticleCounts.has(category.path)) warnings.push(`三级系列暂时没有文章：${category.path}`)

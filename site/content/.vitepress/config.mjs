@@ -10,6 +10,8 @@ import { renderAllTikz } from '../../scripts/render-tikz.mjs'
 import { renderSiteSettings } from '../../scripts/render-site-settings.mjs'
 import { BLOG_SERVER_ID, DEFAULT_DEV_PORT } from '../../scripts/dev-server.mjs'
 import { markdownPreviewEnhancedMath } from './markdown-mpe-math.mjs'
+import { internalReferences } from './markdown-internal-references.mjs'
+import { internalReferencesToText } from '../../scripts/internal-references.mjs'
 
 const virtualCatalog = 'virtual:blog-catalog'
 const resolvedVirtualCatalog = `\0${virtualCatalog}`
@@ -70,7 +72,7 @@ function registerServerLifecycle(server) {
 }
 
 function searchableText(markdown, extra = '') {
-  const text = matter(markdown).content
+  const text = internalReferencesToText(matter(markdown).content)
     .replace(/```tikz[\s\S]*?```/g, ' ')
     .replace(/```[^\n]*\n([\s\S]*?)```/g, '$1')
     .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
@@ -394,6 +396,7 @@ export default defineConfig({
     image: { lazyLoading: true },
     config(md) {
       markdownPreviewEnhancedMath(md)
+      internalReferences(md)
       tikzFence(md)
     }
   },

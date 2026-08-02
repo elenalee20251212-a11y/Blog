@@ -19,7 +19,11 @@
   --vp-font-family-base: Roboto, Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --vp-font-family-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
   --vp-layout-max-width: 1520px;
-  --vp-sidebar-width: 296px;
+  --vp-sidebar-width: clamp(
+    296px,
+    calc(242px + var(--site-content-font-size, 16px) + var(--site-content-font-size, 16px) + var(--site-content-font-size, 16px)),
+    306px
+  );
   --kerodon-orange: #c46f98;
   --kerodon-green: #70ad55;
   --kerodon-cream: #f3f1ec;
@@ -115,6 +119,8 @@ body {
 
 /* OI Wiki-style persistent site tree. */
 .VPSidebar {
+  padding-right: 24px !important;
+  padding-left: 24px !important;
   border-right: 1px solid #dedbd4;
   background: #f7f6f2 !important;
 }
@@ -123,17 +129,24 @@ body {
   padding-top: 0.6rem;
 }
 
+.VPSidebarItem .items {
+  padding-left: 10px !important;
+}
+
 .VPSidebarItem .item {
   min-height: 1.75rem;
   border-radius: 0;
 }
 
 .VPSidebarItem .caret {
-  margin-right: 0.45rem !important;
+  margin-right: -0.35rem !important;
+  width: 1.75rem;
+  opacity: 0.76;
 }
 
 .VPSidebarItem .text {
   line-height: 1.4;
+  white-space: normal;
   overflow-wrap: normal;
   word-break: normal;
 }

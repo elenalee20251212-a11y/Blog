@@ -3,6 +3,11 @@
   "markdown-preview-enhanced.breakOnSingleNewLine": true,
   "markdown-preview-enhanced.enableTypographer": false,
   "markdown-preview-enhanced.enableLinkify": false,
+  "markdown-preview-enhanced.enableWikiLinkSyntax": true,
+  "markdown-preview-enhanced.useGitHubStylePipedLink": false,
+  "markdown-preview-enhanced.wikiLinkResolution": "shortest",
+  "markdown-preview-enhanced.wikiLinkTargetFileExtension": ".md",
+  "markdown-preview-enhanced.wikiLinkTargetFileNameChangeCase": "none",
   "markdown-preview-enhanced.mathRenderingOption": "MathJax",
   "markdown-preview-enhanced.mathjaxScriptSrc": "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"
 }

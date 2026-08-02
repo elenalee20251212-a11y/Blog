@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import YAML from 'yaml'
+import { internalReferencesToText } from './internal-references.mjs'
 
 export const SITE_ROOT = path.resolve(import.meta.dirname, '..')
 export const CONTENT_ROOT = path.join(SITE_ROOT, 'content')
@@ -39,7 +40,7 @@ function namedMarkdownFiles(root) {
 }
 
 export function categorySummary(markdown) {
-  const cleaned = markdown.replace(/<!--[\s\S]*?-->/g, '').trim()
+  const cleaned = internalReferencesToText(markdown).replace(/<!--[\s\S]*?-->/g, '').trim()
   const paragraphs = cleaned.split(/\r?\n\s*\r?\n/)
   const paragraph = paragraphs.find((block) => {
     const text = block.trim()
