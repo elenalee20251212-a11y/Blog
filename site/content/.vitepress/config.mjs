@@ -341,7 +341,10 @@ function tikzFence(md) {
     if (token.info.trim().split(/\s+/)[0] !== 'tikz') {
       return fallback(tokens, index, options, env, self)
     }
-    const source = token.content.trim()
+    // Markdown-it normalizes line endings before producing fence tokens. Use
+    // the same canonical form as the pre-renderer so a clean Windows checkout
+    // and GitHub's Linux runner address the same cached diagram.
+    const source = token.content.replace(/\r\n?/g, '\n').trim()
     const hash = crypto.createHash('sha256').update(source).digest('hex').slice(0, 20)
     const file = path.join(SITE_ROOT, '.cache', 'tikz', `${hash}.svg`)
     if (!fs.existsSync(file)) {

@@ -14,6 +14,10 @@ function normalizeTex(source) {
   return `${packages}\\begin{document}\n${source}\n\\end{document}`
 }
 
+function normalizeTikzSource(source) {
+  return source.replace(/\r\n?/g, '\n').trim()
+}
+
 function markdownFiles(dir) {
   const result = []
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -29,7 +33,7 @@ export async function renderAllTikz({ quiet = false } = {}) {
   for (const file of markdownFiles(CONTENT_ROOT)) {
     const source = fs.readFileSync(file, 'utf8')
     for (const match of source.matchAll(/^```tikz[^\n]*\n([\s\S]*?)^```\s*$/gm)) {
-      const tex = match[1].trim()
+      const tex = normalizeTikzSource(match[1])
       const hash = crypto.createHash('sha256').update(tex).digest('hex').slice(0, 20)
       if (!blocks.has(hash)) blocks.set(hash, { tex, files: [file] })
       else blocks.get(hash).files.push(file)

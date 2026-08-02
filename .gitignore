@@ -1,6 +1,6 @@
 .DS_Store
 *.log
-public/
+/public/
 .deploy*/
 node_modules/
 db.json
