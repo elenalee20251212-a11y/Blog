@@ -1,12 +1,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import crypto from 'node:crypto'
 import { spawnSync } from 'node:child_process'
 import matter from 'gray-matter'
 import MiniSearch from 'minisearch'
 import { defineConfig } from 'vitepress'
 import { ARTICLE_ROOT, buildCatalogData, CATEGORY_ROOT, readAllArticles, readCategoryDefinitions, readSite, SITE_CONFIG_PATH, SITE_ROOT } from '../../scripts/site-lib.mjs'
-import { renderAllTikz } from '../../scripts/render-tikz.mjs'
+import { renderAllTikz, tikzCacheKey } from '../../scripts/render-tikz.mjs'
 import { renderSiteSettings } from '../../scripts/render-site-settings.mjs'
 import { BLOG_SERVER_ID, DEFAULT_DEV_PORT } from '../../scripts/dev-server.mjs'
 import { markdownPreviewEnhancedMath } from './markdown-mpe-math.mjs'
@@ -343,11 +342,10 @@ function tikzFence(md) {
     if (token.info.trim().split(/\s+/)[0] !== 'tikz') {
       return fallback(tokens, index, options, env, self)
     }
-    // Markdown-it normalizes line endings before producing fence tokens. Use
-    // the same canonical form as the pre-renderer so a clean Windows checkout
-    // and GitHub's Linux runner address the same cached diagram.
-    const source = token.content.replace(/\r\n?/g, '\n').trim()
-    const hash = crypto.createHash('sha256').update(source).digest('hex').slice(0, 20)
+    // Markdown-it normalizes line endings before producing fence tokens.
+    // tikzCacheKey 使用与预渲染器相同的规范化与围栏属性，保证 Windows
+    // 本地检出和 GitHub 的 Linux 运行器指向同一个缓存图。
+    const hash = tikzCacheKey(token.content, token.info)
     const file = path.join(SITE_ROOT, '.cache', 'tikz', `${hash}.svg`)
     if (!fs.existsSync(file)) {
       throw new Error(`TikZ cache missing for ${env.path ?? 'unknown page'}; run npm run tikz`)

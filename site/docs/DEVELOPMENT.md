@@ -260,7 +260,9 @@ MathJax 处理行内公式、独立公式和 AMS 环境。`content/.vitepress/ma
 ```
 ````
 
-源码规范化后计算 SHA-256，SVG 缓存在 `.cache/tikz/<hash>.svg`。检测到 `tikzcd` 环境时自动加入 `tikz-cd` 包；生成器扫描 SVG 字体并输出字体 CSS。主题按 SVG 自然比例显示交换图，并以正文宽度为上限。
+渲染机制与 Markdown Preview Enhanced（crossnote 的 `renderers/tikz.ts`）逐项对齐：无条件加载 `amsmath`、`amstext`、`amsfonts`、`amssymb`、`array` 五个基础宏包；按代码内容自动加载检测到的宏包（`\begin{tikzcd}` → `tikz-cd`，pgfplots/axis、circuitikz、chemfig、tikz-3dplot 同理）；围栏属性与 MPE 语法一致，支持 `tikzLibraries`、`addToPreamble`、`texPackages`（JSON 字符串），属性名同时接受 camelCase 与 snake_case；代码已含 `\begin{document}` 时不重复包裹。宏包和属性作为选项交给 node-tikzjax 的 `getTexPreamble` 拼装，与 MPE 调用方式相同，因此同一段 tikz 代码（包括 `\text`、`\operatorname` 等 amsmath 命令）在 MPE 预览与网站构建中编译出相同结果。`embedFontCss`、`showConsole`、`fontCssUrl` 属性不参与本站渲染：字体由生成的 `tikz-fonts.generated.css` 统一提供，使用本地 TTF、可离线构建。
+
+源码与编译相关围栏属性一起规范化后计算 SHA-256，SVG 缓存在 `.cache/tikz/<hash>.svg`；仅含 `embedFontCss` 等非编译属性的块与旧缓存键一致。生成器扫描 SVG 字体并输出字体 CSS。主题按 SVG 自然比例显示交换图，并以正文宽度为上限。
 
 ## 9. 校验
 
