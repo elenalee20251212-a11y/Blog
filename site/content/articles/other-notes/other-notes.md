@@ -6,12 +6,12 @@ articleId: other-notes
 category: mathematics/other-mathematics/mathematical-notes
 order: 1
 ---
-[一个关于循环表示法的初等技巧](https://deideidei.github.io/2024/08/08/A-Graph-Representation-of-Symmetric-Group/)
+[[../a-graph-representation-of-symmetric-group/a-graph-representation-of-symmetric-group.md|一个关于循环表示法的初等技巧]]
 
-[关于C-R方程](https://deideidei.github.io/2024/07/06/About-C-R-Equations/)
+[[../about-c-r-equations/about-c-r-equations.md|关于C-R方程]]
 
-[关于张量积](https://deideidei.github.io/2024/12/01/About-Tensor-Product/)
+[[../about-tensor-product/about-tensor-product.md|关于张量积]]
 
-[一些数学家的个人主页](https://deideidei.github.io/2024/07/06/Mathematician%20Homepages/)
+[[../mathematician-homepages/mathematician-homepages.md|一些数学家的个人主页]]
 
-[许多数学相关的有用资源整理](https://deideidei.github.io/2024/07/06/Some%20Useful%20Resources/)
+[[../some-useful-resources/some-useful-resources.md|许多数学相关的有用资源整理]]

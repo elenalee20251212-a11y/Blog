@@ -9,6 +9,11 @@ import { renderAllTikz, tikzCacheKey } from '../../scripts/render-tikz.mjs'
 import { renderSiteSettings } from '../../scripts/render-site-settings.mjs'
 import { BLOG_SERVER_ID, DEFAULT_DEV_PORT } from '../../scripts/dev-server.mjs'
 import { markdownPreviewEnhancedMath } from './markdown-mpe-math.mjs'
+import {
+  markdownPreviewEnhancedCore,
+  markdownPreviewEnhancedHeadingText,
+  markdownPreviewEnhancedSlugify
+} from './markdown-mpe-core.mjs'
 import { internalReferences } from './markdown-internal-references.mjs'
 import { internalReferencesToText } from '../../scripts/internal-references.mjs'
 
@@ -352,9 +357,19 @@ function tikzFence(md) {
     }
     const sourceSvg = fs.readFileSync(file, 'utf8')
     const naturalWidth = Number(sourceSvg.match(/<svg[^>]*\bwidth="([\d.]+)"/)?.[1] ?? 320)
+    const viewBoxWidth = Number(sourceSvg.match(/<svg[^>]*\bviewBox="[^\s"]+\s+[^\s"]+\s+([\d.]+)/)?.[1] ?? naturalWidth)
+    const mainFontSize = Math.max(
+      10,
+      ...[...sourceSvg.matchAll(/\bfont-size="([\d.]+)"/g)].map((match) => Number(match[1])).filter(Number.isFinite)
+    )
+    // node-tikzjax writes dimensions in SVG pixels while its TeX labels use
+    // 10pt (or the explicit LaTeX size).  Express the diagram width in em so
+    // its largest ordinary label is 1.1em, matching the visual size of a
+    // normal displayed KaTeX formula at every configured article font size.
+    const normalizedWidth = (viewBoxWidth / mainFontSize * 1.1).toFixed(3)
     const svg = sourceSvg.replace(
       '<svg ',
-      `<svg class="tikz-svg" role="img" aria-label="交换图" style="--tikz-natural-width:${naturalWidth}px" `
+      `<svg class="tikz-svg" role="img" aria-label="交换图" style="--tikz-natural-width:${naturalWidth}px;--tikz-normalized-width:${normalizedWidth}em" `
     )
     return `<figure class="tikz-diagram">${svg}<figcaption>交换图</figcaption></figure>`
   }
@@ -382,17 +397,18 @@ export default defineConfig({
     ['style', {}, `:root{--site-brand-mark:${JSON.stringify(brandMark)}}`]
   ],
   markdown: {
-    math: {
-      tex: {
-        tags: 'ams'
-      }
+    anchor: {
+      slugify: markdownPreviewEnhancedSlugify,
+      getTokensText: markdownPreviewEnhancedHeadingText
     },
+    math: false,
     breaks: true,
     typographer: false,
     linkify: false,
     lineNumbers: false,
     image: { lazyLoading: true },
     config(md) {
+      markdownPreviewEnhancedCore(md)
       markdownPreviewEnhancedMath(md)
       internalReferences(md)
       tikzFence(md)

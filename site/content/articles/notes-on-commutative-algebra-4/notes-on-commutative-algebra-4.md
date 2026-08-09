@@ -30,25 +30,13 @@ $\mathrm{1.5.\ Example.\ }$ 任何PID商去某个非零理想都同时是Noether
 
 > $\mathrm{1.7.\ Proposition.\ }$ *环 $R$ 上的单模有且仅有 $R/\mathfrak{m}$ ，$\mathfrak{m}$ 是 $R$ 的极大理想*
 
-> $\mathrm{1.8.\ Defination.\ }$ 对模 $M$ ，称它的一个**合成列**是子模的链
-
-$$0=M_0\subset M_1\subset \cdots\subset M_n=M$$
-
-且每个 $M_i/M_{i-1}$ 皆为单模，如果 $M$ 有合成列则称 $M$ 有有限的长度 $n$
+> $\mathrm{1.8.\ Defination.\ }$ 对模 $M$ ，称它的一个**合成列**是子模的链$$0=M_0\subset M_1\subset \cdots\subset M_n=M$$且每个 $M_i/M_{i-1}$ 皆为单模，如果 $M$ 有合成列则称 $M$ 有有限的长度 $n$
 
 $\mathrm{1.9.\ Example.\ }$ 有限维线性空间都有有限长度，$\mathbb{Z}/n\mathbb{Z}$ 都有有限长度
 
 > $\mathrm{1.10.\ Theorem.\ }$ *$M$ 长度有限当且仅当 $M$ 既Noether又Artin*
 
-假设 $M$ 长度有限。首先单模既Noether又Artin，而我们知道如果有正合列
-
-$$0\to A\to B\to C\to 0$$
-
-如果 $A,C$ Noether则 $B$ Noether，如果 $A,C$ Artin则 $B$ Artin，那么考虑一系列正合列
-
-$$0\to M_i\to M_{i+1}\to M_{i+1}/M_i\to 0$$
-
-即可证明 $M$ 既Noether又Artin。
+假设 $M$ 长度有限。首先单模既Noether又Artin，而我们知道如果有正合列$$0\to A\to B\to C\to 0$$如果 $A,C$ Noether则 $B$ Noether，如果 $A,C$ Artin则 $B$ Artin，那么考虑一系列正合列$$0\to M_i\to M_{i+1}\to M_{i+1}/M_i\to 0$$即可证明 $M$ 既Noether又Artin。
 
 反过来，可以不断选取 $M_0=0$ 和 $M_{i+1}$ 作为极小的真包含 $M_i$ 的子模，这样取出来的升链一定稳定。$\square$
 
@@ -74,29 +62,17 @@ Exercises: 2.6, 2.22 (this one is a bit tricky)
 (iv) *$R$ 是Artin环*
 
 (i)$\implies$(ii)：$0=\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_n\subset  \mathfrak{p}$ ，于是某个 $\mathfrak{m}_i$ 包含于 $\mathfrak{p}$
-(ii)$\implies$(iii)：假设 $R$ 长度不有限，取极大的使 $R/I$ 长度不有限的理想 $I$ ，先证明 $I$ 素理想。记 $S=R/I$ ，假若 $S$ 中 $ab=0$ 且 $a,b$ 非零，则 $S/a,S/b$ 长度有限，且乘 $a$ 自然给出满射 $S/b\to aS$ ，由于满射所以 $aS$ 也长度有限，从而由正合列
-
-$$0\to aS\to S\to S/a\to 0$$
-
-知 $S$ 长度有限，矛盾，故 $a,b$ 之一为零，即 $I$ 素理想，从而 $I$ 是极大理想，$R/I$ 是单模，矛盾。
+(ii)$\implies$(iii)：假设 $R$ 长度不有限，取极大的使 $R/I$ 长度不有限的理想 $I$ ，先证明 $I$ 素理想。记 $S=R/I$ ，假若 $S$ 中 $ab=0$ 且 $a,b$ 非零，则 $S/a,S/b$ 长度有限，且乘 $a$ 自然给出满射 $S/b\to aS$ ，由于满射所以 $aS$ 也长度有限，从而由正合列$$0\to aS\to S\to S/a\to 0$$知 $S$ 长度有限，矛盾，故 $a,b$ 之一为零，即 $I$ 素理想，从而 $I$ 是极大理想，$R/I$ 是单模，矛盾。
 (iii)$\implies$(iv)：已经证明。
 (iv)$\implies$(i)：首先证明 $0$ 是极大理想的乘积。取极大理想的所有乘积中极小的 $J$ ，则 $J \mathfrak{m}=J$ 对任意极大理想 $\mathfrak{m}$ 成立，从而由于 $J$ 是极大理想的乘积，$J^2=J$ 。如果 $J\ne (0)$ ，则可以取极小的使 $IJ\ne 0$ 的 $I$ ，那么对某个 $x\in I$ ，$xJ\ne (0)$ ，于是按 $I$ 极小性 $I=(x)$ 。同时 $(IJ)J\ne 0$ 给出 $IJ=I$ ，从而 $xy=x$ 对某个 $y\in J$ ，也就是 $x(y-1)=0$ 。而 $J$ 包含于一切极大理想中（否则 $J\mathfrak{m}\subset \mathfrak{m}$ 于是 $J \mathfrak{m}$ 真包含于 $J$ ），故 $y-1$ 不在任何极大理想中从而可逆，$x=0$ ，矛盾，于是知 $J=0$。
 
-现在证明 $R$ 诺特。设 $0=\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_n$ ，考虑
-
-$$R\supset \mathfrak{m}_1\supset \mathfrak{m}_1\mathfrak{m}_2\supset\cdots \supset\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_n=0$$
-
-这里每个 $\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_i/\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_{i+1}$ 都是 $R/\mathfrak{m}_{i+1}$-线性空间，且由Artin条件有限维，从而作为 $R$-模长度有限。每个因子都长度有限意味着 $R$ 长度有限，从而诺特。$\square$
+现在证明 $R$ 诺特。设 $0=\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_n$ ，考虑$$R\supset \mathfrak{m}_1\supset \mathfrak{m}_1\mathfrak{m}_2\supset\cdots \supset\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_n=0$$这里每个 $\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_i/\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_{i+1}$ 都是 $R/\mathfrak{m}_{i+1}$-线性空间，且由Artin条件有限维，从而作为 $R$-模长度有限。每个因子都长度有限意味着 $R$ 长度有限，从而诺特。$\square$
 
 注： $\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_i/\mathfrak{m}_1\mathfrak{m}_2\cdots\mathfrak{m}_{i+1}$ 一般不同构于 $R/\mathfrak{m}_{i+1}$ ，事实上一般前者维数大于1，比如说考虑 $R=k[x,y]/(x^2,xy,y^2)$ ，$\mathfrak{m}=(x,y)$ ，$R\supset \mathfrak{m}\supset \mathfrak{m}^2=0$ ，则 $R/\mathfrak{m}$ 是一维 $k$-线性空间，而 $\mathfrak{m}/\mathfrak{m}^2$ 二维（有基 $x,y$ ）。
 
 > $\mathrm{2.2.\ Corollary.\ }$ *Artin环只有有限多极大理想，且是Artin局部环的乘积*
 
-考虑 $0= \mathfrak{m}_1^{k_1}\mathfrak{m}_2^{k_2}\cdots\mathfrak{m}_n^{k_n}$ ，按中国剩余定理
-
-$$R\cong R/\mathfrak{m}_1^{k_1}\times R/\mathfrak{m}_2^{k_2}\times \cdots R/\mathfrak{m}_n^{k_n}$$
-
- 而 $R/\mathfrak{m}_i^{k_i}$ 有唯一的素理想。$\square$
+考虑 $0= \mathfrak{m}_1^{k_1}\mathfrak{m}_2^{k_2}\cdots\mathfrak{m}_n^{k_n}$ ，按中国剩余定理$$R\cong R/\mathfrak{m}_1^{k_1}\times R/\mathfrak{m}_2^{k_2}\times \cdots R/\mathfrak{m}_n^{k_n}$$ 而 $R/\mathfrak{m}_i^{k_i}$ 有唯一的素理想。$\square$
 
 > $\mathrm{2.3.\ Corollary.\ }$ *Artin环的素谱是有限集的离散拓扑，极大理想给出其中的所有点*
 

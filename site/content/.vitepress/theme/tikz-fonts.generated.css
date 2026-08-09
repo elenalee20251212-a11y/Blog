@@ -9,3 +9,5 @@
 @font-face { font-family: cmsy10; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmsy10.ttf'); font-display: swap; }
 @font-face { font-family: cmsy5; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmsy5.ttf'); font-display: swap; }
 @font-face { font-family: cmsy7; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmsy7.ttf'); font-display: swap; }
+@font-face { font-family: msbm10; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/msbm10.ttf'); font-display: swap; }
+@font-face { font-family: msbm7; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/msbm7.ttf'); font-display: swap; }

@@ -11,28 +11,28 @@ order: 4
 
 ## 读书笔记/答案
 
-[交换代数笔记](https://deideidei.github.io/2024/12/27/Contents-of-Notes-On-Commutative-Algebra/)
+[[../../categories/mathematics/algebraic-geometry/commutative-algebra/commutative-algebra.md|交换代数笔记]]
 
-[GTM52笔记](https://deideidei.github.io/2025/11/24/Contents-of-Notes-on-Hartshorne-s-Algebraic-Geometry/)
+[[../../categories/mathematics/algebraic-geometry/hartshorne-algebraic-geometry/hartshorne-algebraic-geometry.md|GTM52笔记]]
 
-[MIT18.875代数数论的笔记](https://deideidei.github.io/2025/11/24/Contents-of-Notes-on-MIT18-785/)
+[[../../categories/mathematics/number-theory/mit-18-785/mit-18-785.md|MIT18.875代数数论的笔记]]
 
-[Serre有限群答案](https://deideidei.github.io/2024/11/20/Solution-to-Serre-s-Finite-Group/)
+[[../solution-to-serre-s-finite-group/solution-to-serre-s-finite-group.md|Serre有限群答案]]
 
-[I.M.Singer点拓的笔记](https://deideidei.github.io/2024/09/08/Sketch-of-Singer-s-Elementary-Topology-and-Geometry/)
+[[../sketch-of-singer-s-elementary-topology-and-geometry/sketch-of-singer-s-elementary-topology-and-geometry.md|I.M.Singer点拓的笔记]]
 
-[Gal理论笔记1](https://deideidei.github.io/2025/03/13/Sketch-of-Artin-s-Galois-Theory/)
+[[../sketch-of-artin-s-galois-theory/sketch-of-artin-s-galois-theory.md|Gal理论笔记1]]
 
-[Gal理论笔记2](https://deideidei.github.io/2025/04/24/Notes-on-Galois-Theory-2/)
+[[../notes-on-galois-theory-2/notes-on-galois-theory-2.md|Gal理论笔记2]]
 
 ## 胡思乱想
 
-[杂记](https://deideidei.github.io/2024/12/27/Other-Notes/)
+[[../other-notes/other-notes.md|杂记]]
 
 # 关于计算机
 
-[Python速通笔记](https://deideidei.github.io/2024/12/27/Contents-of-Python/)
+[[../../categories/programming/languages/python/python.md|Python速通笔记]]
 
 # 杂记
 
-[关于一些古诗词的奇妙感觉](https://deideidei.github.io/2024/07/06/%E5%8F%A4%E8%AF%97%E5%88%86%E7%B1%BB/)
+[[../classical-poetry/classical-poetry.md|关于一些古诗词的奇妙感觉]]

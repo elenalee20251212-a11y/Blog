@@ -29,11 +29,7 @@ $\mathrm{Ex.\ 2.8.}$ 由Ex.2.6, $\dim Y=n-1$ 则 $\dim S(Y)=n=\dim S-1$, 从而 
 
 $\mathrm{Ex.\ 2.9.}$  (a) 直接来自于齐次理想 $I(Y)$ 的定义. (b) $I(Y)=(y-x^2,z-x^3)$ . $\bar{Y}=\{ (s^3:s^2t:st^2:t^3) \}$ , 假设齐次坐标是 $w,x,y,z$ , 则 $I(\bar{Y})=(wy-x^2,y^2-zx,wz-xy)$ (关于 $y-x^2, y^2-zx, z-xy$ 局部化), 事实上在理想中这三个约束下 $w,z$ 不全为 $0$ , 分类讨论: $w,z$ 之一为 $0$ 时 $x,y=0$, 分别对应点 $(1:0:0:0)$ 和 $(0:0:0:1)$; $w,z$ 都不为零时, 前两个约束相当于 $\alpha=\frac{t}{s}=\frac{x}{w}=\frac{y}{x}=\frac{z}{y}$, 事实上确定了这个点 $(1:\alpha:\alpha^2:\alpha^3)$ . 如果仅对 $I(Y)$ 中生成元齐次化, 则会得到 $(wy-x^2,w^2z-x^3)$ , 对应在 $w=1$ 时为 $\mathbb{A}^3$ 中twisted cubic; 在 $x=1$ 时为 $wy=1,w^2z=1$, $w,y,z$ 均非零所以也是正常twisted cubic (此时是去掉了零点的twisted cubic); 而在 $y=1$ 时, 约束为 $w=x^2, w^2z=x^3$ , 从而 $x^4z=x^3$ 即 $x^3(zx-1)=0$ (此时约束相当于 $w=x^2$ 且 $x^3(zx-1)=0$ ), 比起twisted cubic ( $zx-1$ 部分) 多出来了无穷远处的三重直线 $x=w=0$ . 因此对 $I(Y)$ 的生成元直接齐次化未必是 $I(\bar{Y})$ . 
 
-$\mathrm{Ex.\ 2.10.}$  (a) 设 $f=f_0+f_1+\cdots\in I(C(Y))$, 则对任意 $x\in C(Y)\backslash \{ 0 \}$ , 
-
-$$f(\lambda x)=f_0(x)+\lambda f_1(x)+\lambda^2 f_2(x)+\cdots=0\quad\forall \lambda\in k$$
-
-恒成立, 而代数闭域是无限域, 所以 $f_i(x)=0$ , 从而 $f_i\in I(C(Y))$ . 因此 $I(C(Y))$ 是齐次理想, 而对一个齐次多项式, 它属于 $I(C(Y))$ 就等价于它属于 $I(Y)$ , 由此 $I(C(Y))=I(Y)$ 而 $C(Y)$ 是仿射代数集. (b) Ex.2.4b (c) 设 $Y$ 是proj variety, 则 $\dim C(Y)=\dim S(Y)=\dim Y+1$ . 对一般情况, 由于irr集和素理想的对偶, $Y$ 的irr component $Y_i$ 对应的 $C(Y_i)$ 正是 $C(Y)$ 的irr component, 取上确界即知 $\dim C(Y)=\dim Y+1$ .
+$\mathrm{Ex.\ 2.10.}$  (a) 设 $f=f_0+f_1+\cdots\in I(C(Y))$, 则对任意 $x\in C(Y)\backslash \{ 0 \}$ , $$f(\lambda x)=f_0(x)+\lambda f_1(x)+\lambda^2 f_2(x)+\cdots=0\quad\forall \lambda\in k$$恒成立, 而代数闭域是无限域, 所以 $f_i(x)=0$ , 从而 $f_i\in I(C(Y))$ . 因此 $I(C(Y))$ 是齐次理想, 而对一个齐次多项式, 它属于 $I(C(Y))$ 就等价于它属于 $I(Y)$ , 由此 $I(C(Y))=I(Y)$ 而 $C(Y)$ 是仿射代数集. (b) Ex.2.4b (c) 设 $Y$ 是proj variety, 则 $\dim C(Y)=\dim S(Y)=\dim Y+1$ . 对一般情况, 由于irr集和素理想的对偶, $Y$ 的irr component $Y_i$ 对应的 $C(Y_i)$ 正是 $C(Y)$ 的irr component, 取上确界即知 $\dim C(Y)=\dim Y+1$ .
 
 $\mathrm{Ex.\ 2.11.}$ (a) $V(f_1,\cdots,f_r)=\bigcap V(f_i)$ (b) 考虑 $S=k[x_0,x_1,\cdots,x_n]$ 商去 $r$ 条线性约束, 将线性多项式中诸 $x_i$ 对应系数看作 $k^{n+1}$ 中元素 $\alpha_0,\cdots,\alpha_{r-1}$ , 不妨设 $\alpha_i$ 线性无关, 扩充为 $k^{n+1}$ 一组基 $\alpha_0,\cdots,\alpha_n$, 则 $S=k[\alpha_0,\cdots,\alpha_n]$, 因此 $A(Y)=k[\alpha_r,\cdots,\alpha_n]$ 的维数大于等于 $n-r+1$ , 由Ex.2.6, $\dim Y\geqslant n-r$. (c) $C(Y),C(Z)$ 是 $\mathbb{A}^{n+1}$ 的 $r+1,s+1$ 维线性子空间, 而 $r+1+s+1>n+1$ , 从而 $C(Y\cap Z)$ 是维数大于等于 $1$ 的线性子空间, 因此 $Y\cap Z$ 非空且是linear variety.
 

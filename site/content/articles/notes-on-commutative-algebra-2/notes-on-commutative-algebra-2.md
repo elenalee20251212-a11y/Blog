@@ -18,15 +18,7 @@ order: 2
 
 ${\rm Theorem\ 1.1}$ *$\mathbb Z[i]$ 是欧几里得整环，从而是UFD*
 
-取 $\mathbb Z[i]$ 上继承的复数绝对值，我们将证明它给出一个符合ED公理的尺度函数（这里ED定义我们要求尺度函数是 $R\backslash\{0\}$ 到某个良序集的映射）。也就是说，对 $a,b\in \mathbb Z[i]$ 且 $b\ne 0$ ，我们想证明存在 $q,r\in \mathbb Z[i]$ 满足
-
-$$a=qb+r, \quad |r|<|b|$$
-
-也即
-
-$$\frac ab=q+\frac rb,\quad \left|\frac rb\right|<1$$
-
-而我们只需考虑到如图所示，以某个 $ \mathbb Z[i]$ 中元素为圆心，半径为1的开圆盘覆盖了复平面![](6.png)则立即可知上述 $q,r$ 的存在性。$\square$
+取 $\mathbb Z[i]$ 上继承的复数绝对值，我们将证明它给出一个符合ED公理的尺度函数（这里ED定义我们要求尺度函数是 $R\backslash\{0\}$ 到某个良序集的映射）。也就是说，对 $a,b\in \mathbb Z[i]$ 且 $b\ne 0$ ，我们想证明存在 $q,r\in \mathbb Z[i]$ 满足$$a=qb+r, \quad |r|<|b|$$也即$$\frac ab=q+\frac rb,\quad \left|\frac rb\right|<1$$而我们只需考虑到如图所示，以某个 $ \mathbb Z[i]$ 中元素为圆心，半径为1的开圆盘覆盖了复平面![](6.png)则立即可知上述 $q,r$ 的存在性。$\square$
 
 类似的方法可以毫无阻碍地推广到
 
@@ -51,11 +43,7 @@ ${\rm Example\ 1.4}$  $R=\mathbb Z\left[\frac{1+\sqrt{-19}}2\right]$ 是PID，�
 
 ${\rm Example\ 2.1}$ 考虑 $k[x,y]/(x^3,x^2y^2,y^2)$ ，我们只需要考虑把商掉的理想画出来![](image-4.png)红圈中的元素便给出商环的一组基，于是立即可知 $\dim_k k[x,y]/(x^3,x^2y^2,y^2)=12$ 。
 
-${\rm Example\ 2.2}$ 考虑二阶群作用于 $k[x,y]$ ，把 $x$ 打到 $-x$ ，$y$ 打到 $-y$ ，则它的不变量是某个多项式环上的自由模。这里画图证明不变量 $k[x^2,y^2]$ 上的自由模![](image-5.png)注意到不变量环同构于 $k[u,v,w]/(uw-v^2)$ （其中 $u=x^2,w=y^2,v=xy$ ），于是我们也可以用上面的画图道理来研究例如圆锥 $uw-v^2$ 的结构等等。譬如说考虑 $k[x,y,z,w]$ 中
-
-$$\begin{pmatrix}x&y&z\\y&z&w\end{pmatrix}$$
-
-的子式生成的理想，也就是 $I=(yw-z^2,xw-yz,xz-y^2)$ ，注意到 $y^3=x^2w$ 而 $z^3=xw^2$ ，令 $x=a^3,w=b^3$ ，则立即可知这是 $k[a,b]$ 被 $(a,b)\to (\omega a,\omega b)$ 作用的不变量（$\omega$ 是三次单位根），从而知 $R=k[x,y,z,w]/I$ 是 $S=k[x,w]$ 上自由模，且是整环，从而 $I$ 是素理想。类似地通过画图我们也能知道 $R$ 不是 $k[x,y]$ 上有限生成模![](image-9.png)
+${\rm Example\ 2.2}$ 考虑二阶群作用于 $k[x,y]$ ，把 $x$ 打到 $-x$ ，$y$ 打到 $-y$ ，则它的不变量是某个多项式环上的自由模。这里画图证明不变量 $k[x^2,y^2]$ 上的自由模![](image-5.png)注意到不变量环同构于 $k[u,v,w]/(uw-v^2)$ （其中 $u=x^2,w=y^2,v=xy$ ），于是我们也可以用上面的画图道理来研究例如圆锥 $uw-v^2$ 的结构等等。譬如说考虑 $k[x,y,z,w]$ 中$$\begin{pmatrix}x&y&z\\y&z&w\end{pmatrix}$$的子式生成的理想，也就是 $I=(yw-z^2,xw-yz,xz-y^2)$ ，注意到 $y^3=x^2w$ 而 $z^3=xw^2$ ，令 $x=a^3,w=b^3$ ，则立即可知这是 $k[a,b]$ 被 $(a,b)\to (\omega a,\omega b)$ 作用的不变量（$\omega$ 是三次单位根），从而知 $R=k[x,y,z,w]/I$ 是 $S=k[x,w]$ 上自由模，且是整环，从而 $I$ 是素理想。类似地通过画图我们也能知道 $R$ 不是 $k[x,y]$ 上有限生成模![](image-9.png)
 
 ${\rm Defination\ 2.3}$ 对形式幂级数环 $k[[x_1,\cdots,x_n]]$ ，Weiestrass多项式是 $k[[x_1,\cdots,x_{n-1}]][x_n]$ 中的首一多项式 $x_n^d+a_1\cdot x_n^{d-1}+\cdots+a_d$ ，其中 $a_i\in k[[x_1,\cdots,x_{n-1}]]$ 常数项为零（也就是不可逆）
 
@@ -107,15 +95,7 @@ $\mathrm{3.11.\ Example.\ }$ ${\rm Spec}(\mathbb C[[x,y]])$ 中，极大理想�
 
 $\mathrm{3.12.\ Example.\ }$ 考虑 ${\rm Spec}(\mathbb Z[x])$ ，首先由 $\mathbb Z\to\mathbb Z[x]$ 得到 ${\rm Spec}(\mathbb Z[x])\to {\rm Spec}(\mathbb Z)$ ，然后考虑这个映射的纤维：$(p)$ 的原像即为 $\mathbb Z[x]$ 中包含 $p$ 的素理想，也即是 ${\rm Spec}(\mathbb F_p[x])$ ，而对 $(0)$ 的原像，考虑 $\mathbb Z[x]$ 中常数项平凡的素理想 $\frak q$ ，则有 $\mathbb{Z}[x]/\mathfrak{q}\otimes \mathbb{Q}\cong \mathbb{Q}[\alpha]$ （考虑到 $\mathfrak{q}$ 在 $\mathbb{Q}[x]$ 中生成的理想形如 $(f(x))$ ），![](image-14.png)
 
-$\mathrm{3.13.\ Example.\ }$ 考虑模形式
-
-$$\begin{aligned}E_{12}&=\frac{691}{65520}+\sum_{n}\sigma_{11}(n)q^{n}\\&=\frac{691}{65520}+q+2049q^{2}+\cdots\\\Delta_{12}&=q\prod_{n\geqslant 1}(1-q^n)^{24}\\&=q-24q^{2}+\cdots\\&=\sum_n\tau(n)q^n\end{aligned}$$
-
-定义Hecke算子
-
-$$\begin{aligned}&T_{n}(E_{12})=\sigma_{11}(n)E_{12}\\&T_{n}(\Delta _n)=T(n)\Delta\end{aligned}$$
-
-考虑 $T_n$ 张成的Hecke代数，于是这个Hecke代数也可以视为 $\mathbb{Z}\times \mathbb{Z}$ 的子环，由一切 $(\sigma_{11}(n),\tau(n))$ 生成，而已知 $\sigma_{11}(n)\equiv \tau(n)\pmod {691}$ ，于是我们知道这个环 $R$ 实际就是所有 $(m,n)$ ，其中 $m\equiv n\pmod{691}$ 。通过 $R\to \mathbb{Z}\times \mathbb{Z}$ 嵌入得到 $\operatorname{Spec} (\mathbb{Z})\sqcup  \operatorname{Spec} (\mathbb{Z})\to \operatorname{Spec} (R)$ ，而考虑到 $R\to \mathbb{Z}\times \mathbb{Z}\to \mathbb{Z}_{(p)}\times 1\to \mathbb{Z}/p\mathbb{Z} $ 即 $(m,n)\mapsto m\pmod p$ ，于是有如下可视化![](image-15.png)像691这样的素数被称为Eisenstein素数。
+$\mathrm{3.13.\ Example.\ }$ 考虑模形式$$\begin{aligned}E_{12}&=\frac{691}{65520}+\sum_{n}\sigma_{11}(n)q^{n}\\&=\frac{691}{65520}+q+2049q^{2}+\cdots\\\Delta_{12}&=q\prod_{n\geqslant 1}(1-q^n)^{24}\\&=q-24q^{2}+\cdots\\&=\sum_n\tau(n)q^n\end{aligned}$$定义Hecke算子$$\begin{aligned}&T_{n}(E_{12})=\sigma_{11}(n)E_{12}\\&T_{n}(\Delta _n)=T(n)\Delta\end{aligned}$$考虑 $T_n$ 张成的Hecke代数，于是这个Hecke代数也可以视为 $\mathbb{Z}\times \mathbb{Z}$ 的子环，由一切 $(\sigma_{11}(n),\tau(n))$ 生成，而已知 $\sigma_{11}(n)\equiv \tau(n)\pmod {691}$ ，于是我们知道这个环 $R$ 实际就是所有 $(m,n)$ ，其中 $m\equiv n\pmod{691}$ 。通过 $R\to \mathbb{Z}\times \mathbb{Z}$ 嵌入得到 $\operatorname{Spec} (\mathbb{Z})\sqcup  \operatorname{Spec} (\mathbb{Z})\to \operatorname{Spec} (R)$ ，而考虑到 $R\to \mathbb{Z}\times \mathbb{Z}\to \mathbb{Z}_{(p)}\times 1\to \mathbb{Z}/p\mathbb{Z} $ 即 $(m,n)\mapsto m\pmod p$ ，于是有如下可视化![](image-15.png)像691这样的素数被称为Eisenstein素数。
 
 > Exercises: 1.13, 1.14
 Draw Spec R, where R is the subring of elements (m,n) of the product ZxZ with m = n mod 100.
@@ -128,23 +108,13 @@ $\operatorname{Spec} (R)$ 被开集族 $U_{f_i}$ 覆盖相当于说不存在某�
 
 注：拟紧和紧的定义完全一致，叫这个名字只是因为20世纪50年代拟紧被定义时，紧经常指紧Hausdorff。
 
-$\mathrm{4.2.\ Theorem.\ }$ 
-
-$$\operatorname{Spec} (A\times B)=\operatorname{Spec} (A)\sqcup \operatorname{Spec} (B)$$
+$\mathrm{4.2.\ Theorem.\ }$ $$\operatorname{Spec} (A\times B)=\operatorname{Spec} (A)\sqcup \operatorname{Spec} (B)$$
 
 $\mathrm{4.3.\ Example.\ }$ $\mathbb{Z}/120\mathbb{Z}\cong \mathbb{Z}/8\mathbb{Z}\times \mathbb{Z}/3\mathbb{Z}\times \mathbb{Z}/5\mathbb{Z}$ ，而后三个环都只有一个素理想，因而 $\operatorname{Spec} (\mathbb{Z}/120\mathbb{Z})$ 形如![](image-16.png)
 
-$\mathrm{4.4.\ Example.\ }$ 令 $G=K_4$ 为Klein四元群，考虑 $\operatorname{Spec} (\mathbb{Q}[G])$ 。假设 $\chi$ 为 $G$ 的特征，也就是 $\operatorname{Hom}_{\mathsf{Grp}} (G,\mathbb{C}^\times)$ 中同态，则 $e=\frac{1}{|G|}\sum_{g\in G}\chi(g)g$ 是幂等元。具体到 $G$ ， $G$ 由四个元素 $1,a,b,c$ 组成，其中 $a^2=b^2=c^2=1$ 且 $abc=1$ ，从而易知 $G$ 有四个特征，于是得到四个幂等元
-
-$$\begin{aligned}
+$\mathrm{4.4.\ Example.\ }$ 令 $G=K_4$ 为Klein四元群，考虑 $\operatorname{Spec} (\mathbb{Q}[G])$ 。假设 $\chi$ 为 $G$ 的特征，也就是 $\operatorname{Hom}_{\mathsf{Grp}} (G,\mathbb{C}^\times)$ 中同态，则 $e=\frac{1}{|G|}\sum_{g\in G}\chi(g)g$ 是幂等元。具体到 $G$ ， $G$ 由四个元素 $1,a,b,c$ 组成，其中 $a^2=b^2=c^2=1$ 且 $abc=1$ ，从而易知 $G$ 有四个特征，于是得到四个幂等元$$\begin{aligned}
 &e_0=\frac{1+a+b+c}{4},&e_1=\frac{1-a+b-c}{4} \\&e_2=\frac{1-a-b+c}{4},&e_1=\frac{1+a-b-c}{4}
-\end{aligned}$$
-
-满足 $e_i^2=e_i$ ，$e_ie_j=0\ (i\ne j)$ 且 $e_0+e_1+e_2+e_3=1$ ，于是
-
-$$R=e_0R\times e_1R\times e_2R\times e_3R$$
-
-从而可以可视化为![](image-17.png)
+\end{aligned}$$满足 $e_i^2=e_i$ ，$e_ie_j=0\ (i\ne j)$ 且 $e_0+e_1+e_2+e_3=1$ ，于是$$R=e_0R\times e_1R\times e_2R\times e_3R$$从而可以可视化为![](image-17.png)
 
 > Exercises: 1.10, 2.25
 Draw Spec Z[Z/6Z] = Z[x]/(x^6-1), the group ring of the cyclic group of order 6.
@@ -209,11 +179,7 @@ $6.6$ 与 $5.7$ 结合某种意义上就分类了诺特环素谱的全部闭集�
 
 $\mathrm{6.7.\ Example.\ }$  $X$ 为紧Hausdorff空间，$C(X)$ 并非诺特环，考虑 $\operatorname{Spec} (C(X))$ 。$\operatorname{Spec} (C(X))$ 中不可约闭集形如 $\bar{\mathfrak{p}}$ ，所以如 $3.3$ 中所述，至多包含一个极大理想，因此 $\operatorname{Spec} (C(X))$ 中显然会有巨量闭集不能被表示为有限多不可约闭集之并（譬如说考虑到 $\operatorname{Spec} (C(X))$ 中极大理想重建了 $X$ 的拓扑，见 $3.3$ ），是一个高度非诺特的空间。
 
-$\mathrm{6.8.\ Example.\ }$ 令 $R$ 为 $\mathbb{Z}[\mathsf{S}_3]$ 的中心，也就是 $1$ ，$a=(12)+(23)+(13)$ ，$b=(123)+(132)$ 生成的环（有限群的话只取决于共轭类），作为Abel群 $R\cong \mathbb{Z}\oplus \mathbb{Z}\oplus \mathbb{Z}$ ，而且
-
-$$\begin{aligned}a^{2}&=3+3b\\b^{2}&=2+b\\ab&=2a\end{aligned}$$
-
-现在我们想研究 $\operatorname{Spec} (R)$ 和其中的不可约元素。
+$\mathrm{6.8.\ Example.\ }$ 令 $R$ 为 $\mathbb{Z}[\mathsf{S}_3]$ 的中心，也就是 $1$ ，$a=(12)+(23)+(13)$ ，$b=(123)+(132)$ 生成的环（有限群的话只取决于共轭类），作为Abel群 $R\cong \mathbb{Z}\oplus \mathbb{Z}\oplus \mathbb{Z}$ ，而且$$\begin{aligned}a^{2}&=3+3b\\b^{2}&=2+b\\ab&=2a\end{aligned}$$现在我们想研究 $\operatorname{Spec} (R)$ 和其中的不可约元素。
 
 取 $R$ 中素理想 $\mathfrak{p}$ ，则 $R/\mathfrak{p}$ 中 $b^2-b-2=0$ ，即 $b=2$ 或 $b=-1$ 。带入上面其它约束条件知 $b=-1$ 时得到 $a=0$ ，而 $b=2$ 时 $a=\pm 3$ ，这给出了 $R\to \mathbb{Z}$ 三种可能的同态（事实上 $R\to \mathbb{C}$），诱导出三个同态 $\operatorname{Spec} (\mathbb{Z})\to \operatorname{Spec} (R)$ 。
 

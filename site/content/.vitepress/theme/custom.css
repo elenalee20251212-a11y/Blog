@@ -119,18 +119,42 @@ body {
 
 /* OI Wiki-style persistent site tree. */
 .VPSidebar {
-  padding-right: 24px !important;
+  padding-right: 11px !important;
   padding-left: 24px !important;
-  border-right: 1px solid #dedbd4;
+  border-right: 0;
   background: #f7f6f2 !important;
+  scrollbar-color: #aaa9a5 transparent;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  overflow-x: hidden;
+}
+
+.VPSidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.VPSidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.VPSidebar::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #aaa9a5;
+  background-clip: padding-box;
 }
 
 .VPSidebar .nav {
   padding-top: 0.6rem;
 }
 
+.VPSidebar .group {
+  width: 100%;
+}
+
 .VPSidebarItem .items {
   padding-left: 10px !important;
+  border-left: 0 !important;
 }
 
 .VPSidebarItem .item {
@@ -138,9 +162,12 @@ body {
   border-radius: 0;
 }
 
+.VPSidebarItem .link {
+  min-width: 0;
+}
+
 .VPSidebarItem .caret {
-  margin-right: -0.35rem !important;
-  width: 1.75rem;
+  margin-right: 0 !important;
   opacity: 0.76;
 }
 
@@ -175,25 +202,7 @@ body {
   font-weight: 400;
 }
 
-.VPSidebarItem .items {
-  border-left-color: #d8d4ca !important;
-}
-
-.VPSidebarItem .item.is-active {
-  background: transparent;
-}
-
-.VPSidebarItem .item.is-active::before {
-  position: absolute;
-  top: 0.18rem;
-  bottom: 0.18rem;
-  left: -0.76rem;
-  width: 2px;
-  background: var(--accent-pink);
-  content: "";
-}
-
-.VPSidebarItem .item.is-active .link > .text {
+.VPSidebarItem.is-active > .item .link > .text {
   color: var(--accent-pink-deep);
 }
 
@@ -233,10 +242,16 @@ body {
 .vp-doc ol {
   margin-top: 0.55rem;
   margin-bottom: 1rem;
+  padding-left: 2em;
 }
 
-.vp-doc li + li {
-  margin-top: 0.28rem;
+.vp-doc li {
+  margin-bottom: 0;
+}
+
+.vp-doc li > p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .vp-doc a {
@@ -414,6 +429,17 @@ body {
 .VPDocOutlineItem .outline-link.active,
 .VPDocOutlineItem .outline-link:hover {
   color: var(--accent-pink-deep);
+}
+
+.VPDocOutlineItem .outline-link mjx-container,
+.VPDocOutlineItem .outline-link .katex {
+  display: inline-block !important;
+  max-width: 100%;
+  margin: 0 0.08em !important;
+  overflow: visible !important;
+  color: inherit;
+  font-size: 1em !important;
+  vertical-align: baseline;
 }
 
 /* Kerodon-like landing page without the guinea pig. */
@@ -818,18 +844,18 @@ body {
 .tag-cloud button span { margin-left: 0.2rem; color: #999b99; }
 .tag-result-summary { color: #777b79; font-size: 0.78rem; }
 
-/* Math: normal inline formulas never scroll. Only measured overflow receives .math-overflow. */
-.vp-doc mjx-container {
+/* Math: MPE-compatible KaTeX output. Normal inline formulas never scroll;
+   only measured overflow receives .math-overflow. */
+.vp-doc .katex {
   color: #141615;
 }
 
-.vp-doc mjx-container:not([display="true"]) {
+.vp-doc :not(.katex-display) > .katex {
   max-width: none;
   overflow: visible !important;
-  font-size: 0.92em !important;
 }
 
-.vp-doc mjx-container:not([display="true"]).math-overflow {
+.vp-doc .katex.math-overflow {
   display: inline-block;
   max-width: 100%;
   overflow-x: auto !important;
@@ -839,7 +865,7 @@ body {
   overscroll-behavior-inline: contain;
 }
 
-.vp-doc mjx-container[display="true"] {
+.vp-doc .katex-display {
   display: block;
   max-width: 100%;
   margin: 0.75rem 0 !important;
@@ -851,7 +877,7 @@ body {
   overscroll-behavior-inline: contain;
 }
 
-.vp-doc mjx-container[display="true"] > svg {
+.vp-doc .katex-display > .katex {
   max-width: none;
 }
 
@@ -864,7 +890,7 @@ body {
 
 .tikz-diagram .tikz-svg {
   display: block;
-  width: min(100%, max(15rem, var(--tikz-natural-width)));
+  width: min(100%, var(--tikz-normalized-width, var(--tikz-natural-width)));
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -927,7 +953,7 @@ body {
   .category-article-list time { grid-column: 1; }
   .article-list li { grid-template-columns: 1fr; }
   .article-list time { grid-row: 2; }
-  .vp-doc mjx-container[display="true"] { margin-inline: -2px !important; padding-inline: 2px; }
+  .vp-doc .katex-display { margin-inline: -2px !important; padding-inline: 2px; }
 }
 
 @media (max-width: 420px) {

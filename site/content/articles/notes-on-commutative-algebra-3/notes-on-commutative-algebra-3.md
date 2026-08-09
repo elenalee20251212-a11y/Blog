@@ -63,7 +63,7 @@ $\mathrm{2.5.\ Corollary.\ }$ *如果 $S$ 有限生成，则 $\operatorname{Spec
 
 一般来说 $\operatorname{Spec} (R[S^{-1}])$ 是无穷多开集的交，并非开集，但实际和开集的行为会比较像。
 
-$\mathrm{2.6.\ Example.\ }$ $\mathbb{C}[x,y]$ 中素理想有 $(0)$ 、$(f)$ （$f$ 不可约）、$(x-\alpha,y-\beta)$ 三类，它的素谱在[上一章3.10](https://deideidei.github.io/2024/12/27/Notes-on-Commutative-Algebra-2/#%E7%B4%A0%E8%B0%B1%E7%9A%84%E6%8B%93%E6%89%91)已经有过可视化。关于 $(0)$ 处局部化 $\mathbb{C}[x,y]_{(0)}$ 的 $\operatorname{Spec} $ 中只有一般点 $(0)$ ，而 $\mathbb{C}[x,y]_{(f)}$ 则是 $f$ 对应“一维点”加上一般点，至于 $\mathbb{C}[x,y]_{(x-\alpha,y-\beta)}$ 则是点 $(\alpha,\beta)$ 加上过这点的曲线和一般点![](image-1.png)注意素理想局部化的素谱和商环的素谱大相径庭，譬如说 $\mathbb{C}[x,y]/(0)$ 的素谱就是 $\operatorname{Spec} (\mathbb{C}[x,y])$ ，$\operatorname{Spec} (\mathbb{C}[x,y]/(f))$ 则是 $f$ 曲线带上其上的这些红点，$\operatorname{Spec} (\mathbb{C}[x,y]/(x-\alpha,y-\beta))$ 就是单点。总体来说，一般直观上商环 $R/\mathfrak{p}$ 的素谱是 $\mathfrak{p}$ 以及 $\mathfrak{p}$ “内部”的所有点，而局部化 $R_{\mathfrak{p}}$ 则是 $\mathfrak{p}$ 和在 $\mathfrak{p}$ 附近外部的点，在这种意义上商和局部化是相反的操作。
+$\mathrm{2.6.\ Example.\ }$ $\mathbb{C}[x,y]$ 中素理想有 $(0)$ 、$(f)$ （$f$ 不可约）、$(x-\alpha,y-\beta)$ 三类，它的素谱在[[../notes-on-commutative-algebra-2/notes-on-commutative-algebra-2.md#素谱的拓扑|上一章3.10]]已经有过可视化。关于 $(0)$ 处局部化 $\mathbb{C}[x,y]_{(0)}$ 的 $\operatorname{Spec} $ 中只有一般点 $(0)$ ，而 $\mathbb{C}[x,y]_{(f)}$ 则是 $f$ 对应“一维点”加上一般点，至于 $\mathbb{C}[x,y]_{(x-\alpha,y-\beta)}$ 则是点 $(\alpha,\beta)$ 加上过这点的曲线和一般点![](image-1.png)注意素理想局部化的素谱和商环的素谱大相径庭，譬如说 $\mathbb{C}[x,y]/(0)$ 的素谱就是 $\operatorname{Spec} (\mathbb{C}[x,y])$ ，$\operatorname{Spec} (\mathbb{C}[x,y]/(f))$ 则是 $f$ 曲线带上其上的这些红点，$\operatorname{Spec} (\mathbb{C}[x,y]/(x-\alpha,y-\beta))$ 就是单点。总体来说，一般直观上商环 $R/\mathfrak{p}$ 的素谱是 $\mathfrak{p}$ 以及 $\mathfrak{p}$ “内部”的所有点，而局部化 $R_{\mathfrak{p}}$ 则是 $\mathfrak{p}$ 和在 $\mathfrak{p}$ 附近外部的点，在这种意义上商和局部化是相反的操作。
 
 一般来讲， $\operatorname{Spec} (R/\mathfrak{p})=\bar{p}$ ，把 $\mathfrak{p}$ 变成最小的理想，素谱的一般点。而 $\operatorname{Spec} (R_{(\mathfrak{p})})=\{ \mathfrak{q}:\mathfrak{p}\in \bar{\mathfrak{q}} \}=\{\mathfrak{q}:\mathfrak{q}\subset \mathfrak{p}\}$ ，把 $\mathfrak{p}$ 变成最大的理想，变成素谱中唯一的闭点。
 
@@ -106,15 +106,14 @@ Exercises: Suppose R is the ring of continuous real functions on the circle. Is 
 
 (2) 假设 $U(f)$ 被 $U(f_i)$ 覆盖，$g\in \mathcal{O}(U(f))$ 在一切 $\mathcal{O}(U(f_i))$ 上限制为 $0$ ，不妨将 $R[f^{-1}]$ 替换 $R$ ，且设 $f=1$ ，那么诸 $U(f_i)$ 覆盖 $\operatorname{Spec} (R)$ ，也就是没有素理想（极大理想）包含一切 $f_i$ ，因此有有限多个 $f_i$ 生成 $(1)$，也就是 $\sum a_if_i=1$ ，考虑它的幂次知 $(f_1^{n_1},\cdots,f_k^{n_k})$ 也是 $(1)$，而 $g$ 在 $R[f_i^{-1}]$ 中为零等于说 $f_i^ng=0$ ，从而即知 $g=0$ 。
 
-(3) 这里只考虑 $R$ 是整环的情形，虽然说非整环情况下结论也正确。如果 $U(f)=\bigcup U(f_i)$ ，对每个 $\mathcal{O}(U(f_i))$ 给定了 $r_i/f_i^{n_i}$ ，且在 $U(f_i)\cap  U(f_j)$ 上 $r_i/f_i^{n_i}$ 和 $r_j/f_j^{n_j}$ 相同。这里依然将 $R$ 替换为 $R[f^{-1}]$ 并设 $f=1$ ，从而诸 $U(f_i)$ 覆盖 $\operatorname{Spec} (R)$ ，有 $\sum a_if_i=1$ ，并且可以将 $f_i$ 替换为 $f_i^{n_i}$ ，于是要寻找某个 $r/f^n$ 在一切 $U(f_i)$ 上为 $r_i/f_i^{n_i}$ 变成要找某个 $r\in R$ ，在一切 $U(f_i)$ 上为 $r_i/f_i$ ，也就是 $f_ir=r_i$ 。如果我们找到了这样的 $r$ ，那么 $r=\left(\sum a_if_i\right)r=\sum a_ir_i$ ，事实上对 $r=\sum a_ir_i$ ，由于 $r_i/f_i=r_j/f_j$ ，有 $r_if_j=r_jf_i$ ，因而
-
-$$rf_i=\sum a_jr_jf_i=\sum a_jf_jr_i=r_i$$
+(3) 这里只考虑 $R$ 是整环的情形，虽然说非整环情况下结论也正确。如果 $U(f)=\bigcup U(f_i)$ ，对每个 $\mathcal{O}(U(f_i))$ 给定了 $r_i/f_i^{n_i}$ ，且在 $U(f_i)\cap  U(f_j)$ 上 $r_i/f_i^{n_i}$ 和 $r_j/f_j^{n_j}$ 相同。这里依然将 $R$ 替换为 $R[f^{-1}]$ 并设 $f=1$ ，从而诸 $U(f_i)$ 覆盖 $\operatorname{Spec} (R)$ ，有 $\sum a_if_i=1$ ，并且可以将 $f_i$ 替换为 $f_i^{n_i}$ ，于是要寻找某个 $r/f^n$ 在一切 $U(f_i)$ 上为 $r_i/f_i^{n_i}$ 变成要找某个 $r\in R$ ，在一切 $U(f_i)$ 上为 $r_i/f_i$ ，也就是 $f_ir=r_i$ 。如果我们找到了这样的 $r$ ，那么 $r=\left(\sum a_if_i\right)r=\sum a_ir_i$ ，事实上对 $r=\sum a_ir_i$ ，由于 $r_i/f_i=r_j/f_j$ ，有 $r_if_j=r_jf_i$ ，因而$$rf_i=\sum a_jr_jf_i=\sum a_jf_jr_i=r_i$$
 
 $\operatorname{Spec} (R)$ 和相应配套的层 $U(f)$ 与 $\mathcal{O}(U(f))$ 定义了 $R$ 的**仿射概形**。这种几何语言和交换环本身的代数语言之间具有一些对偶关系，具体来说
 
 ![](image-6.png)
 
 下面是一些基本例子![](image-7.png)
+
 
 > Exercise: 2.19, 2.26
 Exercise for the ambitious: Check the sheaf property discussed in the lecture for rings with zero divisors. (This is tricky.)

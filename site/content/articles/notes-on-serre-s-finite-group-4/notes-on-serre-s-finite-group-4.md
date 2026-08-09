@@ -6,29 +6,9 @@ articleId: notes-on-serre-s-finite-group-4
 category: mathematics/algebra/serre-finite-groups
 order: 4
 ---
-直观上讲共轭是非交换性的体现, $gh=(ghg^{-1})g$ , 它举例交换的乘法差一个共轭作用的扭曲. 回忆直积情形, $N,H$ 是 $G$ 的正规子群, $G=NH$ 且 $N\cap H=1$ , 那么 $hk\mapsto (h,k)$ 给出 $G\cong N\times H$ . 而 $g$ 的共轭在正规子群 $N$ 上的作用正是 $N$ 的自同构, 因此给定群同态 $\phi:H\to \operatorname{Aut} (N)$ , 就可以定义半直积的运算
+直观上讲共轭是非交换性的体现, $gh=(ghg^{-1})g$ , 它举例交换的乘法差一个共轭作用的扭曲. 回忆直积情形, $N,H$ 是 $G$ 的正规子群, $G=NH$ 且 $N\cap H=1$ , 那么 $hk\mapsto (h,k)$ 给出 $G\cong N\times H$ . 而 $g$ 的共轭在正规子群 $N$ 上的作用正是 $N$ 的自同构, 因此给定群同态 $\phi:H\to \operatorname{Aut} (N)$ , 就可以定义半直积的运算$$(n_1, h_1) \cdot (n_2, h_2) = (n_1  \phi_{h_1}(n_2), h_1 h_2)$$将 $N$ 和 $H$ 以自然的方式嵌入 $N\rtimes H$ . 此时 $N$ 是正规子群, $H$ 是子群且 $N\cap H=\{ 1 \}$ , 在这种情况下, 如果 $G=NH$ 那么 $G\cong N\rtimes H$ .
 
-$$(n_1, h_1) \cdot (n_2, h_2) = (n_1  \phi_{h_1}(n_2), h_1 h_2)$$
+更一般的, 给定群 $N$ 和 $H$ , $H$ 的一个 (通过 $N$ 所作的) 群扩张是正合列$$1 \to N \to G \to H \to 1$$记 $\pi:G\to H$ , 如果存在 $s:H\to G$ 使得 $\pi s=\operatorname{id}_H$ , 那么称这个正合列是分裂的. 此时令 $C=s(H)$ , 考虑到 $C\cap N=1$ 且 $CN=G$ , 将 $H$ 与 $C$ 等同则 $G$ 中元素可以唯一写成 $ax$ 形式, 其中 $a\in N, x\in H$ , 从而乘法有$$ax\cdot by=a(xbx^{-1})\cdot xy$$ 形式. 因此正合列分裂等价于 $G=N\rtimes H$ .
 
-将 $N$ 和 $H$ 以自然的方式嵌入 $N\rtimes H$ . 此时 $N$ 是正规子群, $H$ 是子群且 $N\cap H=\{ 1 \}$ , 在这种情况下, 如果 $G=NH$ 那么 $G\cong N\rtimes H$ .
-
-更一般的, 给定群 $N$ 和 $H$ , $H$ 的一个 (通过 $N$ 所作的) 群扩张是正合列
-
-$$1 \to N \to G \to H \to 1$$
-
-记 $\pi:G\to H$ , 如果存在 $s:H\to G$ 使得 $\pi s=\operatorname{id}_H$ , 那么称这个正合列是分裂的. 此时令 $C=s(H)$ , 考虑到 $C\cap N=1$ 且 $CN=G$ , 将 $H$ 与 $C$ 等同则 $G$ 中元素可以唯一写成 $ax$ 形式, 其中 $a\in N, x\in H$ , 从而乘法有
-
-$$ax\cdot by=a(xbx^{-1})\cdot xy$$
-
- 形式. 因此正合列分裂等价于 $G=N\rtimes H$ .
-
-大体上讲可能是这样, 对群扩张
-
-$$1 \to N \to G \to H \to 1$$
-
-记投影 $\pi:G\to H$ , 可以将 $G$ 视作 $H$ 上的纤维从, 每个点处的纤维是 $N$ . 选取一个截面 $s:H\to G$ (未必是函数) , 使得 $\pi(s(x))=x$ 恒成立, 则 $G$ 中元素都可以唯一写成 $ns(x)$ 形式, $n\in N, x\in H$ . 
-
-$$s(h_1) s(h_2) = f_s(h_1, h_2) s(h_1 h_2)$$
-
-如果 $N$ 交换, 那么 $f_s$ 是 $H$ 在 $N$ 中取值的2-cocycle, 并且 $G$ 对 $N$ 的扩张在正合列同构意义下的等价类和 $H^2(H,N)$ 中元素一一对应, 分裂扩张对应于 $0 \in H^2(H, N)$ . 或许可以理解为 $f_s$ 衡量这个群扩张的"扭曲"对 $s$ 乘法结构的破坏程度, 类似于曲率的东西可能. 此外, 不同的 $s$ 选择就像不同的坐标系 (把 $G$ 中元素唯一表示为 $ns(x)$ ...) , 对另一个截面 $s'$ , 就有 $s'(h)=v(h)s(h)$ , $v$ 这里对应一个gauge transformation. 在 $N$ 时, 如果 $G$ 分裂, 对两个同态截面 $s,s'$, $v(h_1h_2) = v(h_1) \cdot ({}^{h_1}v(h_2))$ , 因此 $v\in Z^1(H,N)$ , 并且反过来, 并且 $v$ 是1-coboundary即 $v=da$ 当且仅当 $h,h'$ 互相共轭, 因此群扩张 $G$ 的分裂在共轭意义下通过这样的 $v$ 和 $H^1(H,N)$ 中的上同调类一一对应.
+大体上讲可能是这样, 对群扩张$$1 \to N \to G \to H \to 1$$记投影 $\pi:G\to H$ , 可以将 $G$ 视作 $H$ 上的纤维从, 每个点处的纤维是 $N$ . 选取一个截面 $s:H\to G$ (未必是函数) , 使得 $\pi(s(x))=x$ 恒成立, 则 $G$ 中元素都可以唯一写成 $ns(x)$ 形式, $n\in N, x\in H$ . $$s(h_1) s(h_2) = f_s(h_1, h_2) s(h_1 h_2)$$如果 $N$ 交换, 那么 $f_s$ 是 $H$ 在 $N$ 中取值的2-cocycle, 并且 $G$ 对 $N$ 的扩张在正合列同构意义下的等价类和 $H^2(H,N)$ 中元素一一对应, 分裂扩张对应于 $0 \in H^2(H, N)$ . 或许可以理解为 $f_s$ 衡量这个群扩张的"扭曲"对 $s$ 乘法结构的破坏程度, 类似于曲率的东西可能. 此外, 不同的 $s$ 选择就像不同的坐标系 (把 $G$ 中元素唯一表示为 $ns(x)$ ...) , 对另一个截面 $s'$ , 就有 $s'(h)=v(h)s(h)$ , $v$ 这里对应一个gauge transformation. 在 $N$ 时, 如果 $G$ 分裂, 对两个同态截面 $s,s'$, $v(h_1h_2) = v(h_1) \cdot ({}^{h_1}v(h_2))$ , 因此 $v\in Z^1(H,N)$ , 并且反过来, 并且 $v$ 是1-coboundary即 $v=da$ 当且仅当 $h,h'$ 互相共轭, 因此群扩张 $G$ 的分裂在共轭意义下通过这样的 $v$ 和 $H^1(H,N)$ 中的上同调类一一对应.
 

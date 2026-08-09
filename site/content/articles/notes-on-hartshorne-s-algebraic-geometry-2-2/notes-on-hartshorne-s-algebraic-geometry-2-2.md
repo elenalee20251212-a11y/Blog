@@ -35,6 +35,7 @@ $\mathrm{Ex.\ 2.3.}$ ``(a)`` 如果 $(X,\mathcal{O}_X)$ reduced，取某个非�
 
 注：对scheme $X$ ，$U\mapsto \mathcal{O}_X(U)_{\mathrm{red}}$ 未必是层，比如说考虑 $X=\bigsqcup \operatorname{Spec} (A_i)$ ，其中 $A_i=k[t]/(t^n)$ ，那么 $\mathcal{O}_X(X)=\prod A_i$ ，考虑 $(t,t,\cdots)\in \mathcal{O}_X(X)$ ，它在一切 $\mathcal{O}_X(A_i)_{\mathrm{red}}$ 中是 $0$ ，然而在 $\mathcal{O}_X(X)$ 中不幂零。
 
+
 ``(b)`` 首先考虑affine scheme的情况，此时 $X=\operatorname{Spec} (A)$ ，因为 $\mathcal{O}_X(D(f))_{\mathrm{red}}=(A_f)_{\mathrm{red}}=(A_{\mathrm{red}})_{\bar{f}}$ ， $U\mapsto \mathcal{O}_X(U)_{\mathrm{red}}$ 在一组基 $\{ D(f) \}$ 上与层 $\operatorname{Spec} (A_{\mathrm{red}})$ 相同，而 $\operatorname{Spec} (A_{\mathrm{red}})$ 与 $\operatorname{Spec} (A)$ 有自然的同胚，所以它的层化就是 $\operatorname{Spec} (A_{\mathrm{red}})$ （考虑层化就是局部截面的 $U\to \bigsqcup \mathcal{O}_{X,p}$ 映射，满足层公理则局部截面粘成整体的截面……）。现在对一般的scheme $X$ ，存在开覆盖 $X=\bigcup U_i$, $(U_i,\mathcal{O}_X|_{U_i})\cong \operatorname{Spec} (A_i)$ ，在 $U_i$ 上对 $U→\mathcal{O}_X(U)_{\mathrm{red}}$ 层化的结果是 $\operatorname{Spec} ((A_i)_{\mathrm{red}})$ ，从而 $X_{\mathrm{red}}$ 是Scheme。
 
 现在构造 $X_{\mathrm{red}}\to X$ ：令 $\mathcal{F}$ 为预层 $U\mapsto \mathcal{O}_X(U)_{\mathrm{red}}$ ，则有自然的预层态射 $\mathcal{F}\to \mathcal{O}_{X_{\mathrm{red}}}$ ，与 $\mathcal{O}_X(U)\mapsto \mathcal{O}_X(U)_{\mathrm{red}}$ 给出的 $\mathcal{O}_X\to \mathcal{F}$ 复合就给出一个ringed space的态射 $X_{\mathrm{red}}\to X$ （底空间的映射是 $\mathrm{id}$ 态射）。接下来证明它是scheme的态射：考虑它在仿射开集上的限制，如前所述，对某个仿射开集 $U_i\cong \operatorname{Spec} A_i$ ，在它的主开集 $D(f_i)$ 上 $\mathcal{F}$ 已经构成了一个层，所以 $\mathcal{O}_{X_{\mathrm{red}}}(D(f_i))=\mathcal{F}(D(f_i))=\mathcal{O}_X(D(f_i))_{\mathrm{red}}$ ，从而这个 $X_{\mathrm{red}}\to X$ 态射在 $U_i$ 上的限制是 $A_i\to (A_i)_{\mathrm{red}}$ 对应的 $\operatorname{Spec} ((A_i)_{\mathrm{red}})\to \operatorname{Spec} (A_i)$ ，$X_{\mathrm{red}}\to X$ 是这些scheme态射的粘合，从而是scheme的态射。
@@ -45,39 +46,23 @@ $\mathrm{Ex.\ 2.3.}$ ``(a)`` 如果 $(X,\mathcal{O}_X)$ reduced，取某个非�
 
 还需说明 $X\to Y_{\mathrm{red}}\to Y$ 复合为 $f:X\to Y$ . 事实上考虑层间的态射 $\mathcal{O}_Y\to \mathcal{O}_{Y_{\mathrm{red}}}\to f_*\mathcal{O}_X$ , 因为主开集 $D(f)$ 上 $\mathcal{O}_{Y_{\mathrm{red}}}(D(f))=\mathcal{O}_Y(D(f))_{\mathrm{red}}$, 它在主开集上与 $f$ 相同, 从而这个它与 $f:\mathcal{O}_Y\to f_*\mathcal{O}_X$ 相同. 同时, $Y_{\mathrm{red}}\to Y$ 在底空间的映射是 $\operatorname{id}_Y$ , 所以复合映射与 $f$ 在底空间的映射也相同, 因此它就是 $f$.
 
-$\mathrm{Ex.\ 2.4.}$ 事实上此题结论都任意locally ringed space都对, 也就是对locally ringed space $X$ 和仿射概形 $Y=\operatorname{Spec} A$ , 存在自然的双射
-
-$$\operatorname{Hom} (X,Y)\to  \operatorname{Hom} (A,\Gamma (X,\mathcal{O}_X))$$
-
-这个映射就是取global section对应的环同态. 首先证明单性: 考虑 $f,g:X\to Y$ , 如果它们诱导的 $\varphi:A\to \Gamma(X,\mathcal{O}_X)$ 相同, 取 $x\in X$ , 设 $f(x)=\mathfrak{q}\in \operatorname{Spec}  A$ , stalk间的映射满足交换图
-
-$$\begin{CD}
+$\mathrm{Ex.\ 2.4.}$ 事实上此题结论都任意locally ringed space都对, 也就是对locally ringed space $X$ 和仿射概形 $Y=\operatorname{Spec} A$ , 存在自然的双射$$\operatorname{Hom} (X,Y)\to  \operatorname{Hom} (A,\Gamma (X,\mathcal{O}_X))$$这个映射就是取global section对应的环同态. 首先证明单性: 考虑 $f,g:X\to Y$ , 如果它们诱导的 $\varphi:A\to \Gamma(X,\mathcal{O}_X)$ 相同, 取 $x\in X$ , 设 $f(x)=\mathfrak{q}\in \operatorname{Spec}  A$ , stalk间的映射满足交换图$$\begin{CD}
 A=\mathcal{O}_Y(Y) @>>> \mathcal{O}_X(X) \\
 @VVV @VVV  \\
 \mathcal{O}_{Y,f(x)} @>>> \mathcal{O}_{X,x} 
-\end{CD}$$
-
-其中 $\mathcal{O}_{X,x}$ 的极大理想 $\mathfrak{m}_x$ 被拉回到 $\mathfrak{q}$ , 也就是说 $\mathfrak{q}=f(x)$ 可以被 $\mathfrak{m}_x$ 沿 $\mathcal{O}_X(X)\to \mathcal{O}_{X,x}$ 和 $\varphi$ 拉回唯一确定, 于是 $f,g$ 在底空间的映射相同. 而考虑对应的层间映射 $\mathcal{O}_Y\to f_*\mathcal{O}_X$ , 在主开集 $D(f)$ 上 $\mathcal{O}_Y(D(f))=A_f$ 且有交换图
-
-$$\begin{CD}
+\end{CD}$$其中 $\mathcal{O}_{X,x}$ 的极大理想 $\mathfrak{m}_x$ 被拉回到 $\mathfrak{q}$ , 也就是说 $\mathfrak{q}=f(x)$ 可以被 $\mathfrak{m}_x$ 沿 $\mathcal{O}_X(X)\to \mathcal{O}_{X,x}$ 和 $\varphi$ 拉回唯一确定, 于是 $f,g$ 在底空间的映射相同. 而考虑对应的层间映射 $\mathcal{O}_Y\to f_*\mathcal{O}_X$ , 在主开集 $D(f)$ 上 $\mathcal{O}_Y(D(f))=A_f$ 且有交换图$$\begin{CD}
 A=\mathcal{O}_Y(Y) @>>> \mathcal{O}_X(X) \\
 @VVV @VVV  \\
 A_f=\mathcal{O}_{Y}(D(f)) @>>> \mathcal{O}_{X}(f^{-1}(D(f)) 
-\end{CD}$$
-
-唯一确定了 $\mathcal{O}_Y(D(f))\to f_*\mathcal{O}_X(D(f))$ , 从而 $f=g$ .
+\end{CD}$$唯一确定了 $\mathcal{O}_Y(D(f))\to f_*\mathcal{O}_X(D(f))$ , 从而 $f=g$ .
 
 再证明满性: 给定一个环同态 $\varphi:A\to \Gamma(X,\mathcal{O}_X)$ , 我们据此定义一个态射 $f:X\to Y$ . stalk $\mathcal{O}_{X,x}$ 的极大理想 $\mathfrak{m}_x$ , 沿着 $A\to \mathcal{O}_X(X)\to \mathcal{O}_{X,x}$ 被拉回为 $A$ 中素理想 $\mathfrak{q}$  (也就是 $\{ a\in A: \varphi(a)_x=0 \}$ ), 我们定义 $f(x)=\mathfrak{q}$ . 为证明 $f$ 连续, 只需注意到 $\mathfrak{q}\in D(h)$ 即 $\varphi(h)_x$ 在 $\mathcal{O}_{X,x}$ 中可逆, 也就是 $\varphi(h)$ 在 $x$ 某个开邻域上可逆, 所以如果 $x\in f^{-1}(D(h))=X_h$ , $x$ 某个开邻域也包含其中, 所以 $X_h$ 是开集.
 
-关于环层之间的映射, 如前所述 $X_h$ 中每个点 $x$ , 都存在一个开邻域上 $\varphi(h)$ 可逆, 从而 $\varphi(h)|_{X_h}$ 可逆, 因此可以定义唯一使图表交换的映射
-
-$$\begin{CD}
+关于环层之间的映射, 如前所述 $X_h$ 中每个点 $x$ , 都存在一个开邻域上 $\varphi(h)$ 可逆, 从而 $\varphi(h)|_{X_h}$ 可逆, 因此可以定义唯一使图表交换的映射$$\begin{CD}
 \mathcal{O}_Y(Y)=A @>>> \mathcal{O}_X(X) \\
 @VVV @VVV  \\
 \mathcal{O}_{Y}(D(h))=A_h @>>> \mathcal{O}_{X}(X_h) 
-\end{CD}$$
-
-具体来说这个映射是 $s/h\mapsto  (\varphi(s)|_{X_h})/(\varphi(h)|_{X_h})$ (因此stalk间映射为 $s_y/h_y\mapsto \varphi(s)_x/\varphi(h)_x$ ) 令 $y=f(x)=\mathfrak{q}$ , 按 $f$ 定义 $\mathfrak{q}$ 被打到 $\mathfrak{m}_x$ 中, 从而 $f$ 是stalk间的局部映射.
+\end{CD}$$具体来说这个映射是 $s/h\mapsto  (\varphi(s)|_{X_h})/(\varphi(h)|_{X_h})$ (因此stalk间映射为 $s_y/h_y\mapsto \varphi(s)_x/\varphi(h)_x$ ) 令 $y=f(x)=\mathfrak{q}$ , 按 $f$ 定义 $\mathfrak{q}$ 被打到 $\mathfrak{m}_x$ 中, 从而 $f$ 是stalk间的局部映射.
 
 $\mathrm{Ex.\ 2.5.}$ 2.4的简单推论.
 
@@ -93,9 +78,7 @@ $\mathrm{Ex.\ 2.8.}$  $\operatorname{Spec} k[\varepsilon]/(\varepsilon^2)$ 是�
 
 $\mathrm{Ex.\ 2.9.}$ 考虑affine covering $X=\bigcup U_i$ , 非空的 $Z\cap U_i$ 在 $U_i$ 中闭且不可约 (否则 $Z$ 是 $U_i$ 中两个真闭子集和 $U_i^c$ 的并...), 从而形如 $V(\mathfrak{p}_i)$ . 而 $Z\cap U_i\subset \overline{\{ \mathfrak{p}_i \}}$ , $Z\cap U_i$ 是 $Z$ 中开集从而稠密, 意味着 $Z=\overline{\{ \mathfrak{p}_i \}}$ . 同时由于Spec是 $\mathbb{T}_0$ 空间, $X$ 也是 $\mathbb{T}_0$ 空间, 即任何两点中两点之一的某个邻域不包含另一个点, $X$ 中不同元素的闭包不同, 所以generic point唯一.
 
-$\mathrm{Ex.\ 2.11.}$ 对非零的 $x$ , 对应一个素理想 $\mathfrak{p}_x=(f(x))$ , 其residue field就是 $\mathbb{F}_p[x]/(f(x))=\mathbb{F}_{p^{\deg f}}$ . 而具有给定剩余域 $\mathbb{F}_{p^n}$ 点的数量, 就是 $\mathbb{F}_p$ 上 $n$ 次不可约首一多项式的数量. $\mathbb{F}_{p^n}$ 中元素都是可分多项式 $x^{p^n}-x$ 的根, 且对任何 $\mathbb{F}_{p^n}$ 里的元素 $\alpha$ , $\mathbb{F}_p[\alpha]=\mathbb{F}_{p^m}$ , 同时 $\mathbb{F}_{p^m}\subset \mathbb{F}_{p^n}$ 当且仅当 $m|n$ , 所以 $x^{p^n}-x$ 恰好是所有 $\mathbb{F}_p$ 上次数整除 $n$ 的首一不可约多项式乘积. 假设 $f(n)$ 表示 $\mathbb{F}_p$ 上 $n$ 次不可约多项式数量, 则 $\sum_{d|n}f(d)d=p^n$ , Mobius反演得到
-
-$$f(n)=\frac{1}{n}\sum_{d|n}\mu(d)p^{n/d}$$
+$\mathrm{Ex.\ 2.11.}$ 对非零的 $x$ , 对应一个素理想 $\mathfrak{p}_x=(f(x))$ , 其residue field就是 $\mathbb{F}_p[x]/(f(x))=\mathbb{F}_{p^{\deg f}}$ . 而具有给定剩余域 $\mathbb{F}_{p^n}$ 点的数量, 就是 $\mathbb{F}_p$ 上 $n$ 次不可约首一多项式的数量. $\mathbb{F}_{p^n}$ 中元素都是可分多项式 $x^{p^n}-x$ 的根, 且对任何 $\mathbb{F}_{p^n}$ 里的元素 $\alpha$ , $\mathbb{F}_p[\alpha]=\mathbb{F}_{p^m}$ , 同时 $\mathbb{F}_{p^m}\subset \mathbb{F}_{p^n}$ 当且仅当 $m|n$ , 所以 $x^{p^n}-x$ 恰好是所有 $\mathbb{F}_p$ 上次数整除 $n$ 的首一不可约多项式乘积. 假设 $f(n)$ 表示 $\mathbb{F}_p$ 上 $n$ 次不可约多项式数量, 则 $\sum_{d|n}f(d)d=p^n$ , Mobius反演得到$$f(n)=\frac{1}{n}\sum_{d|n}\mu(d)p^{n/d}$$
 
 $\mathrm{Ex.\ 2.12.}$ 
 

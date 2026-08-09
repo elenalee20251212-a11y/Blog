@@ -6,4 +6,3 @@ articleId: notes-on-neukirch-s-number-theory
 category: mathematics/number-theory/neukirch-number-theory
 order: 2
 ---
-

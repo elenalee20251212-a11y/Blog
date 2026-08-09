@@ -78,6 +78,20 @@ site/
 
 文章必须位于 `content/articles/<articleId>/<articleId>.md`。同目录文件由 Markdown 相对路径引用，因此 Markdown Preview Enhanced 和网站生成器读取同一份资源。
 
+### MPE 站内引用机制
+
+`scripts/internal-references.mjs` 是引用语义的唯一实现。它按 Markdown Preview Enhanced 0.8.30 所带 Crossnote 0.9.31 的 `Notebook.processWikilink()`、`Notebook.resolveWikilink()` 和 note-fragment 代码实现以下顺序：
+
+1. `[[目标|别名]]` 默认把竖线左边作为目标、右边作为显示文字；没有别名时目标同时作为显示文字。
+2. 从目标末尾拆分 `#标题` 与 `^段落标识`，并为没有扩展名的目标补 `.md`；形如 `.4` 的数字结尾属于文件名，不被当作扩展名。
+3. 默认从引用来源 Markdown 的父文件夹计算目标。开头的 `/` 从 `site` 根目录计算；每个 `..` 上移一级。模块也保留 Crossnote 的 `absolute` 与 `shortest` 求解算法，但本站和未改设置的 MPE 都使用默认的 `relative`。
+4. 标题先匹配显式 `{#id}`，再使用 `content/.vitepress/markdown-mpe-core.mjs` 中移植的 MPE 标题标识算法；段落标识匹配行末 `^名称`。
+5. `![[目标]]` 使用同一目标求解结果嵌入图片、文本、Markdown 全文或指定片段；嵌套深度上限与 Crossnote 相同，为三层。
+
+`content/.vitepress/markdown-internal-references.mjs` 只负责把上述求解结果映射为网站输出：文章源文件映射到 `/articles/<articleId>/`，分类介绍源文件映射到 `/categories/<分类路径>/`，资源文件映射为相对于动态页面的资源地址。该插件在 VitePress 自带的 `[[toc]]` 规则之前注册，因此 `[[toc]]` 与 MPE 一样表示 `toc.md`，不会在网站中反转为文章目录。
+
+文章改名、分类改名和分类移动都调用同一个源文件求解模块。维护操作比较解析后的绝对文件位置，不建立另一套全局文章名空间，也不根据别名或网页标题猜测目标。MPE 允许先写下尚不存在的目标，因此网站也为这种引用生成普通链接，不把失效目标或片段列为内容检查错误；部署后的目标网页不存在时，GitHub Pages 负责显示 404 页面。
+
 ```yaml
 ---
 title: <文章标题>
@@ -204,7 +218,7 @@ order: <由分类树数组位置生成>
 | 新建草稿 | 在 `content/drafts` 建立相同文件单元，不加入路由、分类或搜索 |
 | 发布草稿 | 把完整目录移入文章目录，补充正式元数据并校验，失败时回滚 |
 | 文章改名 | 同步目录、文件、`articleId`、文章网址和站内文章链接 |
-| 文章或草稿移除 | 检查引用后移动到 `.trash`，不永久删除 |
+| 文章或草稿移除 | 移动到 `.trash`，不永久删除；文章仍被引用时报告来源，但允许保留失效链接 |
 | 恢复 | 把选中的文章或草稿完整目录移回原位置 |
 
 新建、直接删除或恢复文章后，下一次 `sync` 会更新文章集合与分类同步状态。分类变更始终与文章物理目录独立。
@@ -246,11 +260,11 @@ sync → content:check → settings → tikz
 
 ## 8. Markdown、公式和 TikZ
 
-VitePress Markdown 配置启用 MathJax 3、AMS 编号、换行和图片延迟加载；关闭自动排版替换、自动链接和代码行号。`.crossnote/style.less` 与主题生成 CSS 共用 `site.yml` 中的文章正文字号，保证 Markdown Preview Enhanced 与网站具有相同的响应式字号基准。
+VitePress Markdown 配置启用换行和图片延迟加载，关闭自动排版替换、自动链接和代码行号。网站的响应式字号由主题生成 CSS 读取 `site.yml` 后提供；项目不覆盖 Markdown Preview Enhanced 的个人设置、解析配置或预览样式。
 
 文章字号和主页字号都把手机值、电脑值分别作为 390px、1440px 视口宽度的边界值，通过 CSS `clamp()` 线性插值；边界外保持配置值。文章正文、文章标题、章节标题、公式和以字符数计算的阅读宽度使用同一个文章字号基准。主页分类与最近更新区域使用主页字号基准。顶部导航、左侧分类目录和右侧文章目录属于固定界面，不随文章字号放大，以免压缩正文。
 
-MathJax 处理行内公式、独立公式和 AMS 环境。`content/.vitepress/markdown-mpe-math.mjs` 用 Markdown Preview Enhanced 的定界符规则替换 `markdown-it-mathjax3` 的严格行内规则：定界符内侧允许空格，公式内容送入 MathJax 前会去掉首尾空格，转义的美元符号仍作为正文。兼容规则还会拒绝把含有未转义行内 `$...$` 的整段正文误认成一个 `$$...$$` 独立公式；这项处理只发生在内存中的网页解析过程，不修改文章文件。主题只让实际超出父容器的公式进入横向滚动状态，避免短公式出现无意义滚动。独立公式的溢出限制在自身区域，不扩大页面根宽度。
+`content/.vitepress/markdown-mpe-math.mjs` 按本机 Markdown Preview Enhanced 0.8.30 所使用的 Crossnote 0.9.31 源码实现公式流程：块规则在 `lheading` 之前扫描 `$$...$$`，行内规则在 `escape` 之前扫描 `$...$`，反斜线转义不会提前结束公式，HTML 块中的公式另行扫描且跳过 `code`、`pre`、`script` 和 `style`。公式 token 使用 VitePress 属性插件会保护的标准 `math_inline` 类型，避免 `\end{aligned}` 末尾的 `{aligned}` 被误当作网页属性。渲染器与 MPE 默认值相同，使用 KaTeX 0.16.47 的 `renderToString`、空宏配置和 `mhchem` 扩展；公式在静态构建时生成 HTML 与 MathML，不依赖浏览器再次处理。主题只让实际超出父容器的行内公式进入横向滚动状态；独立公式的溢出限制在自身区域，不扩大页面根宽度。
 
 `render-tikz.mjs` 只扫描以下代码块：
 
@@ -294,6 +308,6 @@ MathJax 处理行内公式、独立公式和 AMS 环境。`content/.vitepress/ma
 - 新增文章或分类同步行为时，必须扩展统一的 `sync` 事务，并同时补充预检、失败回滚、成功撤销和无变化测试；不得重新增加需要用户选择同步方向的入口。
 - 分类同步不得移动文章目录或附件，也不得修改与分类无关的文章设置。
 - 分类页结构元数据只能由同步器写入；分类介绍正文必须在重建、移动和撤销后保持。
-- 正文 CSS 变化需要同步检查 `.crossnote/style.less`、桌面双目录、390px 手机布局、公式溢出和 TikZ 缩放。
-- VitePress 或 MathJax 升级后需要重新检查动态路由、搜索、左侧分类树、右侧本文目录、移动端抽屉和页面根宽度。
+- 正文 CSS 变化需要同步检查桌面双目录、390px 手机布局、公式溢出和 TikZ 缩放；不得为了匹配网站而写入 Markdown Preview Enhanced 的项目级配置。
+- VitePress、Crossnote 兼容层或 KaTeX 升级后需要重新检查动态路由、搜索、左侧分类树、右侧本文目录、移动端抽屉、公式兼容性和页面根宽度。
 - 构建产物、缓存、生成的站点设置 CSS 和 TikZ 字体 CSS 不接受手工编辑。

@@ -13,16 +13,8 @@ $\rm{Ex.\ 4.1\ }$ 考虑准素分解 $\mathfrak{a}=\bigcap _{i=1}^{n}\mathfrak{q
 
 $\rm{Ex.\ 4.2\ }$ $\mathfrak{a}=r(\mathfrak{a})$ 则 $\mathfrak{a}=\bigcap_{\mathfrak{p}\supset \mathfrak{a}} \mathfrak{p}$ 。
 
-$\rm{Ex.\ 4.5\ }$ 考虑到 
-
-$$
-\mathfrak{p}_1\mathfrak{p}_2=(x^2,xy,xz,yz)\\\mathfrak{p}_1\cap \mathfrak{m}^2=(x^2,y^2,xy,yz,xz)\\\mathfrak{p}_2\cap \mathfrak{m}^2=(x^2,z^2,xy,yz,xz)\\\mathfrak{p}_1\cap \mathfrak{p}_2=(x,yz)$$
-
-而
-
-$$\mathfrak{p}_1\cap (\mathfrak{p}_2\cap \mathfrak{m}^2)=(x^2,xy,xz,yz)=\mathfrak{a}$$
-
-即知这是一个reduced的极小准素分解，$\mathfrak{p}_1$ 与 $\mathfrak{p}_2$ isolated而 $\mathfrak{m}$ embedded。
+$\rm{Ex.\ 4.5\ }$ 考虑到 $$
+\mathfrak{p}_1\mathfrak{p}_2=(x^2,xy,xz,yz)\\\mathfrak{p}_1\cap \mathfrak{m}^2=(x^2,y^2,xy,yz,xz)\\\mathfrak{p}_2\cap \mathfrak{m}^2=(x^2,z^2,xy,yz,xz)\\\mathfrak{p}_1\cap \mathfrak{p}_2=(x,yz)$$而$$\mathfrak{p}_1\cap (\mathfrak{p}_2\cap \mathfrak{m}^2)=(x^2,xy,xz,yz)=\mathfrak{a}$$即知这是一个reduced的极小准素分解，$\mathfrak{p}_1$ 与 $\mathfrak{p}_2$ isolated而 $\mathfrak{m}$ embedded。
 
 $\rm{Ex.\ 4.6\ }$ 用Urysohn很容易证明如果 $\mathfrak{p}$ 是 $C(X)$ 中的素理想，则 $\mathfrak{p}$ 有唯一公共零点（也就是包含于唯一的极大理想 $\mathfrak{m}_x$ ，极大理想皆形如 $\mathfrak{m}_x$ （或者是公共零点存在）由compact保证，而 $\mathfrak{m}_x$ 与 $\mathfrak{m}_y$ 两两不同（也就是公共零点唯一）由Urysohn保证），从而任何 $C(X)$ 中准素理想有唯一公共零点。现在由于 $X$ 无穷，如果 $0$ 有准素分解，也就是可以写作有限多准素理想的交，$0=\bigcap_{i=1}^n \mathfrak{q}_i$，那么取一个不是任何 $\mathfrak{q}_i$ 公共零点的 $x$ ，每个 $\mathfrak{q}_i$ 中取 $f_i(x)\ne 0$ ，那么 $\prod f_i\in \bigcap \mathfrak{q}_i$ ，然而 $\prod f_i\ne 0$ 矛盾。
 

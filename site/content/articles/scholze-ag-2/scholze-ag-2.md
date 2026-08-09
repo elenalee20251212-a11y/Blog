@@ -5,120 +5,167 @@ articleId: scholze-ag-2
 category: miscellaneous/inbox/unclassified
 ---
 
+# 12 向量丛与Picard群 (Vector Bundles and the Picard Group)
 
-# 13 有限性条件与维度 (Finiteness Conditions and Dimension)
+**注 12.1**：设 $X$ 是一个环化空间。类似于 $\mathcal{O}_X$-模，我们可以定义 $\mathcal{O}_X$-代数。即：作为交换环层 $\mathcal{A}$ 且其带有 $\mathcal{O}_X$-模结构；或者等价地，其带有环层态射 $\mathcal{O}_X \to \mathcal{A}$ 的结构。
 
-**定义 13.1**：
-设 $X$ 是一个方案，$\mathcal{M}$ 是一个拟凝聚层，若 $\mathcal{M}$ 由其全局截面生成，则称它是全局生成的（globally generated）。也就是说，若存在一组全局截面 $s_i \in \mathcal{M}(X)$（其中 $i \in I$ 是某个下标集），使得映射：
+**定义 12.2**：设 $\mathcal{M}$ 和 $\mathcal{N}$ 是 $\mathcal{O}_X$-模，我们将它们的张量积 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N}$ 定义为$$U \longmapsto \mathcal{M}(U) \otimes_{\mathcal{O}_X(U)} \mathcal{N}(U)$$的层化. 
+ 
+若 $\mathcal{M} = \mathcal{A}$ 是 $\mathcal{O}_X$-代数，则张量积 $\mathcal{A} \otimes_{\mathcal{O}_X} \mathcal{N}$ 是 $\mathcal{A}$-模；若 $\mathcal{N}$ 也是 $\mathcal{O}_X$-代数，则该张量积也是一个 $\mathcal{O}_X$-代数。
+特别地，若 $X = \operatorname{Spec} A$，且 $\mathcal{M} = \widetilde{M}$，$\mathcal{N} = \widetilde{N}$ 是拟凝聚 $\mathcal{O}_X$-模，那么 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N} = \widetilde{M \otimes_A N}$。实际上，对于 $V = D(f) \subseteq X$（其中 $f \in A$），有：
 $$
-\bigoplus_{i \in I} \mathcal{O}_X \longrightarrow \mathcal{M}
+\mathcal{M}(D(f)) \otimes_{\mathcal{O}_X(D(f))} \mathcal{N}(D(f)) = M[f^{-1}] \otimes_{A[f^{-1}]} N[f^{-1}] = (M \otimes_A N)[f^{-1}] = \widetilde{M \otimes_A N}(D(f))
 $$
-（它发送 $e_i \mapsto s_i$）是一个满射。
+在这种情况中，此预层本身就是层，因而不需要层化。
 
-**定义 13.2**：
-对于 $\mathbb{P}^n_R$ 上的任意拟凝聚层 $\mathcal{M}$，我们定义 $\mathcal{M}(m) := \mathcal{M} \otimes_{\mathcal{O}_{\mathbb{P}^n_R}} \mathcal{O}(m)$（对任意 $m \in \mathbb{Z}$）。
+**推论 12.3**：
+若 $X$ 是一个方案，$\mathcal{M}$ 和 $\mathcal{N}$ 是拟凝聚层，则 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N}$ 也是拟凝聚层。
 
-**定义 13.3**：
-一个方案 $X$ 被称为诺特的（noetherian），如果它有一个有限仿射开覆盖 $U_i = \operatorname{Spec} A_i$，其中每个 $A_i$ 都是诺特环。
-需要注意，该覆盖必须是**有限的**。
+**证明**：我们可以在局部仿射开集上进行验证，由上述讨论即得。 $\square$
 
-**命题 13.4**：
-以下关于方案 $X$ 的条件是等价的：
-1. $X$ 是一个诺特方案。
-2. $X$ 是拟紧的，且对于所有的仿射开子集 $U = \operatorname{Spec} A \subseteq X$，环 $A$ 是诺特环。
-*   **证明**：
-    $2 \implies 1$ 显然。现假定 $X$ 是诺特的，那么 $X$ 具有一个由拟紧开集组成的有限覆盖，所以 $X$ 本身是拟紧的。让我们将这一有限仿射开覆盖写成 $X = \bigcup_i U_i$（其中 $U_i = \operatorname{Spec} A_i$ 且 $A_i$ 诺特）。我们要证明，任意候选的仿射开集 $U = \operatorname{Spec} A \subseteq X$ 是诺特的。由于它本身是仿射方案，因而它是拟紧的，因此有：
-    $$
-    U \cap U_i = \bigcup_{j \in J_i} D_{U_i}(f_{ij}), \quad f_{ij} \in A_i
-    $$
-    因为 $D_{U_i}(f_{ij}) = \operatorname{Spec} A_i[f_{ij}^{-1}]$ 且我们已知 $A_i$ 是诺特环，而任何局部化也是诺特的。因此 $U$ 可以被一些诺特的仿射开集覆盖，由于其拟紧性，只需要有限个这样的开集即可。所以 $U = \operatorname{Spec} A$ 是一个诺特方案。因此我们可以假定 $X = U = \operatorname{Spec} A$。利用类似的论证，我们可以假定 $U_i = D(f_i)$（对某个 $f_i \in A$）。我们需要证明，如果 $A$ 是一个环，且其覆盖 $X = \operatorname{Spec} A = \bigcup_i D(f_i)$ 满足每一个 $A[f_i^{-1}]$ 均为诺特环，则 $A$ 也是诺特环。设 $I \subseteq A$ 是 $A$ 中的一个理想，则 $I = \widetilde{I} \subseteq \mathcal{O}_X = \widetilde{A}$ 是 $\operatorname{Spec} A$ 上的拟凝聚层。并且 $I$ 是有限型的，因为每一个 $I(D(f_i)) = I[f_i^{-1}]$ 都是有限生成的 $A[f_i^{-1}]$-模。命题 12.20 此时说明 $I$ 也是有限生成的。从而 $A$ 是诺特环。证毕。 $\square$
+**定义 12.4**：设 $(f, f^\sharp) : (Y, \mathcal{O}_Y) \to (X, \mathcal{O}_X)$ 是环化空间之间的映射。
+1. 若 $\mathcal{N}$ 是 $\mathcal{O}_Y$-模，则前推层 $f_*\mathcal{N}$ 带有如下结构态射，使其成为 $\mathcal{O}_X$-模：
+```tikz {embedFontCss=true}
+\begin{tikzcd}
+\mathcal{O}_X \times f_*\mathcal{N} \arrow[r, "f^\sharp \times \operatorname{id}_{f_*\mathcal{N}}"] & f_*\mathcal{O}_Y \times f_*\mathcal{N} \arrow[r, equal] & f_*(\mathcal{O}_Y \times \mathcal{N}) \arrow[r, "f_*(-)"] & f_*\mathcal{N}
+\end{tikzcd}
+```
+2. 若 $\mathcal{M}$ 是 $\mathcal{O}_X$-模，则 $f^{-1}\mathcal{M}$ 是一个通过如下映射定义的 $f^{-1}\mathcal{O}_X$-模层：
+   $$
+   f^{-1}\mathcal{O}_X \times f^{-1}\mathcal{M} = f^{-1}(\mathcal{O}_X \times \mathcal{M}) \longrightarrow f^{-1}(\mathcal{M})
+   $$
+   现将拉回层（pullback） $f^*\mathcal{M}$ 定义为如下 $\mathcal{O}_Y$-模：
+   $$
+   f^*\mathcal{M} = f^{-1}\mathcal{M} \otimes_{f^{-1}\mathcal{O}_X} \mathcal{O}_Y
+   $$
 
-**定义 13.5**：
-设 $T$ 是一个拓扑空间，则当且仅当 $T$ 中每一个递减的闭子集序列最终都稳定时，称 $T$ 是诺特的。
-
-**备注 13.6**：
-若 $T$ 是诺特空间，则 $T$ 是拟紧的。
-（证明：若存在开覆盖 $T = \bigcup_i U_i$ 没有有限子覆盖，则我们可以挑选出一个点序列 $(x_j)_j \in T$，满足对于所有的 $j$，有 $x_j \notin \bigcup_{j' < j} U_{j'}$，但是 $x_j \in U_j$。在这种情况下我们令 $Zj = T - \bigcup_{j' < j} U_{j'}$，那么就会得到一个严格单调递减的闭子集链：$T \supsetneq Z_0 \supsetneq Z_1 \supsetneq \cdots$。由于 $T$ 是诺特的，该链必然稳定，这意味着开覆盖只能由有限个元素索引。）
-
-**备注 13.7**：
-若 $T$ 是诺特空间，则它的任何开子集 $U \subseteq T$ 也是诺特空间。
-如果我们有 $U$ 中套叠的闭子集链 $Zi$，我们只需要考虑 $Z'_i = Z_i \cup (T - U)$，该序列在 $T$ 中是闭的且是一系列套叠的子集。特别是， $T$ 的任何开子集也都是拟紧的。
-实际上，诺特空间 $X$ 的任何子空间 $A$ 都是诺特的，因为其内部闭子集 $Z_i \subseteq A$ 对应于 $X$ 内部的闭子集 $\overline{Z_i} \subseteq X$，根据假设，其在 $X$ 中必然稳定。
-
-**备注 13.8**：
-若 $T$ 是诺特空间，这也说明了 $T$ 是拟分离的。给定两个拟紧开子集 $U_1, U_2 \subseteq T$，它们的交集 $U_1 \cap U_2$ 在 $T$ 中是开集，因而也是拟紧的。特别是，任何诺特空间 $T$ 既是拟紧的，也是拟分离的。
-
-**命题 13.9**：
-设 $X$ 是一个诺特方案，则它的拓扑空间 $|X|$ 是诺特空间。
-*   **证明**：
-    设 $X = \bigcup_i U_i$ 是一个由诺特仿射开集 $U_i = \operatorname{Spec} A_i$ 组成的有限覆盖。设：
-    $$
-    |X| \supseteq Z_0 \supseteq Z_1 \supseteq \cdots
-    $$
-    是一串递减的闭子集链。因为覆盖是有限的，只需对所有的 $i$ 验证：
-    $$
-    U_i \supseteq U_i \cap Z_0 \supseteq U_i \cap Z_1 \supseteq \cdots
-    $$
-    由此，我们不妨假设 $X = \operatorname{Spec} A$，其中 $A$ 是一个诺特环。此时我们有 $Z_i = V(I_i)$，其中 $I_i \subseteq A$ 是一些根理想（radical ideals），这给出了一个理想链：
-    $$
-    I_0 \subseteq I_1 \subseteq I_2 \subseteq \cdots
-    $$
-    由于 $A$ 是诺特环，必然存在一个 $N$ 使得对所有 $i > N$ 都有 $I_i = I_{i+1}$。证毕。 $\square$
-    （注：这一命题的逆命题是错误的。即使给定一个方案 $X$ 的拓扑空间 $|X|$ 是诺特空间， $X$ 本身也不见得是诺特方案。上述证明中的问题出在：在方案中我们只考虑了根理想。）
-
-**例子 13.10**：
-设 $R$ 为离散估值环（DVR），其分式域为 $K$。设 $\overline{K}$ 为 $K$ 的代数闭包（例如 $\overline{K} = k((t))(\sqrt[n]{t}, n > 1)$）。设 $\overline{R}$ 为 $R$ 在 $\overline{K}$ 中的整闭包（对我们来说就是 $\overline{R} = k[[t]][\sqrt[n]{t}, n > 1] = \bigcup_{n \ge 1} k[[t]][\sqrt[n]{t}] = k[[\sqrt[n]{t}]]$）。那么 $\overline{R}$ 不是诺特环（例如，因为理想链 $(t) \subsetneq (\sqrt{t}) \subsetneq (\sqrt[4]{t}) \subsetneq \cdots$ 严格递增不终止），但 $\operatorname{Spec} \overline{R}$ 是一个诺特空间。在我们的例子中，这是因为 $\operatorname{Spec} \overline{R} = \lim_n \operatorname{Spec} k[[\sqrt[n]{t}]]$，而每个 $k[[\sqrt[n]{t}]]_{\mathfrak{p}}$ 是一个 DVR，因此它仅由两个点组成。其所有的过渡态射也都是同胚，因此 $\operatorname{Spec} \overline{R}$ 的拓扑结构恰为两点空间 $\ast \to \ast$。
-
-**定义 13.11**：
-设 $X$ 是一个诺特方案，一个相干 $\mathcal{O}_X$-模 $\mathcal{A}$ 是一个有限型的拟凝聚 $\mathcal{O}_X$-模。
-（注：我们只有在 $X$ 是诺特方案时，才会采用这种定义的相干 $\mathcal{O}_X$-模。）
-
-**定理 13.12**：
-设 $X$ 是一个方案。则拟凝聚层范畴是阿贝尔范畴，且到 $\mathcal{O}_X$-模层的遗忘函子是精确的（exact）。
-*   **证明**：
-    参见练习卷 8 的第 3 题。 $\square$
-
-**定义 13.13**：
-方案之间的态射 $f : Y \to X$ 被称为有限型的（of finite type），如果 $f$ 是拟紧的，且存在 $Y$ 的一个仿射开覆盖 $\operatorname{Spec} B_i$，使得在每个 $\operatorname{Spec} B_i$ 上 $f$ 的限制均可通过某个 $\operatorname{Spec} A_i \subseteq X$ 分解，且通过相应的环映射， $B_i$ 是有限生成 $A_i$-代数。
-
-**命题 13.14**：
-如果 $f : Y = \operatorname{Spec} B \to X = \operatorname{Spec} A$ 是有限型态射，则 $B$ 是有限生成 $A$-代数。
-*   **证明**：
-    局部化 $A \to A[f^{-1}]$ 是有限生成的，所以我们实际上只需证明：如果 $Y = \bigcup_i D(g_i)$ 是 $B$ 的有限仿射开覆盖（其中 $g_i \in B$），使得对每个 $i$，$B[g_i^{-1}]$ 是有限生成 $A$-代数，则 $B$ 是有限生成 $A$-代数。固定一组有限的代数生成元：
-    $$
-    \frac{b_{ij}}{g_i^{n_{ij}}} \in B[g_i^{-1}]
-    $$
-    我们想证明集合 $\{g_i, b_{ij}\}$ 生成了作为 $A$-代数的 $B$。设 $A[G_i, B_{ij}] \to B$ 为发送 $G_i \to g_i$ 且 $B_{ij} \to b_{ij}$ 的映射。根据假设，对所有的 $i$，局部的映射 $A[G_i, B_{ij}][G_i^{-1}] \to B[G_i^{-1}] = B[g_i^{-1}]$ 是满射。只需说明对于所有的 $x \in \operatorname{Spec} A[G_i, B_{ij}]$，其在局部化上都是满射：
-    $$
-    A[G_i, B_{ij}]_{\mathfrak{p}_x} \longrightarrow B_{\mathfrak{p}_x}
-    $$
-    若 $x \in \bigcup_i D(G_i)$，那么根据上述假设，这一结论是显然的。若 $x \notin \bigcup_i D(G_i)$，由于 $\operatorname{Spec} B = \bigcup D(g_i)$，此时必然有 $B_{\mathfrak{p}_x} = 0$，所以满射性自然成立。证毕。 $\square$
-
-**命题 13.15**：
-如果 $f : Y \to X$ 是有限型态射，且 $X$ 是诺特的，那么 $Y$ 也是诺特的。
-*   **证明**：
-    已知 $X$ 是拟紧的，且 $f$ 是有限型态射意味着 $f$ 是拟紧的，所以 $Y$ 是拟紧的。给定任何映射到 $U = \operatorname{Spec} A \subseteq X$ 的仿射开集 $V = \operatorname{Spec} B \subseteq Y$，由条件可知 $B$ 是有限生成 $A$-代数。因为 $A$ 是诺特环，根据希尔伯特基底定理， $B$ 也是诺特环。证毕。 $\square$
-
-**备注 13.16**：
-若 $k$ 是代数闭域，那么代数几何中 $k$ 上“簇”（varieties）的经典概念本质上等同于 $\operatorname{Spec} k$ 上的有限型方案。
-
-**定义 13.17**：
-设 $T$ 是一个局部谱空间（locally spectral space），则 $T$ 的（Krull）维度（dimension）定义为 $T$ 中所有点特化链长度的最大上确界减去一，即：
+**命题 12.5**：
+存在一对伴随，其中左伴随为 $f^*$，右伴随为 $f_*$。即对每一个 $\mathcal{O}_X$-模 $\mathcal{M}$ 和每一个 $\mathcal{O}_Y$-模 $\mathcal{N}$，存在如下自然等同：
 $$
-\operatorname{dim} T = \sup_{n} \{x_0 \succ x_1 \succ x_2 \succ \cdots \succ x_n \mid x_i \in T, x_i \neq x_j, \forall i \neq j\}
+\operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})
 $$
-（注：我们用 $x \succ y$ 来表示 $x$ 特化为 $y$，这意味着对于包含 $y$ 的所有开集 $U$，都有 $x \in U$。我们也说 $y$ 推广了 $x$，写为 $y \prec x$。对于豪斯多夫空间，这一维度定义得到的都是零维。）
+**证明简述**：
+    我们已具备如下伴随：
+    $$
+    \operatorname{Hom}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}(\mathcal{M}, f_*\mathcal{N}) \supseteq \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})
+    $$
+    右侧子集对应于 $\mathcal{O}_X$-线性映射 $\mathcal{M} \to f_*\mathcal{N}$。在左侧对应的子集为 $f^{-1}\mathcal{O}_X$-线性映射 $f^{-1}\mathcal{M} \to \mathcal{N}$，即 $\operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N})$。因此我们有伴随：
+    $$
+    \operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})
+    $$
+    接着，利用换环同构（change of rings isomorphism）转换左侧：
+    $$
+    \operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_Y}(f^{-1}\mathcal{M} \otimes_{f^{-1}\mathcal{O}_X} \mathcal{O}_Y, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N})
+    $$
+    证毕。 $\square$
 
-**定义 13.18**：
-若 $X$ 是一个方案，则 $\operatorname{dim} X = \operatorname{dim} |X|$。
+**命题 12.6**：
+1. 设 $f : Y \to X$ 是方案之间的任意映射，且 $\mathcal{M}$ 是拟凝聚 $\mathcal{O}_X$-模，则 $f^*\mathcal{M}$ 是拟凝聚 $\mathcal{O}_Y$-模。
+2. 若 $Y = \operatorname{Spec} B$ 且 $X = \operatorname{Spec} A$，则 $\mathcal{M} \cong \widetilde{M}$（对某个 $A$-模 $M$），且 $f^*\mathcal{M} \cong \widetilde{M \otimes_A B}$。
+**证明**：
+    对于第 1 部分，可以用仿射开集 $V = \operatorname{Spec} B \subseteq Y$ 覆盖 $Y$，使其映射到仿射开集 $U = \operatorname{Spec} A \subseteq X$ 内。令 $g : V \to U$ 为 $f$ 在 $V$ 上的限制，那么有 $(f^*\mathcal{M})|_V = g^*(\mathcal{M}|_V)$。要验证 $f^*\mathcal{M}$ 的拟凝聚性，只需验证 $g^*(\mathcal{M}|_V)$ 的拟凝聚性即可。这说明我们可以将 $Y$ 用 $\operatorname{Spec} B$ 代替，且将 $X$ 用 $\operatorname{Spec} A$ 代替。因此只需证明第 2 部分。在此情况下 $\mathcal{M} = \widetilde{M}$，并且对所有 $\mathcal{O}_Y$-模 $\mathcal{N}$，我们有如下一连串同构：
+    $$
+    \begin{aligned}
+    \operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N}) &\cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N}) \\
+    &\cong \operatorname{Hom}_A(M, f_*\mathcal{N}(X)) \\
+    &= \operatorname{Hom}_A(M, \mathcal{N}(Y)) \\
+    &\cong \operatorname{Hom}_B(M \otimes_A B, \mathcal{N}(Y)) \\
+    &\cong \operatorname{Hom}_{\mathcal{O}_Y}(\widetilde{M \otimes_A B}, \mathcal{N})
+    \end{aligned}
+    $$
+    由 Yoneda 引理可得 $f^*\mathcal{M} \cong \widetilde{M \otimes_A B}$。证毕。 $\square$
 
-**例子 13.19**：
-设 $k$ 是一个代数闭域，且设 $X = \mathbb{A}^1_k$。泛点（generic point）可特化为所有的闭点。这产生了一个长度为 1 的特化链，这意味着 $\operatorname{dim} X = 1$。
+**例子 12.7**：
+定理 10.7 中对于所有环 $R$ 的 $\mathbb{P}^n_{\mathbb{Z}}(R)$ 刻画可推广到任意方案上。
 
-**例子 13.20**：
-若 $k$ 仍是代数闭域，且 $X = \mathbb{A}^2_k$，此时 $X$ 的点是一些闭点、不可约曲线以及泛点。由此，我们得到了一个长度为 2 的特化链，这意味着至少有 $\operatorname{dim} X \ge 2$（其实际维度恰好为 2）。
+**定义 12.8**：
+若 $X$ 是一个方案，则一个可逆 $\mathcal{O}_X$-模 $\mathcal{L}$ 是一个拟凝聚 $\mathcal{O}_X$-模，满足存在一个拟凝聚 $\mathcal{O}_X$-模 $\mathcal{N}$ 使得 $\mathcal{L} \otimes_{\mathcal{O}_X} \mathcal{N} \cong \mathcal{O}_X$。
 
-**引理 13.21**：
-若 $X = \bigcup_i U_i$ 是方案 $X$ 的一个开覆盖，则 $\operatorname{dim} X = \sup_i \operatorname{dim} U_i$。
-*   **证明**：
-    根据特化的定义，如果在 $X$ 中有一条特化链，这整条链必须完全落在某个固定的 $U_i$ 内部。证毕。 $\square$
+**注 12.9**：
+1. 若 $X = \operatorname{Spec} A$，则 $\mathcal{L} \cong \widetilde{L}$ 对某个 $A$-模 $L$ 成立，且 $\mathcal{L}$ 是可逆的当且仅当 $L$ 是可逆的。
+2. 我们完全可以不使用上述定义中的“拟凝聚”一词进行定义，此情况下 $\mathcal{L}$ 依然是一个拟凝聚层。对此事实的证明简述为：证明任何这样的可逆 $\mathcal{O}_X$-模在 $X$ 上局部上均为 $\mathcal{O}_X^n$（对某个 $n$）的直接加项，这与 $A$-模的情况完全类似。
+
+**推论 12.10**：
+对于任何方案 $X$，有：
+$$
+\mathbb{P}^n_{\mathbb{Z}}(X) \cong \{\mathcal{O}_X^{n+1} \twoheadrightarrow \mathcal{L} \mid \text{满射，其中 } \mathcal{L} \text{ 为可逆 } \mathcal{O}_X\text{-模}\} /\sim
+$$
+**证明**：
+    给定开子集 $U \subseteq X$，我们定义两个预层：$U \mapsto \mathbb{P}^n(U)$ 以及 $U \mapsto \{\mathcal{O}_U^{n+1} \to \mathcal{L}\}/\sim$。这两个层在一个仿射开覆盖上相一致，因而它们必然相等。实际上，它们之间存在一个天然的态射，当其在仿射开集上评估时是一个同构。证毕。 $\square$
+    特别是，若 $X = \mathbb{P}^n_{\mathbb{Z}}$，我们有 $\operatorname{id} \in \mathbb{P}^n_{\mathbb{Z}}(\mathbb{P}^n_{\mathbb{Z}})$，并且获得了一个自然的（“重言”）满射 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}^{n+1} \twoheadrightarrow \mathcal{L}$，其中 $\mathcal{L}$ 是一个可逆的 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}$-模。
+
+**定义 12.11**：
+我们定义 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}(1) := \mathcal{L}$。对于 $m \ge 1$，有 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}(m) := \mathcal{L}^{\otimes m}$；对于 $m < 0$，有：
+$$
+\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}(m) := \mathcal{H}om_{\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}}(\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}(-m), \mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}})
+$$
+
+**定义 12.12**：
+对于任何方案 $X$，定义 $X$ 的 Picard 群为：
+$$
+\operatorname{Pic}(X) = \{\text{可逆 } \mathcal{O}_X\text{-模}\} /\cong
+$$
+这是一个阿贝尔群，因为如果 $\mathcal{L}$ 和 $\mathcal{L}'$ 是可逆 $\mathcal{O}_X$-模，则 $\mathcal{L} \otimes_{\mathcal{O}_X} \mathcal{L}'$ 也是可逆的，且由于 $\mathcal{L}$ 是可逆的，每一个 $\mathcal{L}$ 都有一个逆。由于张量积在同构意义下满足交换律，该群是阿贝尔群。
+
+**定理 12.13**：
+对于任意域 $k$，我们可以通过发送 $m \mapsto \mathcal{O}_{\mathbb{P}^n_k}(m)$ 来计算：$\mathbb{Z} \cong \operatorname{Pic}(\mathbb{P}^n_k)$。
+
+**定义 12.14**：
+给定一个环 $R$，我们定义 $\mathbb{P}^n_R$ 如下：
+$$
+\mathbb{P}^n_R = \mathbb{P}^n_{\mathbb{Z}} \times_{\operatorname{Spec} \mathbb{Z}} \operatorname{Spec} R
+$$
+通常可逆 $\mathcal{O}_X$-模常被直接称为线丛（Geradenbündel）。
+
+**定理 12.15**：
+设 $X$ 是一个方案，$\mathcal{L}$ 是可逆 $\mathcal{O}_X$-模，则 $\mathcal{L}$ 在所有 $X$ 之上的方案 $f : Y \to X$ 上定义了一个函子 $\mathbb{V}(\mathcal{L})$：
+$$
+\mathbb{V}(\mathcal{L})(Y) := (f^*\mathcal{L})(Y) = \Gamma(Y, f^*\mathcal{L})
+$$
+此函子可由一个在 $X$ 之上同样记作 $\mathbb{V}(\mathcal{L})$ 的方案表示，使得存在 $X$ 的一个覆盖 $X = \bigcup_i U_i$，满足：
+$$
+\mathbb{V}(\mathcal{L}) \times_X U_i = \mathbb{V}(\mathcal{L})|_{U_i} \cong U_i \times \mathbb{A}^1
+$$
+方案 $\mathbb{V}(\mathcal{L})$ 可以看作一个线丛。
+
+**证明**：
+    利用一般的粘合引理，只需在 $X$ 局部上证明该结果即可。假设 $X = \operatorname{Spec} A$，使得 $\mathcal{L} = \widetilde{L}$，那么 $L$ 在 $\operatorname{Spec} A$ 上局部自由且秩为 1。在此情况下，我们假定 $L = A$，从而有：
+    $$
+    \mathbb{V}(\mathcal{L})(Y) = f^*\mathcal{L}(Y) = f^*(\mathcal{O}_X)(Y) \cong \mathcal{O}_Y(Y) \cong \operatorname{Hom}_{\text{Ring}}(\mathbb{Z}[T], \mathcal{O}_Y(Y))
+    $$
+    我们随后利用纤维积的普遍性质得到：
+    $$
+    \mathbb{V}(\mathcal{L})(Y) = \operatorname{Hom}_{\text{Ring}}(\mathbb{Z}[T], \mathcal{O}_Y(Y)) \cong \operatorname{Hom}_{\text{Sch}}(Y, \mathbb{A}^1) \cong \operatorname{Hom}_{\text{Sch}/X}(Y, \mathbb{A}^1 \times X)
+    $$
+    以此，我们能看到 $\mathbb{V}(\mathcal{L})$ 局部上由 $X \times \mathbb{A}^1$ 表示。证毕。 $\square$
+
+**定义 12.16**：
+给定一个方案 $X$，则一个向量丛（vector bundle） $\xi$ 是一个局部自由且秩有限的 $\mathcal{O}_X$-模层，即存在一个覆盖 $X = \bigcup_i U_i$，在每个 $U_i$ 上有：
+$$
+\xi|_{U_i} \cong \mathcal{O}_{U_i}^{n_i}
+$$
+其中 $n_i \ge 0$。需要注意，$n_i$ 并不需要对所有 $i$ 都恒定。如果对所有 $i$ 都有 $n_i = n$，则称 $\xi$ 为秩为 $n$ 的向量丛。
+
+**注 12.17**：
+如果 $\xi$ 是一个向量丛，那么它实际上是一个拟凝聚层。如果一个向量丛的秩为 1，那么它就是一个线丛，且恰好是一个可逆 $\mathcal{O}_X$-模。
+
+**命题 12.18**：
+设 $\xi$ 是 $X$ 上的一个向量丛，则 $\mathbb{V}(\xi)(Y) = (f^*\xi)(Y)$ 可以由一个在 $X$ 之上的方案 $\mathbb{V}(\xi)$ 表示。且存在覆盖 $X = \bigcup_i U_i$，使得有 $\mathbb{V}(\xi)|_{U_i} \cong U_i \times \mathbb{A}^{n_i}$。
+
+**证明**：
+    此证明与定理 12.15 相同，需要用到：
+    $$
+    \mathcal{O}_Y(Y)^{n_i} \cong \operatorname{Hom}_{\mathbb{Z}}(\mathbb{Z}[T_1, \dots, T_{n_i}], \mathcal{O}_Y(Y))
+    $$
+    证毕。 $\square$
+
+**定义 12.19**：
+一个拟凝聚 $\mathcal{O}_X$-模层 $\mathcal{M}$ 被称为有限型的（of finite type），如果存在一个开覆盖 $X = \bigcup_i U_i$，其中 $U_i = \operatorname{Spec} A_i$，使得 $\mathcal{M}(U_i)$ 是一个有限生成 $A_i$-模。
+显然，任何向量丛都是有限型的。
+
+**命题 12.20**：
+若 $X = \operatorname{Spec} A$ 且 $\mathcal{M} = \widetilde{M}$，则 $\mathcal{M}$ 是有限型的当且仅当 $M$ 是有限生成的。
+
+**证明**：
+    若 $M$ 有限生成，则 $\mathcal{M}$ 显然是有限型的。反过来，设 $X = \bigcup_i D(f_i)$ 为某个由有限个 $f_i \in A$ 组成的主开集覆盖。作为 $A[f_i^{-1}]$-模，其截面 $\mathcal{M}(D(f_i)) = M[f_i^{-1}]$ 是有限生成的。对每个 $i$，我们选择一组有限的生成元 $m_{ij}/f_i^{n_j}$（其中 $m_{ij} \in M$ 且 $n_j \ge 0$），由于 $i$ 只有有限个，这一套所有的 $m_{ij}$ 的集合必然是有限的。我们声称，这些 $m_{ij}$ 生成了 $M$。因为由这些 $m_{ij}$ 导出的映射 $A^N \to M$（其中 $N$ 是所有 $i$ 和 $j$ 的总和）在局部化每个 $f_i$ 之后是满射，进而 $A^N \to M$ 本身是满射。因此 $M$ 是有限生成的。证毕。 $\square$
+

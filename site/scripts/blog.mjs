@@ -15,7 +15,7 @@ import {
   SITE_CONFIG_PATH,
   SITE_ROOT
 } from './site-lib.mjs'
-import { findInternalReferences, replaceInternalReferenceTarget } from './internal-references.mjs'
+import { findInternalReferences, replaceReferencesToMovedFile, resolvedReference } from './internal-references.mjs'
 
 const ID_RE = /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$/
 const CHECK_SCRIPT = path.join(SITE_ROOT, 'scripts', 'check-content.mjs')
@@ -59,15 +59,6 @@ function ensureArticleIdAvailable(id, excluded = '') {
   const ids = readAllArticles().map((article) => article.id)
   const conflict = conflictingId(ids, id, excluded)
   if (conflict) fail(`文章文件名与现有文章冲突：${id} 与 ${conflict}。项目不允许仅大小写不同的两个名称。`)
-}
-
-function ensureInternalReferenceIdAvailable(id, excluded = '') {
-  const ids = [
-    ...readAllArticles().map((article) => article.id),
-    ...readCategoryDefinitions().definitions.map((category) => category.id)
-  ]
-  const conflict = conflictingId(ids, id, excluded)
-  if (conflict) fail(`文章和分类的内部引用名称不能重复：${id} 与 ${conflict} 冲突。`)
 }
 
 function namedArticleFile(id) {
@@ -206,13 +197,15 @@ function runContentCheck(transaction) {
     .catch(() => null)
 }
 
-function applyLinkReplacement(transaction, oldRoute, newRoute, oldId = '', newId = '', excluded = new Set()) {
+function applyLinkReplacement(transaction, oldRoute, newRoute, movedTargets = [], sourceMoves = new Map()) {
   let changed = 0
   for (const file of collectMarkdown(CONTENT_ROOT)) {
-    if (excluded.has(path.resolve(file))) continue
     const before = fs.readFileSync(file, 'utf8')
     let after = before.split(oldRoute).join(newRoute)
-    if (oldId && newId && oldId !== newId) after = replaceInternalReferenceTarget(after, oldId, newId)
+    const previousSource = sourceMoves.get(path.resolve(file)) ?? file
+    for (const [oldTarget, newTarget] of movedTargets) {
+      after = replaceReferencesToMovedFile(after, previousSource, oldTarget, newTarget, SITE_ROOT, {}, file)
+    }
     if (after !== before) {
       transaction.write(file, after)
       changed += 1
@@ -221,12 +214,15 @@ function applyLinkReplacement(transaction, oldRoute, newRoute, oldId = '', newId
   return changed
 }
 
-function inboundLinks(route, excludedDirectory = '', internalId = '') {
+function inboundLinks(route, excludedDirectory = '', targetFile = '') {
   const matches = []
   for (const file of collectMarkdown(CONTENT_ROOT)) {
     if (excludedDirectory && path.resolve(file).startsWith(path.resolve(excludedDirectory) + path.sep)) continue
     const markdown = fs.readFileSync(file, 'utf8')
-    const hasInternalReference = internalId && findInternalReferences(markdown).some((reference) => reference.id === internalId)
+    const hasInternalReference = targetFile && findInternalReferences(markdown).some((reference) => {
+      const resolved = resolvedReference(reference, file, SITE_ROOT)
+      return equalPathIgnoringCase(resolved.targetFile, targetFile)
+    })
     if (markdown.includes(route) || hasInternalReference) matches.push(path.relative(SITE_ROOT, file))
   }
   return matches
@@ -419,7 +415,6 @@ function renameArticle({ id, newId }) {
   validateId(newId, '新文章文件名')
   if (id === newId) fail('新文章文件名与原名相同。')
   ensureArticleIdAvailable(newId, id)
-  ensureInternalReferenceIdAvailable(newId, id)
   const oldDirectory = path.dirname(article.file)
   const newDirectory = path.join(ARTICLE_ROOT, newId)
   if (fs.existsSync(newDirectory) && !equalPathIgnoringCase(oldDirectory, newDirectory)) fail(`目标文章已经存在：${newId}`)
@@ -430,7 +425,13 @@ function renameArticle({ id, newId }) {
     const newFile = path.join(newDirectory, `${newId}.md`)
     transaction.move(movedOldFile, newFile)
     transaction.write(newFile, replaceSetting(fs.readFileSync(newFile, 'utf8'), 'articleId', newId))
-    const links = applyLinkReplacement(transaction, `/articles/${id}/`, `/articles/${newId}/`, id, newId)
+    const links = applyLinkReplacement(
+      transaction,
+      `/articles/${id}/`,
+      `/articles/${newId}/`,
+      [[article.file, newFile]],
+      new Map([[path.resolve(newFile), article.file]])
+    )
     runContentCheck(transaction)
     console.log(`\n文章已重命名：${id} → ${newId}`)
     console.log(`已更新 ${links} 个包含旧文章网址的 Markdown 文件。`)
@@ -443,8 +444,8 @@ function renameArticle({ id, newId }) {
 function removeArticle({ id, confirmed }) {
   const article = articleById(id)
   const route = `/articles/${id}/`
-  const links = inboundLinks(route, path.dirname(article.file), id)
-  if (links.length) fail(`以下文件仍链接到这篇文章，请先修改链接：\n${links.map((file) => `- ${file}`).join('\n')}`)
+  const links = inboundLinks(route, path.dirname(article.file), article.file)
+  if (links.length) console.log(`移除后，以下文件中的引用会指向不存在的页面：\n${links.map((file) => `- ${file}`).join('\n')}`)
   if (!confirmed) fail(`移除文章需要确认。再次运行 node blog.mjs remove ${id} --yes 可以确认该操作。`)
   const stamp = new Date().toISOString().replace(/[:.]/g, '-')
   const trash = path.join(TRASH_ROOT, 'articles', `${id}-${stamp}`)
@@ -462,7 +463,6 @@ function nextOrder(parentPath) {
 
 function createCategory({ parent, id, title, description = '' }) {
   validateId(id, '分类文件名')
-  ensureInternalReferenceIdAvailable(id)
   const { category: parentCategory } = categoryByPath(parent)
   if (parentCategory.depth !== 2) fail('这个命令只能在现有二级分类下建立三级分类。需要同时建立一级分类和二级分类时，请使用 category branch。')
   const categoryPath = `${parent}/${id}`
@@ -548,7 +548,6 @@ function renameCategoryTitle({ categoryPath, title }) {
 function relocateCategory({ source, parent, newId }) {
   const { category, taxonomy } = categoryByPath(source)
   validateId(newId, '新分类文件名')
-  ensureInternalReferenceIdAvailable(newId, category.id)
   let parentCategory = null
   if (parent) {
     parentCategory = taxonomy.byPath.get(parent)
@@ -566,6 +565,13 @@ function relocateCategory({ source, parent, newId }) {
   const currentDefault = defaultCategoryPath()
   const oldDirectory = path.dirname(category.file)
   const newDirectory = path.join(CATEGORY_ROOT, ...targetPath.split('/'))
+  const movedTargets = collectMarkdown(oldDirectory).map((oldFile) => {
+    const relative = path.relative(oldDirectory, oldFile)
+    let newFile = path.join(newDirectory, relative)
+    if (equalPathIgnoringCase(oldFile, category.file)) newFile = path.join(newDirectory, `${newId}.md`)
+    return [oldFile, newFile]
+  })
+  const sourceMoves = new Map(movedTargets.map(([oldFile, newFile]) => [path.resolve(newFile), oldFile]))
   const transaction = new Transaction()
   try {
     transaction.move(oldDirectory, newDirectory)
@@ -590,7 +596,13 @@ function relocateCategory({ source, parent, newId }) {
       const nextDefault = targetPath + currentDefault.slice(source.length)
       transaction.write(SITE_CONFIG_PATH, replaceDefaultCategory(fs.readFileSync(SITE_CONFIG_PATH, 'utf8'), nextDefault))
     }
-    const links = applyLinkReplacement(transaction, `/categories/${source}/`, `/categories/${targetPath}/`, category.id, newId)
+    const links = applyLinkReplacement(
+      transaction,
+      `/categories/${source}/`,
+      `/categories/${targetPath}/`,
+      movedTargets,
+      sourceMoves
+    )
     runContentCheck(transaction)
     console.log(`\n分类路径已修改：${source} → ${targetPath}`)
     console.log(`已同步下级分类、所属文章和 ${links} 个 Markdown 链接。`)
@@ -625,7 +637,12 @@ function mergeCategory({ source, target, confirmed }) {
     if (defaultCategoryPath() === source) {
       transaction.write(SITE_CONFIG_PATH, replaceDefaultCategory(fs.readFileSync(SITE_CONFIG_PATH, 'utf8'), target))
     }
-    const links = applyLinkReplacement(transaction, `/categories/${source}/`, `/categories/${target}/`, sourceCategory.id, targetCategory.id)
+    const links = applyLinkReplacement(
+      transaction,
+      `/categories/${source}/`,
+      `/categories/${target}/`,
+      [[sourceCategory.file, targetCategory.file]]
+    )
     const stamp = new Date().toISOString().replace(/[:.]/g, '-')
     const trash = path.join(TRASH_ROOT, 'categories', `${source.replaceAll('/', '__')}-${stamp}`)
     transaction.move(path.dirname(sourceCategory.file), trash)
@@ -662,10 +679,10 @@ function removeCategory({ categoryPath, confirmed, prune }) {
   }
   const linkProblems = []
   for (const item of pruned) {
-    const links = inboundLinks(`/categories/${item.path}/`, path.dirname(highest.file), item.id)
+    const links = inboundLinks(`/categories/${item.path}/`, path.dirname(highest.file), item.file)
     if (links.length) linkProblems.push(...links.map((file) => `${item.path} ← ${file}`))
   }
-  if (linkProblems.length) fail(`以下文件仍链接到将要删除的分类，请先修改链接：\n${linkProblems.map((file) => `- ${file}`).join('\n')}`)
+  if (linkProblems.length) console.log(`删除后，以下文件中的引用会指向不存在的页面：\n${linkProblems.map((file) => `- ${file}`).join('\n')}`)
   if (!confirmed) fail('删除操作需要确认，请在命令末尾添加 --yes。')
   const stamp = new Date().toISOString().replace(/[:.]/g, '-')
   const trash = path.join(TRASH_ROOT, 'categories', `${highest.path.replaceAll('/', '__')}-${stamp}`)

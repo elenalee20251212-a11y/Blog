@@ -11,11 +11,7 @@ order: 2
 ---
 > Chapter 2.1
 
-**一般范畴上的层**：对预层 $\mathcal{F}$ 和开集 $U$ 的一组开覆盖 $U=\bigcup _{i\in I}U_i$ ，考虑图表
-
-$$\mathcal{F}(U) \longrightarrow \prod_{i \in I} \mathcal{F}(U_i) \mathrel{\substack{\displaystyle\longrightarrow \\[-0.6ex] \displaystyle\longrightarrow}}\! \prod_{(i_0, i_1) \in I \times I} \mathcal{F}(U_{i_0} \cap U_{i_1})$$
-
-左边的映射是 $s \mapsto \prod _{i \in I} s|_{U_ i}$ ，右边两个映射分别是 $s_i$ 作为 $i_{0}$ 和 $i_1$ 往 $U_{i_0}\cap U_{i_1}$ 上限制。如果这个图表对**任意** $U$ 和 $U$ 的开覆盖，左边映射都是右边的equalizer（或者说是右边双箭头的limit），则 $\mathcal{F}$ 是一个sheaf。具体的比如说对 $\mathsf{Set}$ ，$f$ 和 $g$ 的equalizer无非 $\{ x\in X:f(x)=g(x) \}$ ，所以 $\mathcal{F}(U)$ 上截面相当于一组相容的 $\mathcal{F}(U_i)$ 上截面，即得常见的sheaf定义。
+**一般范畴上的层**：对预层 $\mathcal{F}$ 和开集 $U$ 的一组开覆盖 $U=\bigcup _{i\in I}U_i$ ，考虑图表$$\mathcal{F}(U) \longrightarrow \prod_{i \in I} \mathcal{F}(U_i) \mathrel{\substack{\displaystyle\longrightarrow \\[-0.6ex] \displaystyle\longrightarrow}}\! \prod_{(i_0, i_1) \in I \times I} \mathcal{F}(U_{i_0} \cap U_{i_1})$$左边的映射是 $s \mapsto \prod _{i \in I} s|_{U_ i}$ ，右边两个映射分别是 $s_i$ 作为 $i_{0}$ 和 $i_1$ 往 $U_{i_0}\cap U_{i_1}$ 上限制。如果这个图表对**任意** $U$ 和 $U$ 的开覆盖，左边映射都是右边的equalizer（或者说是右边双箭头的limit），则 $\mathcal{F}$ 是一个sheaf。具体的比如说对 $\mathsf{Set}$ ，$f$ 和 $g$ 的equalizer无非 $\{ x\in X:f(x)=g(x) \}$ ，所以 $\mathcal{F}(U)$ 上截面相当于一组相容的 $\mathcal{F}(U_i)$ 上截面，即得常见的sheaf定义。
 
 **关于层化sheafication**：一个非层的预层例子是常值预层 $\mathcal{F}(U)=A$ ，考虑在两个连通分支 $U,V$ 上各取不同的 $x,y\in A$ ，则无法找到一个 $a\in A$ 同时限制在 $U,V$ 上是 $x,y$ ，是也就是同时等于 $x,y$ 。它的层化 $\mathcal{F}^+$ 则是连通分支那么多个份 $A$ 的乘积（考虑stalk皆为 $A$ ，section的定义相当于要求是 $U\to \bigsqcup _{p\in U} \mathcal{F}_p$ 的局部常值映射，所以在连通分支上有唯一取值）。
 
@@ -29,19 +25,7 @@ $\mathrm{Ex.\ 1.13.}$ 回忆 $\mathcal{F}^+$ 的section被定义为 $U\to \bigsq
 
 $\mathrm{Ex.\ 1.18.}$ 设 $f:X\to Y$ 是连续映射，$\mathcal{F},\mathcal{G}$ 分别是 $X,Y$ 上的层，记 $f^+\mathcal{G}$ 为 $U\mapsto \varinjlim_{V\supset f(U)}\mathcal{G}(V)$ ，至于$f^+\mathcal{G}$ 关于 $U\subset U'$ 的限制映射考虑到定义 $f^+\mathcal{G}(U')$ 的偏序集是定义 $f^+\mathcal{G}(U)$ 的偏序集之子集，从而由colimit的universal property自然给出。类似地 $f^+$ 在 $\mathsf{PSh}(X)$ 中不同预层间的态射也由于colimit的构造，且关于 $\mathcal{G}$ 具有函子性。
 
-只需证明 $f^+$ 是 $f_*$ 的左伴随，有自然同构
-
-$$\mathsf{PSh}(X)(f^+\mathcal{G},\mathcal{F})\cong \mathsf{PSh}(Y)(\mathcal{G},f_*\mathcal{F})$$
-
-证明此事由层化的universal property自然得到 $f^{-1}$ 是 $f_*$ 左伴随。先定义自然的映射 $i_\mathcal {G} : \mathcal{G} \to f_* f^+ \mathcal{G}$ 和 $c_\mathcal {F} : f^+ f_* \mathcal{F} \to \mathcal{F}$ 。事实上
-
-$$f_*f^+\mathcal{G}(V)=f^+\mathcal{G}(f^{-1}(V))=\varinjlim_{V'\supset f(f^{-1}(V))}\mathcal{G}(V')$$
-
-对应包含 $f(f^{-1}(V))$ 的偏序集中正包含 $V$ ，所以colimit自带了 $i_{\mathcal{G}}$ ；对 $f^+ f_* \mathcal{F}$ 则是
-
-$$f^+f_*\mathcal{F}(U)=\varinjlim_{V\supset f(U)}\mathcal{F}(f^{-1}(V))$$
-
-但对每个 $f(U)\subset V$ 都有 $U\subset f^{-1}(V)$ ，所以每个 $\mathcal{F}(f^{-1}(V))$ 到 $\mathcal{F}(U)$ 的限制给出了 $c_{\mathcal{F}}$ 。
+只需证明 $f^+$ 是 $f_*$ 的左伴随，有自然同构$$\mathsf{PSh}(X)(f^+\mathcal{G},\mathcal{F})\cong \mathsf{PSh}(Y)(\mathcal{G},f_*\mathcal{F})$$证明此事由层化的universal property自然得到 $f^{-1}$ 是 $f_*$ 左伴随。先定义自然的映射 $i_\mathcal {G} : \mathcal{G} \to f_* f^+ \mathcal{G}$ 和 $c_\mathcal {F} : f^+ f_* \mathcal{F} \to \mathcal{F}$ 。事实上$$f_*f^+\mathcal{G}(V)=f^+\mathcal{G}(f^{-1}(V))=\varinjlim_{V'\supset f(f^{-1}(V))}\mathcal{G}(V')$$对应包含 $f(f^{-1}(V))$ 的偏序集中正包含 $V$ ，所以colimit自带了 $i_{\mathcal{G}}$ ；对 $f^+ f_* \mathcal{F}$ 则是$$f^+f_*\mathcal{F}(U)=\varinjlim_{V\supset f(U)}\mathcal{F}(f^{-1}(V))$$但对每个 $f(U)\subset V$ 都有 $U\subset f^{-1}(V)$ ，所以每个 $\mathcal{F}(f^{-1}(V))$ 到 $\mathcal{F}(U)$ 的限制给出了 $c_{\mathcal{F}}$ 。
 
 现在给定态射 $\psi:f^+\mathcal{G}\to \mathcal{F}$ ，用 $f_*$ 作用之后再用 $i_{\mathcal{G}}$ 拉回得到 $f_*\psi i_{\mathcal{G}}:\mathcal{G}\to f_*\mathcal{F}$ ；类似地，给定 $\varphi:\mathcal{G}\to f_*\mathcal{F}$ ，用 $f^+$ 作用后再以 $c_{\mathcal{F}}$ 推出得到 $c_{\mathcal{F}}f^+\varphi:f^+\mathcal{G}\to \mathcal{F}$ 。验证它们是互逆的自然变换则大功告成：$f^+\mathcal{G}(U)$ 由包含 $f(U)$ 的 $\mathcal{G}(V)$ 构成， $f^+\mathcal{G}(U)\to \mathcal{F}(U)$ 就是这些 $\mathcal{G}(V)$ 到 $\mathcal{F}(U)$ 的一族相容同态，以 $f_*$ 作用后只考虑诸 $f^{-1}(V)$ ，而由于 $V$ 包含 $f(f^{-1}(V))$ 故colimit的cone构造中自带了 $\mathcal{G}(V)\to f_*f^+\mathcal{G}(V)$ ，复合起来正是 $\mathcal{G}(V)\to \mathcal{F}(f^{-1}(V))$ ；反过来 $\varphi$ 就是 $\mathcal{G}(V)\to \mathcal{F}(f^{-1}(V))$ ，每个满足 $f(U)\subset V$ 的 $\mathcal{F}(f^{-1}(V))$ 都有向 $\mathcal{F}(U)$ 的限制，于是用 $f^+$ 作用后以 $c_{\mathcal{F}}$ 推出相当于给定 $U$ ，所有 $f(U)\subset V$ 的 $V$ 对应的 $\mathcal{G}(V)\to \mathcal{F}(f^{-1}(V))\to \mathcal{F}(U)$ 给出的 $f^+\mathcal{G}(U)\to \mathcal{F}(U)$ 。
 

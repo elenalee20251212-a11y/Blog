@@ -13,29 +13,51 @@ let resizeObserver
 let mutationObserver
 let scheduled = false
 
-function markOverflowingMath() {
+function syncOutlineMath() {
+  const links = document.querySelectorAll('.VPDocOutlineItem .outline-link:not([data-rich-outline])')
+  for (const link of links) {
+    const href = link.getAttribute('href')
+    if (!href?.startsWith('#')) continue
+    let heading
+    try {
+      heading = document.getElementById(decodeURIComponent(href.slice(1)))
+    } catch {
+      continue
+    }
+    if (!heading?.querySelector('mjx-container, .katex')) continue
+
+    const copy = heading.cloneNode(true)
+    copy.querySelectorAll('.header-anchor').forEach((anchor) => anchor.remove())
+    link.replaceChildren(...copy.childNodes)
+    link.dataset.richOutline = 'true'
+  }
+}
+
+function refreshRenderedContent() {
   scheduled = false
-  const formulas = document.querySelectorAll('.vp-doc mjx-container:not([display="true"])')
+  const formulas = [...document.querySelectorAll('.vp-doc .katex')]
+    .filter((formula) => !formula.closest('.katex-display'))
   for (const formula of formulas) {
     formula.classList.remove('math-overflow')
     const available = formula.parentElement?.clientWidth ?? 0
     if (available && formula.scrollWidth > available + 1) formula.classList.add('math-overflow')
   }
+  syncOutlineMath()
 }
 
-function scheduleMathCheck() {
+function scheduleRenderedContentRefresh() {
   if (scheduled) return
   scheduled = true
-  requestAnimationFrame(markOverflowingMath)
+  requestAnimationFrame(refreshRenderedContent)
 }
 
 onMounted(() => {
-  scheduleMathCheck()
+  scheduleRenderedContentRefresh()
   const content = document.querySelector('.VPContent')
   if (!content) return
-  resizeObserver = new ResizeObserver(scheduleMathCheck)
+  resizeObserver = new ResizeObserver(scheduleRenderedContentRefresh)
   resizeObserver.observe(content)
-  mutationObserver = new MutationObserver(scheduleMathCheck)
+  mutationObserver = new MutationObserver(scheduleRenderedContentRefresh)
   mutationObserver.observe(content, { childList: true, subtree: true })
 })
 
@@ -44,7 +66,7 @@ onBeforeUnmount(() => {
   mutationObserver?.disconnect()
 })
 
-watch(() => route.path, () => nextTick(scheduleMathCheck))
+watch(() => route.path, () => nextTick(scheduleRenderedContentRefresh))
 </script>
 
 <template>

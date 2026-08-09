@@ -6,4 +6,3 @@ articleId: notes-on-atiyah-s-commutative-algebra-9
 category: mathematics/algebraic-geometry/atiyah-macdonald
 order: 11
 ---
-

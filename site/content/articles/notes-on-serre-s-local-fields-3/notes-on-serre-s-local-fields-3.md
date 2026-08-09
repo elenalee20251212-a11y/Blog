@@ -6,4 +6,3 @@ articleId: notes-on-serre-s-local-fields-3
 category: mathematics/number-theory/serre-local-fields
 order: 3
 ---
-

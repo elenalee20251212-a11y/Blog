@@ -29,25 +29,9 @@ $\rm{Problem\ 1.1. }$
 
 (a) 如果 $|x+y|>|x|$ 即 $|1+y/x|>1$，则欲证 $|x+y|\leqslant \max(|x|,|y|)$ 只需证 $|x+y|\leqslant |y|$ ，即 $|1+y/x|\leqslant |y/x|$ 。现在只需证 $|1+x|>1$ 推出 $|1+x|\leqslant |x|$ ，而假若不然 $|1+x|>1$ 时，$|1+x|^n\leqslant 1+|x|+\cdots +|x|^n$ ，但因为 $|x|<|1+x|$ 左边是右边的高阶无穷大，矛盾。 $\square$
 
-(b) 假设 $\left| \cdot\right|$ 是一个 $\mathbb{Q}$ 上的绝对值。首先证明存在 $m\geqslant 2$ 使得 $|m|\leqslant 1$ ，则 $\left| \cdot\right|$ 非阿：取 $n\geqslant 2$ ，把 $n$ 关于 $m$ 进制展开
+(b) 假设 $\left| \cdot\right|$ 是一个 $\mathbb{Q}$ 上的绝对值。首先证明存在 $m\geqslant 2$ 使得 $|m|\leqslant 1$ ，则 $\left| \cdot\right|$ 非阿：取 $n\geqslant 2$ ，把 $n$ 关于 $m$ 进制展开$$n = a_0 + a_1 m + a_2 m^2 + \cdots + a_s m^s\quad 0\leqslant a_i\leqslant m-1$$因为 $|k|=|k\cdot 1|\leqslant k$ 所以$$\left| n \right|\leqslant m(1+s)\leqslant m(1+\log_{m}n)$$以 $n^k$ 代 $n$ 则是 $|n|\leqslant m^{\frac{1}{k}}(1+kc)^{\frac{1}{k}}$ ，其中 $c=\log_{m}n$ ，使 $k\to \infty$ 得到 $|n|\leqslant 1$ ，明所欲证。现在假设 $\left| \cdot\right|$ 阿基米德，任意 $n\geqslant 2$ 均满足 $|n|>0$ ，取 $n,m\geqslant 2$ ，如上以 $m$ 进制展开 $n$ ，令 $\alpha=\log_{m} |m| $ ，则 $\alpha>0$ ，从而$$\begin{aligned}\left| n \right|&\leqslant 1+m^\alpha+m^{2\alpha}+\cdots+m^{s\alpha}\\&\leqslant \dfrac{m^{(s+1)\alpha}-1}{m^\alpha-1}\leqslant \dfrac{m^{(s+1)\alpha}}{m^\alpha-1}\leqslant n^\alpha\left( \dfrac { {m}^\alpha} { {m}^\alpha - 1} \right) \end{aligned}$$以 $n^k$ 代 $n$ 得到 $\left| n \right| \leqslant n^{\alpha}\left( \dfrac { {m}^\alpha} { {m}^\alpha - 1} \right)^{\frac{1}{k}}$ ，使 $k\to \infty$ 得到 $\left| n \right|\leqslant n^\alpha$ 。由于 $m$ 可以任取，令 $c=\inf\{ \log_m|m|:m\geqslant 2 \}$ ，则 $|n|= n^c$ ，而且因为阿基米德所以 $c>0$ ，进而给出 $\left| \cdot\right|$ 和 $\left| \cdot\right|_\infty$ 的等价。而如果  $\left| \cdot \right|$ 非阿，考虑赋值环 $A=\{ x\in \mathbb{Q}:|x|\leqslant 1 \}$ ，对应有极大理想 $\mathfrak{m}=\{ x\in \mathbb{Q}:|x|<1  \}$ ，特别的，$\mathbb{Z}\subset  A$ ，$\mathfrak{m}\cap \mathbb{Z}$ 是 $\mathbb{Z}$ 中素理想，从而为某个 $(p)$ 。由此知，对一切与 $p$ 相异的素数 $q$ ，$|q|=1$ ，而 $|p|<1$ ，从而 $|x|=|p|^{v_p(x)}=|x|_p^{-\log_p |p|}$ 。$\square$
 
-$$n = a_0 + a_1 m + a_2 m^2 + \cdots + a_s m^s\quad 0\leqslant a_i\leqslant m-1$$
-
-因为 $|k|=|k\cdot 1|\leqslant k$ 所以
-
-$$\left| n \right|\leqslant m(1+s)\leqslant m(1+\log_{m}n)$$
-
-以 $n^k$ 代 $n$ 则是 $|n|\leqslant m^{\frac{1}{k}}(1+kc)^{\frac{1}{k}}$ ，其中 $c=\log_{m}n$ ，使 $k\to \infty$ 得到 $|n|\leqslant 1$ ，明所欲证。现在假设 $\left| \cdot\right|$ 阿基米德，任意 $n\geqslant 2$ 均满足 $|n|>0$ ，取 $n,m\geqslant 2$ ，如上以 $m$ 进制展开 $n$ ，令 $\alpha=\log_{m} |m| $ ，则 $\alpha>0$ ，从而
-
-$$\begin{aligned}\left| n \right|&\leqslant 1+m^\alpha+m^{2\alpha}+\cdots+m^{s\alpha}\\&\leqslant \dfrac{m^{(s+1)\alpha}-1}{m^\alpha-1}\leqslant \dfrac{m^{(s+1)\alpha}}{m^\alpha-1}\leqslant n^\alpha\left( \dfrac { {m}^\alpha} { {m}^\alpha - 1} \right) \end{aligned}$$
-
-以 $n^k$ 代 $n$ 得到 $\left| n \right| \leqslant n^{\alpha}\left( \dfrac { {m}^\alpha} { {m}^\alpha - 1} \right)^{\frac{1}{k}}$ ，使 $k\to \infty$ 得到 $\left| n \right|\leqslant n^\alpha$ 。由于 $m$ 可以任取，令 $c=\inf\{ \log_m|m|:m\geqslant 2 \}$ ，则 $|n|= n^c$ ，而且因为阿基米德所以 $c>0$ ，进而给出 $\left| \cdot\right|$ 和 $\left| \cdot\right|_\infty$ 的等价。而如果  $\left| \cdot \right|$ 非阿，考虑赋值环 $A=\{ x\in \mathbb{Q}:|x|\leqslant 1 \}$ ，对应有极大理想 $\mathfrak{m}=\{ x\in \mathbb{Q}:|x|<1  \}$ ，特别的，$\mathbb{Z}\subset  A$ ，$\mathfrak{m}\cap \mathbb{Z}$ 是 $\mathbb{Z}$ 中素理想，从而为某个 $(p)$ 。由此知，对一切与 $p$ 相异的素数 $q$ ，$|q|=1$ ，而 $|p|<1$ ，从而 $|x|=|p|^{v_p(x)}=|x|_p^{-\log_p |p|}$ 。$\square$
-
-(c) 考虑到
-
-$$\left|\pm \prod_{q} q^{e_q} \right|_p=p^{-e_p} $$
-
-对 $p<\infty$ ，而 $|x|_\infty=|x|$ 。 $\square$
+(c) 考虑到$$\left|\pm \prod_{q} q^{e_q} \right|_p=p^{-e_p} $$对 $p<\infty$ ，而 $|x|_\infty=|x|$ 。 $\square$
 
 $\rm{Problem\ 1.2. }$
 
@@ -80,14 +64,6 @@ $\rm{Problem\ 1.4. }$
 
 (c) (b) 和 $A$ UFD性质的立即推论。
 
-(d)考虑 $a$ 在 $A/(b)$ 上的作用给出 $(A/(b))^{\times}$ 上的置换，从而
-
-$$\prod_{x\in (A/(b))^\times } ax=\prod_{x\in (A/(b))^\times } x$$
-
-因此 $a^{\phi(b)}\equiv 1\pmod{b}$ 。
+(d)考虑 $a$ 在 $A/(b)$ 上的作用给出 $(A/(b))^{\times}$ 上的置换，从而$$\prod_{x\in (A/(b))^\times } ax=\prod_{x\in (A/(b))^\times } x$$因此 $a^{\phi(b)}\equiv 1\pmod{b}$ 。
 5. $A=\mathbb{Z}$ 时这个乘积相当于 $A/(a)$ 中非零元素乘积的平方，而 $A/(a)$ 中非零元素乘积为 $-1$ （$x^{-1}=x$ 的元素只有 $\pm 1$），它平方为 $1$ ；$A=\mathbb{F}_p[t]$ 时这个乘积相当于 $A/(a)$ 中非零元素乘积，从而为 $-1$ 。
-6. $\phi(b)=|b|-1$ 。如果 $a=c^r$ 那么 $a^{(|b|-1)/r}=c^{|b|-1}\equiv 1$ ；反过来 $A/(b)$ 是域，其乘法群是循环群，所以 $a^{(|b|-1)/r}\equiv 1$ 则 $a$ 为其生成元的 $r$ 的倍数次方。考虑Abel群的正合列
-
-$$0→1+b(A/b^n)→(A/b^n)^\times→(A/b)^\times→0$$
-
-其中 $(A/b^n)^\times→(A/b)^\times$  为模 $b$ 投影，按GTM7上这个Lemma （II.3 P16）![](image-2.png) 有 $(A/b^n)^\times\cong V\times (1+b(A/b^n))$ ，其中 $V=\{ x\in (A/b^n)^\times :x^{|b|-1}=1 \}$ 同构于 $(A/b)^\times $ ，由此知 $(A/b^n)^\times $ 到 $\{ c^r:c\in (A/b^n)^\times  \}$ 群同态 $c\mapsto c^r$ 的Kernel大小恰为 $r$ ，因此 $((A/b^n)^\times)^r$ 大小正是 $\phi(b^n)/r$ 。
+6. $\phi(b)=|b|-1$ 。如果 $a=c^r$ 那么 $a^{(|b|-1)/r}=c^{|b|-1}\equiv 1$ ；反过来 $A/(b)$ 是域，其乘法群是循环群，所以 $a^{(|b|-1)/r}\equiv 1$ 则 $a$ 为其生成元的 $r$ 的倍数次方。考虑Abel群的正合列$$0→1+b(A/b^n)→(A/b^n)^\times→(A/b)^\times→0$$其中 $(A/b^n)^\times→(A/b)^\times$  为模 $b$ 投影，按GTM7上这个Lemma （II.3 P16）![](image-2.png) 有 $(A/b^n)^\times\cong V\times (1+b(A/b^n))$ ，其中 $V=\{ x\in (A/b^n)^\times :x^{|b|-1}=1 \}$ 同构于 $(A/b)^\times $ ，由此知 $(A/b^n)^\times $ 到 $\{ c^r:c\in (A/b^n)^\times  \}$ 群同态 $c\mapsto c^r$ 的Kernel大小恰为 $r$ ，因此 $((A/b^n)^\times)^r$ 大小正是 $\phi(b^n)/r$ 。

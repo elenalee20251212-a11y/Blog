@@ -6,4 +6,3 @@ articleId: notes-on-hartshorne-s-algebraic-geometry-2-5
 category: mathematics/algebraic-geometry/hartshorne-algebraic-geometry
 order: 11
 ---
-

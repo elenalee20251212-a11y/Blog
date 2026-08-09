@@ -6,4 +6,3 @@ articleId: notes-on-serre-s-finite-group-3
 category: mathematics/algebra/serre-finite-groups
 order: 3
 ---
-

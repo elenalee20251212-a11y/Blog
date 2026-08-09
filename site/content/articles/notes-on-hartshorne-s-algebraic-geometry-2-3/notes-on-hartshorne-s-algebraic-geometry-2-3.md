@@ -73,11 +73,7 @@ $X$ finite type over $k$ 相当于 $X$ 存在一个仿射开覆盖 $U_i=\operato
 
 $\rm{Ex.\ 3.9.\ }$ (a) $k[x]\otimes _k k[y]\cong k[x,y]$ . 因此两个投影 $p_1,p_2$ 分别为 $k[x]\to k[x,y]$ 和 $k[y]\to k[x,y]$ 给出的 $\mathbb{A}_k^2\to \mathbb{A}_k^1 $ , 而对任何不可约且不属于 $k[x],k[y]$ 的 $f\in k[x,y]$ 都有 $p_1((f))=p_2((f))=(0)$ , 因此带有product的投影的 $\mathbb{A}_k^2$ 不是集合的product.
 
-(b) 考虑到 $k[s]\to k[s]\otimes _k k[t]=k[s,t]$ 的环同态是自然的嵌入, 所以
-
-$$k(s)\otimes _kk(t)=k(s)\otimes _{k[s]}(k[s]\otimes _kk[t])\otimes _{k[t]}k(t)=S^{-1}k[s,t]$$
-
-其中 $S=(k[s]\backslash\{ 0 \})(k[t]\backslash\{ 0 \})=\{ fg:f\in k[s], g\in k[t] , f,g\ne 0\}$ . 因此 $\operatorname{Spec} k(s)\times  _{\operatorname{Spec} k}\operatorname{Spec} k(t)$ 是 $\mathbb{A}_k^2$ 中全体不包含任何 $k[s],k[t]$ 中非零元的素理想, 也就是 $p_1^{-1}(0)\cap p_2^{-1}(0)$ 对应子概形. 事实上这相当于连续取两次纤维, 上面的张量积相当于先取纤维 $\mathbb{A}^2\times _{\mathbb{A}_s^1} \operatorname{Spec} \kappa(s)$ , 再取纤维 $(\mathbb{A}^2)_s\times _{\mathbb{A}_t^1}\operatorname{Spec} \kappa(t)$ . $\square$
+(b) 考虑到 $k[s]\to k[s]\otimes _k k[t]=k[s,t]$ 的环同态是自然的嵌入, 所以$$k(s)\otimes _kk(t)=k(s)\otimes _{k[s]}(k[s]\otimes _kk[t])\otimes _{k[t]}k(t)=S^{-1}k[s,t]$$其中 $S=(k[s]\backslash\{ 0 \})(k[t]\backslash\{ 0 \})=\{ fg:f\in k[s], g\in k[t] , f,g\ne 0\}$ . 因此 $\operatorname{Spec} k(s)\times  _{\operatorname{Spec} k}\operatorname{Spec} k(t)$ 是 $\mathbb{A}_k^2$ 中全体不包含任何 $k[s],k[t]$ 中非零元的素理想, 也就是 $p_1^{-1}(0)\cap p_2^{-1}(0)$ 对应子概形. 事实上这相当于连续取两次纤维, 上面的张量积相当于先取纤维 $\mathbb{A}^2\times _{\mathbb{A}_s^1} \operatorname{Spec} \kappa(s)$ , 再取纤维 $(\mathbb{A}^2)_s\times _{\mathbb{A}_t^1}\operatorname{Spec} \kappa(t)$ . $\square$
 
 $\rm{Ex.\ 3.10.\ }$ (a) $X_y=X\times_Y\operatorname{Spec} \kappa(y)$ . 首先考虑仿射情形, 设 $X=\operatorname{Spec} A$ , $Y=\operatorname{Spec} B$ , 假设 $y$ 对应的素理想是 $\mathfrak{p}$, 则 $X_y=\operatorname{Spec} (A\otimes_B B_{\mathfrak{p}}/\mathfrak{p}_{\mathfrak{p}})=\operatorname{Spec} (A/\mathfrak{p}A\otimes_B B_{\mathfrak{p}})$ , 这是 $A/\mathfrak{p}A$ 关于 $B\backslash \mathfrak{p}$ 的局部化, 因此恰好对应原像包含 $\mathfrak{p}$ 且与 $B\backslash \mathfrak{p}$ 不交的 $\operatorname{Spec} A$ 子集, 这恰好 (拓扑上) 就是 $f^{-1}(y)$ . 
 
@@ -89,11 +85,7 @@ $\rm{Ex.\ 3.11.\ }$ (b) 取 $Y$ 的仿射开覆盖 $V_i$ , 取 $X$ 中主开集�
 
 (a) $f$ 是闭浸入即 $f$ 在底空间上是 $X$ 到 $Y$ 中某个闭子集的同胚, 且 $f^\sharp:\mathcal{O}_X\to f_*\mathcal{O}_Y$ 是满的态射. 首先, 对仿射情形, Ex.2.18cd保证了闭浸入对应满同态 $A\to A/\mathfrak{a}$ , 基变换得到 $B\to (A/\mathfrak{a})\otimes _AB=B/\mathfrak{a}B$ 是满射, 对应闭浸入, 因此此时基变换保持闭浸入.
 
-由于满等价于在每个stalk间都是满射, 所以闭浸入是一个局部的性质. 对 $X$ 的仿射开集 $U=\operatorname{Spec} A$ , $Y\cap U\to U$ 也是闭浸入, 从而 $Y\cap U$ 具有 $\operatorname{Spec} (A/\mathfrak{a})$ 形式. 再取 $X'$ 中image包含于 $U$ 的仿射开集 $V=\operatorname{Spec} B$ , 则
-
-$$(Y\cap U)\times _{X}V=(Y\cap U)\times _{U}V=\operatorname{Spec}  (B/\mathfrak{a}B)$$
-
-这里 $(Y\cap U)\times _XV\to V$ 对应的环同态是 $B\to B/\mathfrak{a}B$ , 因此 $Y\times _X X'\to X'$ 是闭浸入.
+由于满等价于在每个stalk间都是满射, 所以闭浸入是一个局部的性质. 对 $X$ 的仿射开集 $U=\operatorname{Spec} A$ , $Y\cap U\to U$ 也是闭浸入, 从而 $Y\cap U$ 具有 $\operatorname{Spec} (A/\mathfrak{a})$ 形式. 再取 $X'$ 中image包含于 $U$ 的仿射开集 $V=\operatorname{Spec} B$ , 则$$(Y\cap U)\times _{X}V=(Y\cap U)\times _{U}V=\operatorname{Spec}  (B/\mathfrak{a}B)$$这里 $(Y\cap U)\times _XV\to V$ 对应的环同态是 $B\to B/\mathfrak{a}B$ , 因此 $Y\times _X X'\to X'$ 是闭浸入.
 
 (c) $Y\to X$ 分解为闭浸入的复合 $Y\to Y'\to X$ 来自于仿射的局部情形, 具体来说由 $A\to A/\mathfrak{a}\to A/\mathrm{rad}(\mathfrak{a})$ 给出, 显然 $A/\mathfrak{a}\to A/\mathrm{rad}(\mathfrak{a})$ 是唯一使得复合为 $A\to A/\mathrm{rad}(\mathfrak{a})$ 的映射, 因此唯一. 
 
@@ -137,17 +129,15 @@ $k$-代数都是 $k$ 线性空间, 从而平坦. 令 $R = A \otimes_k k_s$ , $S 
 
 (i)$\iff$(iii): (iii)推(i)显然. 反过来, 假设 $X\times _k \bar{k}$ 不可约, 构造一个包含 $K$ 和 $\bar{k}$ 的代数闭域 $\Omega$ , 下证 $X\times _k\Omega$ 不可约, 从而由于 $X\times _k\Omega\to X\times _k K$ 是满射, $X\times _k K$ 作为不可约空间的连续像不可约.
 
+
+
 $\rm{Ex.\ 3.17.\ }$ (a) 显然. (b) 只需证明非单点非空不可约闭子集非极小. 对这样一个不可约闭集 $C$ , $C$ 具有唯一的generic point $x$ . 由于这个generic point唯一, 所以对另外一个点 $y\in C$, 存在 $C$ 中非空开集不包含 $y$ , 因此它的补集是 $C$ 的真闭子集, 故 $C$ 非极小.
 
 (c) $\overline{\{ x \}}$ 不可约, 因此如果 $\overline{\{ x \}}=\overline{\{ y \}}$ 由generic point的唯一性, $x=y$ . 因此存在开集只包含 $x,y$ 之一, 故 $X$ 满足 $\mathbb{T}_0$ 公理.
 
 (d) 定义. (e) 如b中讨论. (f) 显然 $t(X)$ 中任何不可约闭集 $t(Y)$ 都有generic point $Y$ . 如果 $X$ 是Zariski空间, 那么显然 $\alpha:x\mapsto \overline{\{ x \}}$ 是连续双射且是闭映射, 因此是同胚. 反过来 $\alpha$ 是同胚则显然 $X$ 是Zariski空间. $\square$
 
-$\rm{Ex.\ 3.18.\ }$ (a) 令 $\mathfrak{G}$ 为全体局部闭集有限并. 首先 $\mathfrak{G}$ 对有限交封闭, 事实上局部闭集 $U\cap C$ 的交仍然局部闭, 因此
-
-$$\left( \bigsqcup_{i=1}^n L_i \right) \cap \left( \bigsqcup_{j=1}^m M_j \right) = \bigsqcup_{i=1}^n \bigsqcup_{j=1}^m (L_i \cap M_j)$$
-
-仍然属于 $\mathfrak{G}$ . 其次 $\mathfrak{G}$ 对补集封闭. 对闭集交开集, $(U \cap C)^c = U^c \cup C^c=U^c\sqcup (C^c\cap U)$ 是局部闭集的并, 从而对 $\bigsqcup_{i=1}^n L_i\in  \mathfrak{G}$  , 取补集得到 $\bigcap L_i^c$  , $L_i^c$ 是 $\mathfrak{G}$ 中元素有限交从而属于 $\mathfrak{G}$ . 进而由于 $X\cup Y=X\sqcup (X^c\cap Y)$ , $\mathfrak{G}$ 对有限并封闭. 
+$\rm{Ex.\ 3.18.\ }$ (a) 令 $\mathfrak{G}$ 为全体局部闭集有限并. 首先 $\mathfrak{G}$ 对有限交封闭, 事实上局部闭集 $U\cap C$ 的交仍然局部闭, 因此$$\left( \bigsqcup_{i=1}^n L_i \right) \cap \left( \bigsqcup_{j=1}^m M_j \right) = \bigsqcup_{i=1}^n \bigsqcup_{j=1}^m (L_i \cap M_j)$$仍然属于 $\mathfrak{G}$ . 其次 $\mathfrak{G}$ 对补集封闭. 对闭集交开集, $(U \cap C)^c = U^c \cup C^c=U^c\sqcup (C^c\cap U)$ 是局部闭集的并, 从而对 $\bigsqcup_{i=1}^n L_i\in  \mathfrak{G}$  , 取补集得到 $\bigcap L_i^c$  , $L_i^c$ 是 $\mathfrak{G}$ 中元素有限交从而属于 $\mathfrak{G}$ . 进而由于 $X\cup Y=X\sqcup (X^c\cap Y)$ , $\mathfrak{G}$ 对有限并封闭. 
 
 或者另一个方法 (好像没什么意义..): 对局部闭集的有限并 $(O_1 \cap C_1)\cup \cdots \cup (O_n\cap C_n)$ , 它的补集具有 $(O_1\cup C_1)\cap \cdots\cap (O_n\cup C_n)$ 形式, 由交对并的分配律和开闭集对有限交的封闭性, 它具有开集与闭集的交的有限并形式, 因此仍然是局部闭集的有限并. 因此constructible sets都是局部闭集的有限并. 此外, 局部闭集的有限并对差集封闭, 具体来说 $(O_1\cap C_1)\backslash(O_2\cap C_2)=(O_1\cap C_1)\cap (O_2^c\cup C_2^c)$  具有两个局部闭集的并形式, 因此局部闭集的有限并都等于局部闭集的有限无交并.
 

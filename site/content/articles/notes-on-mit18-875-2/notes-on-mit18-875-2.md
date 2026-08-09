@@ -45,11 +45,7 @@ $\rm{Problem\ 1. }$
 
 (f) $\frac{1+\sqrt{-3}}{2}$ 的极小多项式是 $x^2-x+1$ 但不属于 $\mathbb{Z}[\sqrt{-3}]$ 。
 
-$\rm{Problem\ 3. }$ (a) $\mathcal{O}_K/q \mathcal{O}_K=\prod \mathcal{O}_K/\mathfrak{q}_i^{e_i}$ 而
-
-$$[\mathcal{O}_K:\mathfrak{q}_i^{e_i}]=[\mathcal{O}_K:\mathfrak{q}_i]\cdot [\mathfrak{q}_i:\mathfrak{q}_i^{2}]\cdots[\mathfrak{q}_i^{e_i-1}:\mathfrak{q}_i^{e_i}]=[\mathcal{O}_K:\mathfrak{q}_i]^{e_i}$$
-
-而 $\mathcal{O}_K$ 是无挠 $\mathbb{Z}$-模, 由PID上有限生成模的结构定理它是有限生成的自由 $\mathbb{Z}$-模. 由于 $K$ 中任何元素都能写成 $\mathcal{O}_K$ 中元素除以 $\mathbb{Z}$ 中元素, 因此 $\mathcal{O}_K$ 作为 $\mathbb{Z}$-模的基也是 $K$ 作为 $\mathbb{Q}$-模的基, 因此 $[\mathcal{O}_K:q \mathcal{O}_K]=q^2$ . 因此要么 $n=1$ , $e_1=1$ 或 $e_1=2$ , 要么 $n=2$ 且 $e_1=e_2=1$ . 
+$\rm{Problem\ 3. }$ (a) $\mathcal{O}_K/q \mathcal{O}_K=\prod \mathcal{O}_K/\mathfrak{q}_i^{e_i}$ 而$$[\mathcal{O}_K:\mathfrak{q}_i^{e_i}]=[\mathcal{O}_K:\mathfrak{q}_i]\cdot [\mathfrak{q}_i:\mathfrak{q}_i^{2}]\cdots[\mathfrak{q}_i^{e_i-1}:\mathfrak{q}_i^{e_i}]=[\mathcal{O}_K:\mathfrak{q}_i]^{e_i}$$而 $\mathcal{O}_K$ 是无挠 $\mathbb{Z}$-模, 由PID上有限生成模的结构定理它是有限生成的自由 $\mathbb{Z}$-模. 由于 $K$ 中任何元素都能写成 $\mathcal{O}_K$ 中元素除以 $\mathbb{Z}$ 中元素, 因此 $\mathcal{O}_K$ 作为 $\mathbb{Z}$-模的基也是 $K$ 作为 $\mathbb{Q}$-模的基, 因此 $[\mathcal{O}_K:q \mathcal{O}_K]=q^2$ . 因此要么 $n=1$ , $e_1=1$ 或 $e_1=2$ , 要么 $n=2$ 且 $e_1=e_2=1$ . 
 
 (b) 在 $p\equiv 1\pmod 4$ 时, $\mathcal{O}_K=\mathbb{Z}[\frac{1+\sqrt  p}{2}]$ , 在 $p\equiv 2,3\pmod 4$ 时, $\mathcal{O}_K=\mathbb{Z}[\sqrt p]$ . $\mathcal{O}_K$ 的这两个生成元的极小多项式分别是 $x^2-x+\frac{1-p}{4}$ 和 $x^2-p$ , 如果 $q\ne 2$ , 这两个多项式在 $\mathbb{Z}/q \mathbb{Z}$ 中不可约都当且仅当 $p$ 是 $q$ 的二次非剩余. 
 
@@ -75,23 +71,11 @@ $\rm{Problem\ 4. }$ (a) 回忆 $\alpha$ 的极小多项式形如 $f(x^{p^n})$ �
 
 (b) 特征多项式是极小多项式的 $e$ 次幂.
 
-(c) 如果 $L/K$ 不可分, 则 $[L:K]_i$ 是域特征的 $n$ 次幂, 因此 $T_{L/K}=0$ . 如果 $L/K$ 可分, 可设 $L=K(\alpha)$ , 令 $p(x)$ 为 $\alpha$ 的极小多项式, $\alpha_1,\cdots,\alpha_n$ 是 $\alpha$ 的共轭 ( $p(x)$ 的根 ) , 则由于在 $n$ 个不同点 $\alpha_i$ 处取值相同下式成立
+(c) 如果 $L/K$ 不可分, 则 $[L:K]_i$ 是域特征的 $n$ 次幂, 因此 $T_{L/K}=0$ . 如果 $L/K$ 可分, 可设 $L=K(\alpha)$ , 令 $p(x)$ 为 $\alpha$ 的极小多项式, $\alpha_1,\cdots,\alpha_n$ 是 $\alpha$ 的共轭 ( $p(x)$ 的根 ) , 则由于在 $n$ 个不同点 $\alpha_i$ 处取值相同下式成立$$\sum_i \frac{p(x)}{x-\alpha_i}\cdot \frac{\alpha_i^j}{p'(\alpha_i)}=x^j$$假设 $\frac{p(x)}{x-\alpha}$ 的 $i$ 次项系数是 $a_i$ , 则上式 $x^i$ 项系数等于$$\mathrm{Tr}\left( \frac{a_i}{p'(\alpha)}\cdot \alpha^j \right)=\begin{cases} 1&i=j  \\ 0 & i\ne j \end{cases}$$因此 $T_{L/K}$ 非退化. $\square$
 
-$$\sum_i \frac{p(x)}{x-\alpha_i}\cdot \frac{\alpha_i^j}{p'(\alpha_i)}=x^j$$
-
-假设 $\frac{p(x)}{x-\alpha}$ 的 $i$ 次项系数是 $a_i$ , 则上式 $x^i$ 项系数等于
-
-$$\mathrm{Tr}\left( \frac{a_i}{p'(\alpha)}\cdot \alpha^j \right)=\begin{cases} 1&i=j  \\ 0 & i\ne j \end{cases}$$
-
-因此 $T_{L/K}$ 非退化. $\square$
-
-注: $L/K$ 可分时 $T_{L/K}$ 的非退化性也可以如此证明: 令 $\sigma_1,\cdots,\sigma_n$ 为 $\operatorname{Hom} _K(L,\bar{K})$ 中元素, $\beta_1,\cdots,\beta_n$ 是 $L/K$ 的一组基, 则
-
-$$\begin{aligned}
+注: $L/K$ 可分时 $T_{L/K}$ 的非退化性也可以如此证明: 令 $\sigma_1,\cdots,\sigma_n$ 为 $\operatorname{Hom} _K(L,\bar{K})$ 中元素, $\beta_1,\cdots,\beta_n$ 是 $L/K$ 的一组基, 则$$\begin{aligned}
 \det(\text{Tr}(\beta_i \beta_j)) & = \det\left(\textstyle\sum_k \sigma_k(\beta_i \beta_j)\right) \\
 & = \det\left(\textstyle\sum_k \sigma_k(\beta_i) \cdot \sigma_k(\beta_j)\right) \\
 & = \det(\sigma_k(\beta_i)) \cdot \det(\sigma_k(\beta_j)) \\
 & = \det(\sigma_k(\beta_i))^2
-\end{aligned}$$
-
-而由于 $\sigma_i$ 作为群特征的线性无关性, $\det(\sigma_k(\beta_i))\ne 0$ , 因此 $T_{L/K}$ 的行列式非零从而非退化.
+\end{aligned}$$而由于 $\sigma_i$ 作为群特征的线性无关性, $\det(\sigma_k(\beta_i))\ne 0$ , 因此 $T_{L/K}$ 的行列式非零从而非退化.

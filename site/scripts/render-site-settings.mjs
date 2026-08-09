@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { CONTENT_ROOT, SITE_ROOT, readSite } from './site-lib.mjs'
+import { CONTENT_ROOT, readSite } from './site-lib.mjs'
 
 const MOBILE_VIEWPORT = 390
 const DESKTOP_VIEWPORT = 1440
@@ -26,17 +26,15 @@ export function renderSiteSettings({ quiet = false } = {}) {
   )
 
   const webFile = path.join(CONTENT_ROOT, '.vitepress', 'theme', 'site-settings.generated.css')
-  const mpeFile = path.join(SITE_ROOT, '.crossnote', 'site-settings.generated.less')
   fs.writeFileSync(
     webFile,
     `:root { --site-content-font-size: ${contentExpression}; --site-home-font-size: ${homeExpression}; }\n`,
     'utf8'
   )
-  fs.writeFileSync(mpeFile, `@site-content-font-size: ${contentExpression};\n`, 'utf8')
   if (!quiet) {
     console.log(`Site settings ready: content font ${contentExpression}; home font ${homeExpression}`)
   }
-  return { contentExpression, homeExpression, webFile, mpeFile }
+  return { contentExpression, homeExpression, webFile }
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(import.meta.filename)) {
