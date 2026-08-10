@@ -62,44 +62,13 @@ $$\lambda \otimes \mu m = \lambda \varphi(\mu) \otimes m, \quad \lambda(\mu \oti
 
 $$\varphi(e_j) = \sum_{i=1}^d a_{ij} e_i, \quad (a_{ij}) \in \text{GL}_d(\mathcal{O}_{\mathcal{E}})$$
 
-> 注: 注意 $\mathcal{O}_{\mathcal{E}}$ 上 $\mathcal{E}$ 上之所以 $\mathcal{E}$ 上étale $\varphi$-模未必自由, 而 $\mathcal{E}$ 上étale $\varphi$-模对应的 $\mathcal{O}_{\mathcal{E}}$-格一定是自由的. 之所以采取了这种迂回定义, 是因为如果使用直接的étale $\varphi$-模定义, 我们想要的范畴等价
+> 注: 注意 $\mathcal{O}_{\mathcal{E}}$ 上 $\mathcal{E}$ 上之所以 $\mathcal{E}$ 上étale $\varphi$-模未必自由, 而 $\mathcal{E}$ 上étale $\varphi$-模对应的 $\mathcal{O}_{\mathcal{E}}$-格一定是自由的. 之所以采取了这种迂回定义, 是因为如果使用直接的étale $\varphi$-模定义, 我们想要的范畴等价$$\mathbf{V}:  \mathcal{M}_\varphi^{\text{ét}}(\mathcal{E})\to \mathbf{Rep}_{\mathbb{Q}_p}(G)$$的左边会变得过大.
 
-$$\mathbf{V}:  \mathcal{M}_\varphi^{\text{ét}}(\mathcal{E})\to \mathbf{Rep}_{\mathbb{Q}_p}(G)$$
+> 注: 本节的目的是建立以下两个范畴等价：$$\begin{aligned}\mathbf{D}: \mathbf{Rep}_{\mathbb{Q}_p}(G) &\to \mathcal{M}_\varphi^{\text{ét}}(\mathcal{E})\\\mathbf{M}: \mathbf{Rep}_{\mathbb{Z}_p}(G) &\to \mathcal{M}_\varphi^{\text{ét}}(\mathcal{O}_{\mathcal{E}})\end{aligned}$$大致的路线图如下: 我们将先定义 $\mathbf{M}$ 和其拟逆 $\mathbf{T}$ . 具体来说, 考虑在 $\mathcal{E}$ 的极大非分歧扩张 $\mathcal{E}^{\mathrm{ur}}$ 和它的完备化 $\widehat{\mathcal{E}^{\text{ur}}}$ , 它们有延拓了 $\mathcal{E}$ 的离散赋值, 且剩余域的Frob / $G$ 的作用可以被提升到这两个域上. 定义:
+> 1. 对 $\mathbb{Z}_p$-表示 $T$：$$\mathbf{M}(T) = (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T)^G$$
+> 2. 对于 étale $\varphi$-模 $M$：$$\mathbf{T}(M) = (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} M)^{\varphi=1}$$这里 $\mathbf{M}$ 的 $\varphi$ 作用, 和 $\mathbf{T}$ 的 $G$ 作用都平凡作用于张量积左边. 可以证明 $\mathbf{M}$ 和 $\mathbf{T}$ 确实是对应范畴间的函子. 
 
-的左边会变得过大.
-
-> 注: 本节的目的是建立以下两个范畴等价：
-
-$$\begin{aligned}\mathbf{D}: \mathbf{Rep}_{\mathbb{Q}_p}(G) &\to \mathcal{M}_\varphi^{\text{ét}}(\mathcal{E})\\\mathbf{M}: \mathbf{Rep}_{\mathbb{Z}_p}(G) &\to \mathcal{M}_\varphi^{\text{ét}}(\mathcal{O}_{\mathcal{E}})\end{aligned}$$
-
-大致的路线图如下: 我们将先定义 $\mathbf{M}$ 和其拟逆 $\mathbf{T}$ . 具体来说, 考虑在 $\mathcal{E}$ 的极大非分歧扩张 $\mathcal{E}^{\mathrm{ur}}$ 和它的完备化 $\widehat{\mathcal{E}^{\text{ur}}}$ , 它们有延拓了 $\mathcal{E}$ 的离散赋值, 且剩余域的Frob / $G$ 的作用可以被提升到这两个域上. 定义:
-> 1. 对 $\mathbb{Z}_p$-表示 $T$：
-
-$$\mathbf{M}(T) = (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T)^G$$
-
-> 2. 对于 étale $\varphi$-模 $M$：
-
-$$\mathbf{T}(M) = (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} M)^{\varphi=1}$$
-
-> 这里 $\mathbf{M}$ 的 $\varphi$ 作用, 和 $\mathbf{T}$ 的 $G$ 作用都平凡作用于张量积左边. 可以证明 $\mathbf{M}$ 和 $\mathbf{T}$ 确实是对应范畴间的函子. 
-
-> 而我们将证明
-
-$$(\widehat{\mathcal{E}^{\text{ur}}})^G = \mathcal{E}, \quad (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}})^G = \mathcal{O}_{\mathcal{E}}$$
-
-和
-
-$$(\widehat{\mathcal{E}^{\text{ur}}})^{\varphi=1} = \mathbb{Q}_p, \quad (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}})^{\varphi=1} = \mathbb{Z}_p$$
-
-以及两个自然映射
-
-$$\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} \mathbf{M}(T) \to \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T$$
-
-和
-
-$$\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} \mathbf{T}(M) \to \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} M$$
-
-是同构, 分别取 $\varphi$ 不变量和 $G$ 不变量, 从而建立我们想要的第一个范畴等价, 而第二个范畴等价则是立即的推论.
+> 而我们将证明$$(\widehat{\mathcal{E}^{\text{ur}}})^G = \mathcal{E}, \quad (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}})^G = \mathcal{O}_{\mathcal{E}}$$和$$(\widehat{\mathcal{E}^{\text{ur}}})^{\varphi=1} = \mathbb{Q}_p, \quad (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}})^{\varphi=1} = \mathbb{Z}_p$$以及两个自然映射$$\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} \mathbf{M}(T) \to \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T$$和$$\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} \mathbf{T}(M) \to \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} M$$是同构, 分别取 $\varphi$ 不变量和 $G$ 不变量, 从而建立我们想要的第一个范畴等价, 而第二个范畴等价则是立即的推论.
 
 下面是两个étale $\varphi$-模的基本事实: 
 
@@ -251,33 +220,13 @@ $$\mathbf{T}(M) = \{y \in \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otime
 
 . 这表明 $\mathbf{M}(T)$ 是有限型的 $\mathcal{O}_{\mathcal{E}}$-模, 且更进一步的, 它是 étale 的: 
 
-> 根据 Proposition 3.32 , 自然映射：
-
-$$\alpha_T: \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} \mathbf{M}(T) \to \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T \quad (3.28)$$
-
-是一个同构.
+> 根据 Proposition 3.32 , 自然映射：$$\alpha_T: \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} \mathbf{M}(T) \to \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T \quad (3.28)$$是一个同构.
 
 > $\mathbf{M}(T)$ 的有限生成性: 这里是所谓的faithfully flat道理, $\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}}$ 是 $\mathcal{O}_{\mathcal{E}}$ 上无挠模从而平坦, 而非分歧意味着它faithfully flat, 参见 [sp](https://stacks.math.columbia.edu/tag/00HR). 而有限生成性在faithfully flat扩张下可下降, 参见[sp](https://stacks.math.columbia.edu/tag/03C4).
 
-> 注: 当然也可以使用完备性对有限生成做一个初等证明. 具体来说, 模 $p$ 下 $\alpha_T$ 变为线性空间同构
+> 注: 当然也可以使用完备性对有限生成做一个初等证明. 具体来说, 模 $p$ 下 $\alpha_T$ 变为线性空间同构$$E^s \otimes_{E} (\mathbf{M}(T)/p\mathbf{M}(T)) \to E^s \otimes_{\mathbb{F}_p} (T/pT)$$右边是有限维线性空间, 使得 $\mathbf{M}(T)/p\mathbf{M}(T)$ 也必须有限生成. 假设 $e_i$ 是一组有限生成元的提升, $N$ 是由 $e_i$ 生成的 $\mathcal{O}_{\mathcal{E}}$-模, 则任一 $x \in \mathbf{M}(T)$ 均可写为：$$x = x_0 + p x_1 + p^2 x_2 + \dots\quad, \quad x_i\in N$$由于完备性 $\mathbf{M}(T) = N$ .
 
-$$E^s \otimes_{E} (\mathbf{M}(T)/p\mathbf{M}(T)) \to E^s \otimes_{\mathbb{F}_p} (T/pT)$$
-
-右边是有限维线性空间, 使得 $\mathbf{M}(T)/p\mathbf{M}(T)$ 也必须有限生成. 假设 $e_i$ 是一组有限生成元的提升, $N$ 是由 $e_i$ 生成的 $\mathcal{O}_{\mathcal{E}}$-模, 则任一 $x \in \mathbf{M}(T)$ 均可写为：
-
-$$x = x_0 + p x_1 + p^2 x_2 + \dots\quad, \quad x_i\in N$$
-
-由于完备性 $\mathbf{M}(T) = N$ .
-
-> $M$ 是 étale $\varphi$-模: 有正合列 $0 \to pT \to T \to T/pT \to 0$ , 使用 $\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p}-$ 作用得到另一个正合列, 它诱导上同调长正合列
-
-$$0 \to X'^G \to X^G \to X''^G \to H^1_{\text{cont}}(G, X')$$
-
-利用3.32中已证明的 $H^1(G, \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T) = 0$ , 我们可以直接得到：
-
-$$\mathbf{M}(T)/p\mathbf{M}(T) \cong \mathbf{M}(T/pT)$$
-
-因此 $\mathbf{M}(T)$ 的 étale 性等价于 $\mathbf{M}(T/pT)$ 作为 $E$ 上的 $\varphi$-模是 étale 的, 而后者的 étale 性已经在 Proposition 3.20 中被证明. 
+> $M$ 是 étale $\varphi$-模: 有正合列 $0 \to pT \to T \to T/pT \to 0$ , 使用 $\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p}-$ 作用得到另一个正合列, 它诱导上同调长正合列$$0 \to X'^G \to X^G \to X''^G \to H^1_{\text{cont}}(G, X')$$利用3.32中已证明的 $H^1(G, \mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathbb{Z}_p} T) = 0$ , 我们可以直接得到：$$\mathbf{M}(T)/p\mathbf{M}(T) \cong \mathbf{M}(T/pT)$$因此 $\mathbf{M}(T)$ 的 étale 性等价于 $\mathbf{M}(T/pT)$ 作为 $E$ 上的 $\varphi$-模是 étale 的, 而后者的 étale 性已经在 Proposition 3.20 中被证明. 
 
 **Proposition 3.33**：对于任意在 $\mathcal{O}_{\mathcal{E}}$ 上的 étale $\varphi$-模 $M$, 其自然映射：
 
@@ -365,15 +314,9 @@ $$\begin{aligned}\widehat{\mathcal{E}^{\text{ur}}} \otimes_{\mathbb{Q}_p} V &= (
 
 > 注: 这一部分是引理2.7. 
 
-> **引理 2.7 (格的 $G$-稳定性)**：对于 $G$ 的任意 $\ell$-进表示 $V$, 存在一个 $V$ 的格 $T$, 它在 $G$-作用下是稳定的（从而构成 $G$ 的一个自由 $\mathbb{Z}_\ell$-表示）. 特别地, 存在 $V$ 的一组基, 使得表示 $\rho : G \to \text{Aut}_{\mathbb{Q}_\ell}(V) \cong \text{GL}_d(\mathbb{Q}_\ell)$ 通过 $\text{GL}_d(\mathbb{Z}_\ell)$ 进行分解：
+> **引理 2.7 (格的 $G$-稳定性)**：对于 $G$ 的任意 $\ell$-进表示 $V$, 存在一个 $V$ 的格 $T$, 它在 $G$-作用下是稳定的（从而构成 $G$ 的一个自由 $\mathbb{Z}_\ell$-表示）. 特别地, 存在 $V$ 的一组基, 使得表示 $\rho : G \to \text{Aut}_{\mathbb{Q}_\ell}(V) \cong \text{GL}_d(\mathbb{Q}_\ell)$ 通过 $\text{GL}_d(\mathbb{Z}_\ell)$ 进行分解：$$\begin{array}{ccc} G & \xrightarrow{\quad\rho\quad} & \text{GL}_d(\mathbb{Q}_\ell) \\ \searrow & & \nearrow \\ & \text{GL}_d(\mathbb{Z}_\ell) & \end{array}$$
 
-$$\begin{array}{ccc} G & \xrightarrow{\quad\rho\quad} & \text{GL}_d(\mathbb{Q}_\ell) \\ \searrow & & \nearrow \\ & \text{GL}_d(\mathbb{Z}_\ell) & \end{array}$$
-
-> **证明**：设 $V$ 是一个 $\ell$-进表示. 令 $T_0$ 为 $V$ 的一个格, 则对于任意 $g \in G$,  $g(T_0) = \{g(v) \mid v \in T_0\}$ 也是一个格. 此外, 稳定子 $H = \{g \in G \mid g(T_0) = T_0\}$ 是 $G$ 的开子群 ( 实际上 $H$ 是 $\mathrm{GL}_n(\mathbb{Z}_p)$ 在 $G$ 中的原像, 而 $\mathrm{GL}_n(\mathbb{Z}_p)\subset \mathrm{GL}_n(\mathbb{Q}_p)$ 是开集... ), 因此商集 $G/H$ 是有限的. 求和：
-
-$$T = \sum_{g \in G} g(T_0) = \sum_{g \in G/H} g(T_0)$$
-
-是一个有限和, $T$ ( 作为PID上有限生成模, 无挠从而自由, 因为 $V$ 是线性空间... ) 依然是 $V$ 的一个格, 并且在 $G$-作用下是稳定的, 从而构成 $G$ 的 $\mathbb{Z}_\ell$-表示. 若 $\{e_1, \dots, e_d\}$ 是 $T$ 在 $\mathbb{Z}_\ell$ 上的基, 由于它也构成 $V$ 在 $\mathbb{Q}_\ell$ 上的基, 因此结论成立. 
+> **证明**：设 $V$ 是一个 $\ell$-进表示. 令 $T_0$ 为 $V$ 的一个格, 则对于任意 $g \in G$,  $g(T_0) = \{g(v) \mid v \in T_0\}$ 也是一个格. 此外, 稳定子 $H = \{g \in G \mid g(T_0) = T_0\}$ 是 $G$ 的开子群 ( 实际上 $H$ 是 $\mathrm{GL}_n(\mathbb{Z}_p)$ 在 $G$ 中的原像, 而 $\mathrm{GL}_n(\mathbb{Z}_p)\subset \mathrm{GL}_n(\mathbb{Q}_p)$ 是开集... ), 因此商集 $G/H$ 是有限的. 求和：$$T = \sum_{g \in G} g(T_0) = \sum_{g \in G/H} g(T_0)$$是一个有限和, $T$ ( 作为PID上有限生成模, 无挠从而自由, 因为 $V$ 是线性空间... ) 依然是 $V$ 的一个格, 并且在 $G$-作用下是稳定的, 从而构成 $G$ 的 $\mathbb{Z}_\ell$-表示. 若 $\{e_1, \dots, e_d\}$ 是 $T$ 在 $\mathbb{Z}_\ell$ 上的基, 由于它也构成 $V$ 在 $\mathbb{Q}_\ell$ 上的基, 因此结论成立. 
 
 2. 对于 $\mathcal{E}$ 上的任何 étale $\varphi$-模 $D$, 也总存在一个 $\varphi$ 稳定的 $\mathcal{O}_{\mathcal{E}}$-格 $M \subset D$, 使得 $M$ 为 $\mathcal{O}_{\mathcal{E}}$ 上的 étale $\varphi$-模, 且 $D = \mathcal{E} \otimes_{\mathcal{O}_{\mathcal{E}}} M$.  ( 这似乎是 $D$ 上etale定义? def3.27) 因而：
 
@@ -395,9 +338,7 @@ $$\varphi(e_j) = \sum_{i=1}^d a_{ij} e_i$$
 
 此时 $M_A$ 成为 $\mathcal{O}_{\mathcal{E}}$ 上的一个 étale $\varphi$-模, 且其相应的 $T_A = \mathbf{T}(M_A)$ 构成了 $G$ 的一个 $\mathbb{Z}_p$-表示. 
 
-> 注: 回忆
-
-$$\mathbf{T}(M) = (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} M)^{\varphi = 1}$$
+> 注: 回忆$$\mathbf{T}(M) = (\mathcal{O}_{\widehat{\mathcal{E}^{\text{ur}}}} \otimes_{\mathcal{O}_{\mathcal{E}}} M)^{\varphi = 1}$$
 
 进一步, 由定义可以给出 $G$ 的一个 $p$ 进表示：
 
@@ -405,17 +346,9 @@ $$V_A = \mathbb{Q}_p \otimes_{\mathbb{Z}_p} T_A = \mathbf{V}(D_A)$$
 
 这里 $D_A = \mathcal{E}^d$ 为其关联的 $\mathcal{E}$-向量空间且配备相同的 $\varphi$. 
 
-> 注: $\mathbb{Q}_p$ 被 $\varphi$ 固定. 回忆
+> 注: $\mathbb{Q}_p$ 被 $\varphi$ 固定. 回忆$$\mathbf{D}(V) = \mathbf{M}(T)\left[\frac{1}{p}\right] = \mathcal{E} \otimes_{\mathcal{O}_{\mathcal{E}}} \mathbf{M}(T)$$之前的范畴等价建立了同构意义下,  $d$ 维的 $p$ 进 Galois 表示 $V$ 与 $\mathcal{E}$ 上的 $d$ 维 etale $\varphi$-模 $\mathbf{D}(V)$ 的一一对应.
 
-$$\mathbf{D}(V) = \mathbf{M}(T)\left[\frac{1}{p}\right] = \mathcal{E} \otimes_{\mathcal{O}_{\mathcal{E}}} \mathbf{M}(T)$$
-
-之前的范畴等价建立了同构意义下,  $d$ 维的 $p$ 进 Galois 表示 $V$ 与 $\mathcal{E}$ 上的 $d$ 维 etale $\varphi$-模 $\mathbf{D}(V)$ 的一一对应.
-
-反之, 对于 $G$ 的任意一个 $d$ 维 $p$ 进表示 $V$, 我们总能找到一个矩阵 $A \in \text{GL}_d(\mathcal{O}_{\mathcal{E}})$ 使得：
-
-$$V \cong V_A$$
-
-给定 $A, B \in \text{GL}_d(\mathcal{O}_{\mathcal{E}})$：
+反之, 对于 $G$ 的任意一个 $d$ 维 $p$ 进表示 $V$, 我们总能找到一个矩阵 $A \in \text{GL}_d(\mathcal{O}_{\mathcal{E}})$ 使得：$$V \cong V_A$$给定 $A, B \in \text{GL}_d(\mathcal{O}_{\mathcal{E}})$：
 *   $T_A \cong T_B \iff \exists P \in \text{GL}_d(\mathcal{O}_{\mathcal{E}}), \text{ 使得 } B = P^{-1} A \varphi(P)$. 
 *   $V_A \cong V_B \iff \exists P \in \text{GL}_d(\mathcal{E}), \text{ 使得 } B = P^{-1} A \varphi(P)$. 
 

@@ -118,7 +118,7 @@ $B_{\mathrm{dR}}$ 上的相应赋值 $v_{\mathrm{dR}}$ 也由该过滤给出：$
 
 对于任何首一不可约多项式 $P(X) \in K_0[X]$，在映射 $K_0 \to B_{\mathrm{dR}}^+ \xrightarrow{\theta} C$ 下，$P(X) \in C[X]$ 在 $C$ 中具有单根，从而由 Hensel 引理可知 $P(X) \in B_{\mathrm{dR}}^+[X]$ 在 $B_{\mathrm{dR}}^+$ 中也有单根。基于此，可以得到：
 
-**引理 6.17**：$\overline{K}$ 自然地是 $B_{\mathrm{dR}}^+$ 的保持 Galois 作用的子域，且 $\overline{K} \cap \mathrm{Fil}^1 B_{\mathrm{dR}} = 0$。/////////////////////////////////
+**引理 6.17**：$\overline{K}$ 自然地是 $B_{\mathrm{dR}}^+$ 的保持 Galois 作用的子域，且 $\overline{K} \cap \mathrm{Fil}^1 B_{\mathrm{dR}} = 0$。
 
 **注 6.18**：我们也可以通过以下方式引入包含关系 $\overline{K} \subset B_{\mathrm{dR}}^+$。设 $L$ 为 $K_0$ 在 $\overline{K}$ 内部的任意全分歧有限扩张，$\pi_L$ 为 $L$ 的一致化元。令 $W_L(R) = L \otimes_W W(R)$（因而 $W_{K_0}(R) = W(R)[1/p]$）。则 $W_L(R)$ 中的任意元素 $x$ 可以唯一写为 $\sum_{n \ge n_0} \pi_L^n [x_n]$，其中 $x_n \in R$。
 > 注: 只需证明 $W_{\mathcal{O}_L}(R)=\mathcal{O}_L \otimes_W W(R)$ 中元素可以唯一写成这样的幂级数. 实际上totally ramified要求 $\mathcal{O}_L=W[\pi_L]$ , $\pi_L$ 极小多项式为 $W$ 上的Eisenstein多项式, 从而$$W_{\mathcal{O}_L}(R)= W(R)\oplus \pi_L W(R)\oplus \cdots\oplus \pi_L^{e-1}W(R)$$按Eisenstein多项式定义 $\pi_L^e=p(\text{unit}+\pi_L(\cdots))$ , 自然的有$$W_{\mathcal{O}_L}(R)/\pi_LW_{\mathcal{O}_L}(R)=W(R)/pW(R)=R$$并且Teichmuller提升 $[]$ 是商 $\pi_L$ 投影的section...
@@ -141,9 +141,9 @@ W_L(R) \arrow[r, "\theta"] & C
 
 进一步地，若 $K$ 与 $L$ 是两个 $p$-进局部域，对于任意连续同态 $h: \overline{K} \to \overline{L}$，存在唯一的规范同态 $B_{\mathrm{dR}}(h): B_{\mathrm{dR}}^+(K) \to B_{\mathrm{dR}}^+(L)$，它是同构当且仅当 $h$ 诱导了完备化域之间的同构。这表明 $B_{\mathrm{dR}}$ 仅依赖于 $C$ 而不依赖于 $K$。
 
-> 注: 这里 $B_{\mathrm{dR}}^+(L)$ 是指将 $K$ 换成 $L$ 定义的de Rham周期环. 具体来说, $h$ 连续, 从而 ( 实际上是等价于 ) $h(\mathcal{O}_{\overline{K}})\subset \mathcal{O}_{\overline{L}}$ , 因此诱导出$$R_K=\varprojlim_{x\mapsto x^p}\mathcal O_{\bar K}/p\longrightarrow R_L=\varprojlim_{x\mapsto x^p}\mathcal O_{\bar L}/p$$
+> 注: 这里 $B_{\mathrm{dR}}^+(L)$ 是指将 $K$ 换成 $L$ 定义的de Rham周期环. 具体来说, $h$ 连续, 则 $h$ 保持赋值 ( $h$ 保持 $p$ 且保持赋值符号 ), 从而 ( 实际上是等价于 ) $h(\mathcal{O}_{\overline{K}})\subset \mathcal{O}_{\overline{L}}$ , 因此诱导出$$R_K=\varprojlim_{x\mapsto x^p}\mathcal O_{\bar K}/p\longrightarrow R_L=\varprojlim_{x\mapsto x^p}\mathcal O_{\bar L}/p$$从而给出 $W(R_K)[\frac{1}{p}]\to W(R_L)[\frac{1}{p}]$ , 因为 $h$ 是逐项定义的, 有如下交换图表$$\begin{CD}W(R_K)[1/p] @>>> W(R_L)[1/p] \\@V{\theta_K}VV @VV{\theta_L}V \\C_K @>{\widetilde{h}}>> C_L\end{CD}$$因此这个映射在各自的 $\ker \theta$-进拓扑下连续, 从而延拓至 $B_{\mathrm{dR}}(h): B_{\mathrm{dR}}^+(K) \to B_{\mathrm{dR}}^+(L)$ . 因为 $B_{\mathrm{dR}}$ 实际上对 $C_K\to C_L$ 有函子性, 所以如果 $\widehat{h}$ 是同构, 则 $B_{\mathrm{dR}}(h)$ 是同构.
 
-根据定理 1.23，有以下重要结论：
+根据定理 1.23 ( 等特征完备DVR... ) ，有以下重要结论：
 
 **命题 6.19**：存在一个环同态截面 $s: C \to B_{\mathrm{dR}}^+$，满足对于所有 $c \in C$ 均有 $\theta(s(c)) = c$。该截面不唯一。
 
@@ -151,7 +151,7 @@ W_L(R) \arrow[r, "\theta"] & C
 1. 不存在在自然拓扑下连续的截面 $s: C \to B_{\mathrm{dR}}^+$。
 2. 不存在与 $G_K$-作用相容的截面 $s: C \to B_{\mathrm{dR}}^+$。
 
-> 截面不唯一是因为等特征且特征 $0$ 情况 $\mathcal{O}_K=k[[\pi_K]]$ 的证明 (1.23) 使用了Zorn. 练习第一个是因为, 如果存在则 $\xi^nB_{\mathrm{dR}}^+$ 的原像是开理想, 然而 $C$ 是域且 $\cap \xi^nB_{\mathrm{dR}}^+=0$ ; 第二个则是...
+> 事实上不存在在 $B_{\mathrm{dR}}^+$ 的DVR拓扑下连续的环同态截面, 因为如果存在, 则 $\xi B_{\mathrm{dR}}^+$ 的原像 $0$ 是开集...至于第二问, 需要下一节中的 $t$ . 具体来说如果存在如此截面, 那么$$g\left( \sum c_it^i \right) =\sum (g c_i)\chi(g)^it^i$$也就是按这个截面, 有 $G_K$-同构 $B_{\text{dR}}^+\cong C[[T]]$ , 其中 $gT=\chi(g)T$ , $\chi$ 是某个 $G_K$ 的分圆特征标. 而 $B_{\mathrm{HT}}\cong \bigoplus C(n)$ , 因此 $B_{\text{dR}}\cong \widehat{B_{\mathrm{HT}}}$ . 那么由Ex.6.8. , Hodge-Tate表示都是de Rham表示, 然而prop.6.26. 将说明一定存在Hodge-Tate但不de Rham的表示.
 
 **注 6.21**：
 - (a) 记 $\bar{k}$ 为 $\overline{K}$ 及 $R$ 的剩余域，且 $\bar{k} \subset R$。因此有 $W(\bar{k}) \subset W(R)$。令 $P_0 = W(\bar{k})[1/p] = K_0^{\mathrm{ur}} \subset W(R)[1/p]$，则 $\theta$ 是 $P_0$-代数同态。若设 $\overline{P} = P_0 \overline{K}$ 为 $P_0$ 的代数闭包，则 $\overline{P} \subset B_{\mathrm{dR}}^+$ 且 $\theta$ 也是 $\overline{P}$-代数的同态。

@@ -12,14 +12,10 @@ category: miscellaneous/inbox/unclassified
 **定义 12.2**：设 $\mathcal{M}$ 和 $\mathcal{N}$ 是 $\mathcal{O}_X$-模，我们将它们的张量积 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N}$ 定义为$$U \longmapsto \mathcal{M}(U) \otimes_{\mathcal{O}_X(U)} \mathcal{N}(U)$$的层化. 
  
 若 $\mathcal{M} = \mathcal{A}$ 是 $\mathcal{O}_X$-代数，则张量积 $\mathcal{A} \otimes_{\mathcal{O}_X} \mathcal{N}$ 是 $\mathcal{A}$-模；若 $\mathcal{N}$ 也是 $\mathcal{O}_X$-代数，则该张量积也是一个 $\mathcal{O}_X$-代数。
-特别地，若 $X = \operatorname{Spec} A$，且 $\mathcal{M} = \widetilde{M}$，$\mathcal{N} = \widetilde{N}$ 是拟凝聚 $\mathcal{O}_X$-模，那么 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N} = \widetilde{M \otimes_A N}$。实际上，对于 $V = D(f) \subseteq X$（其中 $f \in A$），有：
-$$
-\mathcal{M}(D(f)) \otimes_{\mathcal{O}_X(D(f))} \mathcal{N}(D(f)) = M[f^{-1}] \otimes_{A[f^{-1}]} N[f^{-1}] = (M \otimes_A N)[f^{-1}] = \widetilde{M \otimes_A N}(D(f))
-$$
-在这种情况中，此预层本身就是层，因而不需要层化。
 
-**推论 12.3**：
-若 $X$ 是一个方案，$\mathcal{M}$ 和 $\mathcal{N}$ 是拟凝聚层，则 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N}$ 也是拟凝聚层。
+特别地，若 $X = \operatorname{Spec} A$，且 $\mathcal{M} = \widetilde{M}$，$\mathcal{N} = \widetilde{N}$ 是拟凝聚 $\mathcal{O}_X$-模，那么 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N} = \widetilde{M \otimes_A N}$。实际上，对于 $V = D(f) \subseteq X$（其中 $f \in A$），有：$$\mathcal{M}(D(f)) \otimes_{\mathcal{O}_X(D(f))} \mathcal{N}(D(f)) = M[f^{-1}] \otimes_{A[f^{-1}]} N[f^{-1}] = (M \otimes_A N)[f^{-1}] = \widetilde{M \otimes_A N}(D(f))$$在这种情况中，此预层本身就是层，因而不需要层化。
+
+**推论 12.3**：若 $X$ 是一个概形，$\mathcal{M}$ 和 $\mathcal{N}$ 是拟凝聚层，则 $\mathcal{M} \otimes_{\mathcal{O}_X} \mathcal{N}$ 也是拟凝聚层。
 
 **证明**：我们可以在局部仿射开集上进行验证，由上述讨论即得。 $\square$
 
@@ -30,63 +26,27 @@ $$
 \mathcal{O}_X \times f_*\mathcal{N} \arrow[r, "f^\sharp \times \operatorname{id}_{f_*\mathcal{N}}"] & f_*\mathcal{O}_Y \times f_*\mathcal{N} \arrow[r, equal] & f_*(\mathcal{O}_Y \times \mathcal{N}) \arrow[r, "f_*(-)"] & f_*\mathcal{N}
 \end{tikzcd}
 ```
-2. 若 $\mathcal{M}$ 是 $\mathcal{O}_X$-模，则 $f^{-1}\mathcal{M}$ 是一个通过如下映射定义的 $f^{-1}\mathcal{O}_X$-模层：
-   $$
-   f^{-1}\mathcal{O}_X \times f^{-1}\mathcal{M} = f^{-1}(\mathcal{O}_X \times \mathcal{M}) \longrightarrow f^{-1}(\mathcal{M})
-   $$
-   现将拉回层（pullback） $f^*\mathcal{M}$ 定义为如下 $\mathcal{O}_Y$-模：
-   $$
-   f^*\mathcal{M} = f^{-1}\mathcal{M} \otimes_{f^{-1}\mathcal{O}_X} \mathcal{O}_Y
-   $$
+2. 若 $\mathcal{M}$ 是 $\mathcal{O}_X$-模，则 $f^{-1}\mathcal{M}$ 是一个通过如下映射定义的 $f^{-1}\mathcal{O}_X$-模层：$$f^{-1}\mathcal{O}_X \times f^{-1}\mathcal{M} = f^{-1}(\mathcal{O}_X \times \mathcal{M}) \longrightarrow f^{-1}(\mathcal{M})$$现将拉回层（pullback） $f^*\mathcal{M}$ 定义为如下 $\mathcal{O}_Y$-模 ( extension of scalar ) ：$$f^*\mathcal{M} = f^{-1}\mathcal{M} \otimes_{f^{-1}\mathcal{O}_X} \mathcal{O}_Y$$
 
-**命题 12.5**：
-存在一对伴随，其中左伴随为 $f^*$，右伴随为 $f_*$。即对每一个 $\mathcal{O}_X$-模 $\mathcal{M}$ 和每一个 $\mathcal{O}_Y$-模 $\mathcal{N}$，存在如下自然等同：
-$$
-\operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})
-$$
-**证明简述**：
-    我们已具备如下伴随：
-    $$
-    \operatorname{Hom}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}(\mathcal{M}, f_*\mathcal{N}) \supseteq \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})
-    $$
-    右侧子集对应于 $\mathcal{O}_X$-线性映射 $\mathcal{M} \to f_*\mathcal{N}$。在左侧对应的子集为 $f^{-1}\mathcal{O}_X$-线性映射 $f^{-1}\mathcal{M} \to \mathcal{N}$，即 $\operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N})$。因此我们有伴随：
-    $$
-    \operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})
-    $$
-    接着，利用换环同构（change of rings isomorphism）转换左侧：
-    $$
-    \operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_Y}(f^{-1}\mathcal{M} \otimes_{f^{-1}\mathcal{O}_X} \mathcal{O}_Y, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N})
-    $$
-    证毕。 $\square$
+**命题 12.5**：存在一对伴随，其中左伴随为 $f^*$，右伴随为 $f_*$。即对每一个 $\mathcal{O}_X$-模 $\mathcal{M}$ 和每一个 $\mathcal{O}_Y$-模 $\mathcal{N}$，存在如下自然等同：$$\operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})$$
+**证明**：我们已具备如下伴随：$$\operatorname{Hom}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}(\mathcal{M}, f_*\mathcal{N}) \supseteq \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})$$右侧子集对应于 $\mathcal{O}_X$-线性映射 $\mathcal{M} \to f_*\mathcal{N}$。在左侧对应的子集为 $f^{-1}\mathcal{O}_X$-线性映射 $f^{-1}\mathcal{M} \to \mathcal{N}$，即 $\operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N})$。因此我们有伴随：$$\operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N})$$接着，利用换环同构（change of rings isomorphism）转换左侧：$$\operatorname{Hom}_{f^{-1}\mathcal{O}_X}(f^{-1}\mathcal{M}, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_Y}(f^{-1}\mathcal{M} \otimes_{f^{-1}\mathcal{O}_X} \mathcal{O}_Y, \mathcal{N}) \cong \operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N})$$证毕。 $\square$
 
 **命题 12.6**：
-1. 设 $f : Y \to X$ 是方案之间的任意映射，且 $\mathcal{M}$ 是拟凝聚 $\mathcal{O}_X$-模，则 $f^*\mathcal{M}$ 是拟凝聚 $\mathcal{O}_Y$-模。
+1. 设 $f : Y \to X$ 是概形之间的任意映射，且 $\mathcal{M}$ 是拟凝聚 $\mathcal{O}_X$-模，则 $f^*\mathcal{M}$ 是拟凝聚 $\mathcal{O}_Y$-模。
 2. 若 $Y = \operatorname{Spec} B$ 且 $X = \operatorname{Spec} A$，则 $\mathcal{M} \cong \widetilde{M}$（对某个 $A$-模 $M$），且 $f^*\mathcal{M} \cong \widetilde{M \otimes_A B}$。
-**证明**：
-    对于第 1 部分，可以用仿射开集 $V = \operatorname{Spec} B \subseteq Y$ 覆盖 $Y$，使其映射到仿射开集 $U = \operatorname{Spec} A \subseteq X$ 内。令 $g : V \to U$ 为 $f$ 在 $V$ 上的限制，那么有 $(f^*\mathcal{M})|_V = g^*(\mathcal{M}|_V)$。要验证 $f^*\mathcal{M}$ 的拟凝聚性，只需验证 $g^*(\mathcal{M}|_V)$ 的拟凝聚性即可。这说明我们可以将 $Y$ 用 $\operatorname{Spec} B$ 代替，且将 $X$ 用 $\operatorname{Spec} A$ 代替。因此只需证明第 2 部分。在此情况下 $\mathcal{M} = \widetilde{M}$，并且对所有 $\mathcal{O}_Y$-模 $\mathcal{N}$，我们有如下一连串同构：
-    $$
-    \begin{aligned}
-    \operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N}) &\cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N}) \\
-    &\cong \operatorname{Hom}_A(M, f_*\mathcal{N}(X)) \\
-    &= \operatorname{Hom}_A(M, \mathcal{N}(Y)) \\
-    &\cong \operatorname{Hom}_B(M \otimes_A B, \mathcal{N}(Y)) \\
-    &\cong \operatorname{Hom}_{\mathcal{O}_Y}(\widetilde{M \otimes_A B}, \mathcal{N})
-    \end{aligned}
-    $$
-    由 Yoneda 引理可得 $f^*\mathcal{M} \cong \widetilde{M \otimes_A B}$。证毕。 $\square$
 
-**例子 12.7**：
-定理 10.7 中对于所有环 $R$ 的 $\mathbb{P}^n_{\mathbb{Z}}(R)$ 刻画可推广到任意方案上。
+**证明**：对于第 1 部分，可以用仿射开集 $V = \operatorname{Spec} B \subseteq Y$ 覆盖 $Y$，使其映射到仿射开集 $U = \operatorname{Spec} A \subseteq X$ 内。令 $g : V \to U$ 为 $f$ 在 $V$ 上的限制，那么有 $(f^*\mathcal{M})|_V = g^*(\mathcal{M}|_V)$。要验证 $f^*\mathcal{M}$ 的拟凝聚性，只需验证 $g^*(\mathcal{M}|_V)$ 的拟凝聚性即可。这说明我们可以将 $Y$ 用 $\operatorname{Spec} B$ 代替，且将 $X$ 用 $\operatorname{Spec} A$ 代替。因此只需证明第 2 部分。在此情况下 $\mathcal{M} = \widetilde{M}$，并且对所有 $\mathcal{O}_Y$-模 $\mathcal{N}$，我们有如下一连串同构：$$\begin{aligned}\operatorname{Hom}_{\mathcal{O}_Y}(f^*\mathcal{M}, \mathcal{N}) &\cong \operatorname{Hom}_{\mathcal{O}_X}(\mathcal{M}, f_*\mathcal{N}) \\&\cong \operatorname{Hom}_A(M, f_*\mathcal{N}(X)) \\&= \operatorname{Hom}_A(M, \mathcal{N}(Y)) \\&\cong \operatorname{Hom}_B(M \otimes_A B, \mathcal{N}(Y)) \\&\cong \operatorname{Hom}_{\mathcal{O}_Y}(\widetilde{M \otimes_A B}, \mathcal{N})\end{aligned}$$由 Yoneda 引理可得 $f^*\mathcal{M} \cong \widetilde{M \otimes_A B}$。证毕。 $\square$
 
-**定义 12.8**：
-若 $X$ 是一个方案，则一个可逆 $\mathcal{O}_X$-模 $\mathcal{L}$ 是一个拟凝聚 $\mathcal{O}_X$-模，满足存在一个拟凝聚 $\mathcal{O}_X$-模 $\mathcal{N}$ 使得 $\mathcal{L} \otimes_{\mathcal{O}_X} \mathcal{N} \cong \mathcal{O}_X$。
+**例子 12.7**：定理 10.7 中对于所有环 $R$ 的 $\mathbb{P}^n_{\mathbb{Z}}(R)$ 刻画可推广到任意概形上: 
+
+**定义 12.8**：若 $X$ 是一个概形，则一个可逆 $\mathcal{O}_X$-模 $\mathcal{L}$ 是一个拟凝聚 $\mathcal{O}_X$-模，满足存在一个拟凝聚 $\mathcal{O}_X$-模 $\mathcal{N}$ 使得 $\mathcal{L} \otimes_{\mathcal{O}_X} \mathcal{N} \cong \mathcal{O}_X$。
 
 **注 12.9**：
 1. 若 $X = \operatorname{Spec} A$，则 $\mathcal{L} \cong \widetilde{L}$ 对某个 $A$-模 $L$ 成立，且 $\mathcal{L}$ 是可逆的当且仅当 $L$ 是可逆的。
-2. 我们完全可以不使用上述定义中的“拟凝聚”一词进行定义，此情况下 $\mathcal{L}$ 依然是一个拟凝聚层。对此事实的证明简述为：证明任何这样的可逆 $\mathcal{O}_X$-模在 $X$ 上局部上均为 $\mathcal{O}_X^n$（对某个 $n$）的直接加项，这与 $A$-模的情况完全类似。
+2. 我们完全可以不使用上述定义中的“拟凝聚”一词进行定义，此情况下 $\mathcal{L}$ 依然是一个拟凝聚层。对此事实的证明简述为：证明任何这样的可逆 $\mathcal{O}_X$-模在 $X$ 上局部上均为 $\mathcal{O}_X^n$（对某个 $n$）的直和项，这与 $A$-模的情况完全类似。
 
 **推论 12.10**：
-对于任何方案 $X$，有：
+对于任何概形 $X$，有：
 $$
 \mathbb{P}^n_{\mathbb{Z}}(X) \cong \{\mathcal{O}_X^{n+1} \twoheadrightarrow \mathcal{L} \mid \text{满射，其中 } \mathcal{L} \text{ 为可逆 } \mathcal{O}_X\text{-模}\} /\sim
 $$
@@ -101,7 +61,7 @@ $$
 $$
 
 **定义 12.12**：
-对于任何方案 $X$，定义 $X$ 的 Picard 群为：
+对于任何概形 $X$，定义 $X$ 的 Picard 群为：
 $$
 \operatorname{Pic}(X) = \{\text{可逆 } \mathcal{O}_X\text{-模}\} /\cong
 $$
@@ -118,15 +78,15 @@ $$
 通常可逆 $\mathcal{O}_X$-模常被直接称为线丛（Geradenbündel）。
 
 **定理 12.15**：
-设 $X$ 是一个方案，$\mathcal{L}$ 是可逆 $\mathcal{O}_X$-模，则 $\mathcal{L}$ 在所有 $X$ 之上的方案 $f : Y \to X$ 上定义了一个函子 $\mathbb{V}(\mathcal{L})$：
+设 $X$ 是一个概形，$\mathcal{L}$ 是可逆 $\mathcal{O}_X$-模，则 $\mathcal{L}$ 在所有 $X$ 之上的概形 $f : Y \to X$ 上定义了一个函子 $\mathbb{V}(\mathcal{L})$：
 $$
 \mathbb{V}(\mathcal{L})(Y) := (f^*\mathcal{L})(Y) = \Gamma(Y, f^*\mathcal{L})
 $$
-此函子可由一个在 $X$ 之上同样记作 $\mathbb{V}(\mathcal{L})$ 的方案表示，使得存在 $X$ 的一个覆盖 $X = \bigcup_i U_i$，满足：
+此函子可由一个在 $X$ 之上同样记作 $\mathbb{V}(\mathcal{L})$ 的概形表示，使得存在 $X$ 的一个覆盖 $X = \bigcup_i U_i$，满足：
 $$
 \mathbb{V}(\mathcal{L}) \times_X U_i = \mathbb{V}(\mathcal{L})|_{U_i} \cong U_i \times \mathbb{A}^1
 $$
-方案 $\mathbb{V}(\mathcal{L})$ 可以看作一个线丛。
+概形 $\mathbb{V}(\mathcal{L})$ 可以看作一个线丛。
 
 **证明**：
     利用一般的粘合引理，只需在 $X$ 局部上证明该结果即可。假设 $X = \operatorname{Spec} A$，使得 $\mathcal{L} = \widetilde{L}$，那么 $L$ 在 $\operatorname{Spec} A$ 上局部自由且秩为 1。在此情况下，我们假定 $L = A$，从而有：
@@ -140,7 +100,7 @@ $$
     以此，我们能看到 $\mathbb{V}(\mathcal{L})$ 局部上由 $X \times \mathbb{A}^1$ 表示。证毕。 $\square$
 
 **定义 12.16**：
-给定一个方案 $X$，则一个向量丛（vector bundle） $\xi$ 是一个局部自由且秩有限的 $\mathcal{O}_X$-模层，即存在一个覆盖 $X = \bigcup_i U_i$，在每个 $U_i$ 上有：
+给定一个概形 $X$，则一个向量丛（vector bundle） $\xi$ 是一个局部自由且秩有限的 $\mathcal{O}_X$-模层，即存在一个覆盖 $X = \bigcup_i U_i$，在每个 $U_i$ 上有：
 $$
 \xi|_{U_i} \cong \mathcal{O}_{U_i}^{n_i}
 $$
@@ -150,7 +110,7 @@ $$
 如果 $\xi$ 是一个向量丛，那么它实际上是一个拟凝聚层。如果一个向量丛的秩为 1，那么它就是一个线丛，且恰好是一个可逆 $\mathcal{O}_X$-模。
 
 **命题 12.18**：
-设 $\xi$ 是 $X$ 上的一个向量丛，则 $\mathbb{V}(\xi)(Y) = (f^*\xi)(Y)$ 可以由一个在 $X$ 之上的方案 $\mathbb{V}(\xi)$ 表示。且存在覆盖 $X = \bigcup_i U_i$，使得有 $\mathbb{V}(\xi)|_{U_i} \cong U_i \times \mathbb{A}^{n_i}$。
+设 $\xi$ 是 $X$ 上的一个向量丛，则 $\mathbb{V}(\xi)(Y) = (f^*\xi)(Y)$ 可以由一个在 $X$ 之上的概形 $\mathbb{V}(\xi)$ 表示。且存在覆盖 $X = \bigcup_i U_i$，使得有 $\mathbb{V}(\xi)|_{U_i} \cong U_i \times \mathbb{A}^{n_i}$。
 
 **证明**：
     此证明与定理 12.15 相同，需要用到：
