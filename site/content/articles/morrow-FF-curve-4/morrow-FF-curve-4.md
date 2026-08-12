@@ -71,13 +71,13 @@ $$
 
 正如任何环 $A$ 通过取素谱 $\mathrm{Spec}(A)$ 产生一个 scheme，任何 Tate-Huber 对 $\underline{R}$ 都会产生一个 diamond 谱 $\mathrm{Spd}(\underline{R})$。虽然我们在 4.4 节之前不会定义 diamond 范畴，但我们仍可以陈述该过程的一些性质。
 
-首先，除非我们施加适当的光滑或 perfectoid 假设，否则反变函子 $\underline{R} \mapsto \mathrm{Spd}(\underline{R})$ 会丢失信息。特别是，以下反变函子是全忠实的：$$\mathrm{Spd} : \mathrm{Aff}\text{-}\mathrm{Perf} := \{\text{perfect Tate-Huber pairs}\} \longrightarrow \{\text{diamonds}\}$$
+首先，除非我们施加适当的光滑或 perfectoid 假设，否则反变函子 $\underline{R} \mapsto \mathrm{Spd}(\underline{R})$ 会丢失信息。特别是，以下反变函子是全忠实的：$$\mathrm{Spd} : \mathrm{Aff}\text{-}\mathrm{Perf} := \{\text{perfect Tate-Huber pairs}\} \longrightarrow \{\text{diamonds}\}\tag{7}$$
 
 ##### S-点与保守性
 给定一个 diamond $X$，完美 Tate-Huber 对 $\underline{S}$ 的 $\underline{S}$-值点是集合：$$X(\underline{S}) := \mathrm{Hom}_{\mathrm{diamonds}}(\mathrm{Spd}(\underline{S}), X)$$这些点提供了一个conservative的测试对象族：diamond 的态射 $f: X \to Y$ 是同构，当且仅当对所有完美 Tate-Huber 对 $\underline{S}$，$X(\underline{S}) \to Y(\underline{S})$ 都是双射。特别是，任何 diamond $X$ 均由其关联的点函子确定：$$X(-) : \mathrm{Aff}\text{-}\mathrm{Perf} \longrightarrow \mathrm{Sets}$$
 
 ##### 例子：$\mathrm{Spd}(\mathbb{Q}_p)$ 的点函子
-与 diamond $\mathrm{Spd}(\mathbb{Q}_p) := \mathrm{Spd}(\mathbb{Q}_p, \mathbb{Z}_p)$ ( 或许这里 $\mathrm{Spd}(\mathbb{Q}_p)$ 应写为 $\mathrm{Spd}(\underline{\mathbb{Q}_p})$ ? ) 关联的点函子为：$$\underline{S} \mapsto \{ \underline{S} \text{ 的 untilt 的等价类} \}$$
+与 diamond $\mathrm{Spd}(\mathbb{Q}_p) := \mathrm{Spd}(\mathbb{Q}_p, \mathbb{Z}_p)$ ( 或许这里 $\mathrm{Spd}(\mathbb{Q}_p)$ 应写为 $\mathrm{Spd}(\underline{\mathbb{Q}_p})$ ? ) 关联的点函子为：$$\underline{S} \mapsto \{ \underline{S} \text{ 的 untilt 的等价类} \}\tag{8}$$
 
 这里 $S$ 的 **untilt** 是一个对 $(\underline{T}, \iota)$，包含一个特征零的 perfectoid Tate-Huber 对 $\underline{T}$（即 $\underline{T} \supseteq \mathbb{Q}_p$）以及一个同构 $\iota : \underline{S} \overset{\sim}{\to} \underline{T}^\flat$。
 *(注 14：我们滥用符号将“特征零的 untilt”简称为“untilt”。)*
@@ -161,7 +161,7 @@ $$
 **命题 4.5**： 设 $\underline{R}$ 为 Tate-Huber 对。则：$$\mathrm{Spd}(\underline{R}) : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } \mathrm{Spa}(\underline{R}) \text{ 之上的 untilt 的等价类} \}$$是定义 4.4 意义下的一个 diamond。
 
 **证明**：通过向 $R$ 添加许多元素的 $p$ 次幂根，可以构造 $R$ 的 perfectoid 化 $\underline{R}_\infty$，使得相应的 adic 谱映射 $\mathrm{Spa}(\underline{R}_\infty) \to \mathrm{Spa}(R)$ 是一个 pro-étale 覆盖。
-    命题 4.1 接着表明，当前命题中定义的 $\mathrm{Spd}(R)$ 是可表示层 $\mathrm{Hom}_{\mathrm{Perf}}(-, \mathrm{Spa}(R_\infty^\flat))$ 的商。剩下的只需验证我们是对一个 pro-étale 等价关系进行商运算，Scholze 通过建立关于 pro-étale 扭子的各种一般性结果完成了这一验证。
+命题 4.1 接着表明，当前命题中定义的 $\mathrm{Spd}(\underline{R})$ 是可表示层 $\mathrm{Hom}_{\mathrm{Perf}}(-, \mathrm{Spa}(\underline{R}_\infty^\flat))$ 的商。剩下的只需验证我们是对一个 pro-étale 等价关系进行商运算，Scholze 通过建立关于 pro-étale 扭子的各种一般性结果完成了这一验证。
 
 更一般地，命题 4.5 为任何解析 adic 空间 $X$（即由 Tate-Huber 对构建的空间）关联一个 diamond $X^\diamond$：$$X^\diamond : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } X \text{ 之上的 untilt 的等价类} \}$$diamond $X^\diamond$ 应该被视为 $X$ 的广义倾斜。
 
@@ -190,10 +190,10 @@ $$
 \mathcal{Y}^\diamond \cong \mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p), \quad X^{\mathrm{FF}\diamond} \cong \mathrm{Spd}(F)/\varphi^{\mathbb{Z}} \times \mathrm{Spd}(\mathbb{Q}_p)
 $$
 
-**证明**：我们将简述第一个同构，第二个同构通过对 $F$ 上的 Frobenius 作用取商获得。根据 §4.3 中解释的点函子视角，我们展示对所有完美 Tate-Huber 对 $S$，$\mathcal{Y}^\diamond$ 和 $\mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p)$ 自然具有相同的 $S$-点：
+**证明**：我们将简述第一个同构，第二个同构通过对 $F$ 上的 Frobenius 作用取商获得。根据 §4.3 中解释的点函子视角，我们展示对所有完美 Tate-Huber 对 $\underline{S}$，$\mathcal{Y}^\diamond$ 和 $\mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p)$ 自然具有相同的 $\underline{S}$-点：
 
-根据 (7) 的全忠实性，$\mathrm{Spd}(F)$ 的 $S$-点就是 Tate-Huber 对的态射：$$f: (F, \mathcal{O}_F) \to (S, S^+)$$根据 (8)，$\mathrm{Spd}(\mathbb{Q}_p)$ 的 $S$-点是 $S$ 的一个 untilt $(T, \iota)$。
-利用 $\mathcal{Y}_F$ 的定义和 diamond 化过程，可以证明 $\mathcal{Y}^\diamond$ 的 $S$-点是 $\underline{S}$ 的一个 untilt $(T, \iota)$，以及一个连续同态 $A_{\mathrm{inf}} \to T^+$，且该同态可延拓为：$$A_{\mathrm{inf}}\left[\frac{1}{p}, \frac{1}{[\pi]}\right] \to T$$因此，为了产生 diamond 映射 $\mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p) \to \mathcal{Y}^\diamond$，我们应该说明，给定任何态射 $f: (F, \mathcal{O}_F) \to (S, S^+)$ 和 $S$ 的 untilt $(T, \iota)$，如何产生一个自然的连续同态 $A_{\mathrm{inf}} \to T^+$，其可延拓为 $A_{\mathrm{inf}}[\frac{1}{p}, \frac{1}{[\pi]}] \to T$。为此同态我们取：
+根据 (7) 的全忠实性，$\mathrm{Spd}(F)$ 的 $S$-点就是 Tate-Huber 对的态射：$$f: (F, \mathcal{O}_F) \to (S, S^+)$$根据 (8)，$\mathrm{Spd}(\mathbb{Q}_p)$ 的 $\underline{S}$-点是 $\underline{S}$ 的一个 untilt $(\underline{T}, \iota)$。
+利用 $\mathcal{Y}_F$ 的定义和 diamond 化过程，可以证明 $\mathcal{Y}^\diamond$ 的 $S$-点是 $\underline{S}$ 的一个 untilt $(\underline{T}, \iota)$，以及一个连续同态 $A_{\mathrm{inf}} \to T^+$，且该同态可延拓为：$$A_{\mathrm{inf}}\left[\frac{1}{p}, \frac{1}{[\pi]}\right] \to T$$因此，为了产生 diamond 映射 $\mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p) \to \mathcal{Y}^\diamond$，我们应该说明，给定任何态射 $f: (F, \mathcal{O}_F) \to (S, S^+)$ 和 $S$ 的 untilt $(T, \iota)$，如何产生一个自然的连续同态 $A_{\mathrm{inf}} \to T^+$，其可延拓为 $A_{\mathrm{inf}}[\frac{1}{p}, \frac{1}{[\pi]}] \to T$。为此同态我们取：
 ```tikz {embedFontCss=true}
 \begin{tikzcd}
 A_{\mathrm{inf}} = W(\mathcal{O}_F) \arrow[r, "W(f)"] & W(S^+) \arrow[r, "\cong"] & W(T^{+\flat}) \arrow[r, "\theta_T"] & T^+
