@@ -45,14 +45,10 @@ category: miscellaneous/inbox/unclassified
 1. 若 $X = \operatorname{Spec} A$，则 $\mathcal{L} \cong \widetilde{L}$ 对某个 $A$-模 $L$ 成立，且 $\mathcal{L}$ 是可逆的当且仅当 $L$ 是可逆的。
 2. 我们完全可以不使用上述定义中的“拟凝聚”一词进行定义，此情况下 $\mathcal{L}$ 依然是一个拟凝聚层。对此事实的证明简述为：证明任何这样的可逆 $\mathcal{O}_X$-模在 $X$ 上局部上均为 $\mathcal{O}_X^n$（对某个 $n$）的直和项，这与 $A$-模的情况完全类似。
 
-**推论 12.10**：
-对于任何概形 $X$，有：
-$$
-\mathbb{P}^n_{\mathbb{Z}}(X) \cong \{\mathcal{O}_X^{n+1} \twoheadrightarrow \mathcal{L} \mid \text{满射，其中 } \mathcal{L} \text{ 为可逆 } \mathcal{O}_X\text{-模}\} /\sim
-$$
-**证明**：
-    给定开子集 $U \subseteq X$，我们定义两个预层：$U \mapsto \mathbb{P}^n(U)$ 以及 $U \mapsto \{\mathcal{O}_U^{n+1} \to \mathcal{L}\}/\sim$。这两个层在一个仿射开覆盖上相一致，因而它们必然相等。实际上，它们之间存在一个天然的态射，当其在仿射开集上评估时是一个同构。证毕。 $\square$
-    特别是，若 $X = \mathbb{P}^n_{\mathbb{Z}}$，我们有 $\operatorname{id} \in \mathbb{P}^n_{\mathbb{Z}}(\mathbb{P}^n_{\mathbb{Z}})$，并且获得了一个自然的（“重言”）满射 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}^{n+1} \twoheadrightarrow \mathcal{L}$，其中 $\mathcal{L}$ 是一个可逆的 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}$-模。
+**推论 12.10**：对于任何概形 $X$，有：$$\mathbb{P}^n_{\mathbb{Z}}(X) \cong \{\mathcal{O}_X^{n+1} \twoheadrightarrow \mathcal{L} \mid \text{满射，其中 } \mathcal{L} \text{ 为可逆 } \mathcal{O}_X\text{-模}\} /\sim$$
+**证明**：给定开子集 $U \subseteq X$，我们定义两个预层：$U \mapsto \mathbb{P}^n(U)$ 以及 $U \mapsto \{\mathcal{O}_U^{n+1} \to \mathcal{L}\}/\sim$。这两个层在一个仿射开覆盖上相一致，因而它们必然相等。实际上，它们之间存在一个天然的态射，当其在仿射开集上取值时是一个同构。证毕。 $\square$
+
+特别是，若 $X = \mathbb{P}^n_{\mathbb{Z}}$，我们有 $\operatorname{id} \in \mathbb{P}^n_{\mathbb{Z}}(\mathbb{P}^n_{\mathbb{Z}})$，并且获得了一个自然的（“重言”）满射 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}^{n+1} \twoheadrightarrow \mathcal{L}$，其中 $\mathcal{L}$ 是一个可逆的 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}$-模。
 
 **定义 12.11**：
 我们定义 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}(1) := \mathcal{L}$。对于 $m \ge 1$，有 $\mathcal{O}_{\mathbb{P}^n_{\mathbb{Z}}}(m) := \mathcal{L}^{\otimes m}$；对于 $m < 0$，有：
