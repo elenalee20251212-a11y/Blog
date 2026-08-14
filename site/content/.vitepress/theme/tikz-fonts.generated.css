@@ -1,3 +1,4 @@
+@font-face { font-family: cmex10; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmex10.ttf'); font-display: swap; }
 @font-face { font-family: cmmi10; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmmi10.ttf'); font-display: swap; }
 @font-face { font-family: cmmi12; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmmi12.ttf'); font-display: swap; }
 @font-face { font-family: cmmi5; src: url('../../../node_modules/node-tikzjax/css/bakoma/ttf/cmmi5.ttf'); font-display: swap; }

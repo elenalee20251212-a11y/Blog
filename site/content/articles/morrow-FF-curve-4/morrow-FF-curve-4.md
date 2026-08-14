@@ -46,22 +46,21 @@ Tate-Huber 对之间的同态是一个连续映射，且其限制在 $+$ 子环�
 
 #### 4.2. Perfectoid pairs（Perfectoid 对）
 
-##### 完美的 Tate-Huber 对
+##### 完美 Tate-Huber 对
 我们称一个 Tate-Huber 对 $S = (S, S^+)$ 是 **完美的**（perfect），如果 $S$ 是拓扑完备的，并且是一个完美 $\mathbb{F}_p$-代数（即 $S$ 的每个元素都有唯一的 $p$ 次方根）。
 
 ##### Perfectoid Tate-Huber 对
 去掉特征 $p$ 的假设，一个 Tate-Huber 对 $T = (T, T^+)$ 被称为 **perfectoid** 的，如果 $T$ 是拓扑完备的，且存在一个元素 $\pi \in T^+$ 使得：
 1.  $T^+$ 上的拓扑是 $\pi$-adic 拓扑；
 2.  $p \in \pi^p T^+$；
-3.  给定 $f \in T^+$, 存在 $g \in T^+$ 使得：
-
-$$
-f \equiv g^p \pmod{\pi T^+}
-$$
+3.  给定 $f \in T^+$, 存在 $g \in T^+$ 使得：$$f \equiv g^p \pmod{\pi T^+}$$
 
 这一假设意味着 $T^+$（从而 $T$）有许多 $p$ 次幂根。特征 $p$ 的 Tate-Huber 对是 perfectoid 的当且仅当它是完美的 [31, Prop. 3.5]。
 
-##### 例子与倾斜形式化
+> 注: 条件 1 因为完备性自然要求分离; 条件 2 保证了 $x\equiv y \pmod{\pi^n}$ 则 $x^p\equiv y^p\pmod{\pi^{n+1}}$ , 具体来说 $(x+\pi^n z)^p-x^p\in \pi^{n+1}T^+$ , 从而可以定义Teichmuller提升$$\varprojlim_{x\to x^p}T^+/\pi T^+\to \varprojlim_{x\to x^p}T^+=(T^+)^{\flat}$$实际上Teichmuller提升的逆是自然映射 ( 注意这一般不保持加法 ) $\varprojlim T^+\to \varprojlim T^+/\pi$ , $\pi$-进拓扑的分离性保证了它是单射 ( $(x_n)$ 被打到 $0$ , 则 $x_i\in \bigcap \pi^{p^n}T^+$ ... ), Teichmuller提升的存在保证了它是满射. 
+> 条件 3 则保证了Fontaine的 $\theta:W((T^+)^{\flat})\to T^+$ 映射也是满射: 具体来说 $\theta$ 是$$\theta\left( \sum p^n[x_n] \right) =\sum p^n x_n^{(0)}$$结合条件 2, 模 $p$ 的Frob也是满射, 所以任何 $T^+$ 中元素 $x$ , 都存在 $x_0\in (T^+)^\flat$ 使得 $x_0^{(0)}\equiv x\pmod{p}$ , 从而 $x-x_0=py_1$ , 并且如此得到的幂级数一定收敛...
+
+##### 例子与tilting公式
 若 $C$（或 $F$）满足 $(\mathrm{Pf}_0)$ ( 或 $(\mathrm{Pf}_p)$ ) ，则 $(C, \mathcal{O}_C)$（或 $(F, \mathcal{O}_F)$）是 perfectoid 的。
 此外，2.1节为域解释的tilting formalism可以推广到 perfectoid 对：给定一个 perfectoid Tate-Huber 对 $\underline{T} = (T, T^+)$，其倾斜 $\underline{T}^\flat = (T^\flat, T^{+\flat})$ 是一个完美的 Tate-Huber 对。这里的环 $T^\flat$ 和 $T^{+\flat}$ 分别定义为 $T$ 和 $T^+$ 中的相容 $p$ 幂序列集合，并用相同方法定义加法和逐项的乘法, 具体来说$$\begin{aligned}(a_0, a_1, \dots) + (b_0, b_1, \dots) &:= (c_0, c_1, \dots) \\\text{其中 } c_i &:= \lim_{i\le n \to \infty} (a_n + b_n)^{p^{n-i}}\end{aligned}$$
 
@@ -73,7 +72,6 @@ $$
 
 首先，除非我们施加适当的光滑或 perfectoid 假设，否则反变函子 $\underline{R} \mapsto \mathrm{Spd}(\underline{R})$ 会丢失信息。特别是，以下反变函子是全忠实的：$$\mathrm{Spd} : \mathrm{Aff}\text{-}\mathrm{Perf} := \{\text{perfect Tate-Huber pairs}\} \longrightarrow \{\text{diamonds}\}\tag{7}$$
 
-##### S-点与保守性
 给定一个 diamond $X$，完美 Tate-Huber 对 $\underline{S}$ 的 $\underline{S}$-值点是集合：$$X(\underline{S}) := \mathrm{Hom}_{\mathrm{diamonds}}(\mathrm{Spd}(\underline{S}), X)$$这些点提供了一个conservative的测试对象族：diamond 的态射 $f: X \to Y$ 是同构，当且仅当对所有完美 Tate-Huber 对 $\underline{S}$，$X(\underline{S}) \to Y(\underline{S})$ 都是双射。特别是，任何 diamond $X$ 均由其关联的点函子确定：$$X(-) : \mathrm{Aff}\text{-}\mathrm{Perf} \longrightarrow \mathrm{Sets}$$
 
 ##### 例子：$\mathrm{Spd}(\mathbb{Q}_p)$ 的点函子
@@ -91,7 +89,29 @@ $$
 
 **命题 4.1**： 设 $\underline{T}$ 为 perfectoid Tate-Huber 对。则倾斜（tilting）诱导了范畴等价：$$\{\text{perfectoid Tate-Huber pairs over } \underline{T}\} \overset{\sim}{\longrightarrow} \{\text{perfect Tate-Huber pairs over } \underline{T}^\flat\}$$
 
-**证明**：这是理论中较容易的倾斜等价之一。实质上是通过在将 $W(\mathcal{O}_{C^\flat})$ 替换为 $W(T^+)$ 后，重复命题 5.1 的论证来证明的。
+**证明**：这是理论中较容易的倾斜等价之一。实质上是通过在将 $W(\mathcal{O}_{C^\flat})$ 替换为 $W(T^{+\flat})$ 后，重复命题 5.1 的论证来证明的。
+
+具体来说, tilting是把 $\underline{T}\to \underline{S}$ 打到 $\underline{T}^{\flat}\to \underline{S}^{\flat}$ . 为定义tilting的拟逆, 给定 $\underline{T}^{\flat}\to \underline{S}$ , 从而有映射 $W(T^{\flat+})\to W(S^+)$. 
+
+> **引理：** 设 $\theta:A\to B$ 为环同态，$\pi\in A$ 的像仍记为 $\pi$。设 $\xi\in\ker\theta$，并记 $\bar\xi\in A/\pi A$ 为其模 $\pi$ 的像。假设 $A$ 在 $\pi$-adic 下分离且完备，$B$ 没有 $\pi$-扭元，并且 $\theta$ 模 $\pi$ 诱导的同态$$\bar\theta:A/\pi A\longrightarrow B/\pi B$$满足 $\ker\bar\theta=(\bar\xi)$。则 $\ker\theta$ 是由 $\xi$ 生成的主理想。此外，如果 $\pi$ 在 $A$ 中不是零因子，$\bar\xi$ 在 $A/\pi A$ 中不是零因子，且 $\bigcap_n(\bar\xi)^n=0$，则 $\bigcap_n(\ker\theta)^n=0$。
+
+> 注：已知 $A$ 在 $\pi$-adic 下是分离且完备的，且 $B$ 没有 $\pi$-扭元。
+
+> **证明：**
+> 1. **如果 $\ker\theta\subset(\xi,\pi)$，则 $\ker\theta=(\xi)$**  
+> 因为 $B$ 没有 $\pi$-扭元，且 $A$ 是 $\pi$-进分离且完备的。若 $x\in\ker\theta$ 且可写为 $x=\xi y_0+\pi x_1$，则取 $\theta$ 得到 $\pi\theta(x_1)=0$，从而得知 $x_1\in\ker\theta$。我们可以通过递推关系$$x_{n-1}=\xi y_{n-1}+\pi x_n$$归纳构造出 $\ker\theta$ 中的序列 $(x_n)$，从而得到$$x=\xi\sum_{n\ge0}\pi^ny_n$$是 $\xi$ 的倍数。
+> 2. **证明 $\bigcap_n(\ker\theta)^n=0$**  
+> 若 $x\in \bigcap (\xi^n)$ 则模 $\pi$ 后 $\bar x\in\bigcap_n(\bar\xi)^n=0$ ，从而 $\bar x=0$， $x=\pi y\in\pi A$。
+> 按定义 $\pi y=x=\xi^nz_n$。模 $\pi$ 得 $\bar\xi^n\bar z_n=0$ ，所以 $\bar z_n=0$，即 $z_n=\pi w_n$ , 于是 $y=\xi^nw_n$。故对于所有 $n$ 均有 $y\in(\xi)^n$。
+> 重复此过程，可得$$x=\pi y=\pi^2z=\cdots\in\pi^mA$$对所有 $m$ 都成立。由于 $A$ 在 $\pi$-adic 下分离，因此 $x=0$。 $\square$
+
+可以定义Fontaine的 $\theta$ 函数 $\theta:W(T^{+\flat})\to T^+$ . 那么上述引理的条件代入 $\pi=p$ , $W(T^{+\flat})$ 是 $p$-进分离且完备的, $T^+$ 中 $p$ 非零因子. 
+
+现在考虑 $\bar{\theta}: T^{+\flat}\to T^+/p$ , 它把 $x=(x^{(0)},x^{(1)},\cdots)$ 打到 $x^{(0)}\bmod p$ . 按perfectoid的条件 2 , 存在 $\varpi$ 使得 $p \in \varpi^p T^+$ , 设 $p=\varpi^pc$ . 令 $\xi=p-[\varpi^{\flat}]^p[c^{\flat}]$ , 则 $\xi\in \ker \theta$ .
+
+如果 $x\in \ker \bar{\theta}$ , 那么 $x^{(0)}\in pT^{+}= \varpi^pc T^+$ , 由于 $T^+$ 整闭 $\alpha^{p^n}\in T^{+}$ 则 $\alpha\in T^+$ , 因此 $\varpi^pc$ 整除 $x^{(0)}$ 推出 $(\varpi^pc)^{\frac{1}{p^n}}$ 整除 $x^{(n)}$ . 从而 $\ker \bar{\theta}=(\bar{\xi})$ , 从而 $\ker \theta=(\xi)$ . 
+
+那么就有untilt $S^+=W(S^{+\flat})/(\xi)$ , $S=S^{+}\left[ \frac{1}{\varpi} \right] $ , 这里同样定义的 $\theta_S:W(S^{+\flat})\to S^+$ 可以应用同样的论证说明 $\ker$ 由 $\xi$ 生成.
 
 ##### 代数簇的 Diamond 化
 任何 $\mathbb{Q}_p$ 上的代数簇 $X$ 都会产生一个 diamond $X^\diamond$。事实上，$X$ 是由各种 $\mathbb{Q}_p$-代数的谱构建的，我们可以通过 $p$-进完备化过程从中构建 Tate-Huber 对，然后粘合相关的 diamond 谱。映射 $X \mapsto X^\diamond$ 应当被视为倾斜的推广（适用于有限型对象，而倾斜本身仅适用于大型 perfectoid 对象）。且该过程在适当假设下不丢失信息：
@@ -139,7 +159,7 @@ $$
 #### 4.4. Definition of diamonds via adic spaces（通过 adic 空间定义 diamond）
 
 ##### Adic 谱 $\mathrm{Spa}(R)$
-对每个 Huber 对 $\underline{R} = (R, R^+)$，关联其 **adic spectrum** $\mathrm{Spa}(\underline{R})$，它是 $R$ 上满足对所有 $f \in R^+$ 都有 $|f| \le 1$ 的全体连续绝对值 $|\cdot|$ 组成的拓扑空间。这些估值来自选择一个素理想 $\mathfrak{p} \subseteq R$ 并写下其商域 $R/\mathfrak{p}$ 上的绝对值。$\mathrm{Spa}(R)$ 通过考虑 $R$ 上的拓扑和 $R^+$ 的有界性，对素谱 $\mathrm{Spec}(R)$ 进行了细化。
+对每个 Huber 对 $\underline{R} = (R, R^+)$，关联其 **adic spectrum** $\mathrm{Spa}(\underline{R})$，它是 $R$ 上满足对所有 $f \in R^+$ 都有 $|f| \le 1$ 的全体连续绝对值 $|\cdot|$ 组成的拓扑空间。这些绝对值来自选择一个素理想 $\mathfrak{p} \subseteq R$ 并写下其商域 $R/\mathfrak{p}$ 上的绝对值 ( 实际上这里 $\mathfrak{p}=\{ x:|x|=0 \}$ ) 。$\mathrm{Spa}(R)$ 通过考虑 $R$ 上的拓扑和 $R^+$ 的有界性，对素谱 $\mathrm{Spec}(R)$ 进行了细化。
 
 正如代数簇和 scheme 是通过将环的谱粘合在一起构建的一样，adic 空间是通过粘合 Huber 对的 adic 谱构建的。对于 adic 空间，在适当的有限性假设下（Huber [26]）以及在更广泛的意义下（Scholze [31]），存在一套鲁棒的 étale 上同调理论。
 
@@ -165,6 +185,8 @@ $$
 
 更一般地，命题 4.5 为任何解析 adic 空间 $X$（即由 Tate-Huber 对构建的空间）关联一个 diamond $X^\diamond$：$$X^\diamond : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } X \text{ 之上的 untilt 的等价类} \}$$diamond $X^\diamond$ 应该被视为 $X$ 的广义倾斜。
 
+现在回头考虑 §4.3 . $(7)$ 的全忠实函子 $\operatorname{Spa}:\mathrm{Aff}\text{-}\mathrm{Perf}\hookrightarrow  \mathrm{Perf}$ 复合上Yoneda嵌入给出$$\mathrm{Spd} : \mathrm{Aff}\text{-}\mathrm{Perf} := \{\text{perfect Tate-Huber pairs}\} \longrightarrow \{\text{diamonds}\}\tag{7}$$因此它全忠实...
+
 ---
 
 #### 4.5. The Fargues–Fontaine curve as a diamond（作为 diamond 的 Fargues-Fontaine 曲线）
@@ -173,6 +195,9 @@ $$
 
 ##### Adic 曲线的构造
 为了构造它，令 $\mathcal{Y}$ 为从 $\mathrm{Spa}(A_{\mathrm{inf}}, A_{\mathrm{inf}})$ 中移除元素 $p, [\pi] \in A_{\mathrm{inf}}$ 的零点集得到的 adic 空间。这里 $A_{\mathrm{inf}}$ 在 §5.1 中定义，$\pi$ 是 $\mathfrak{m}_F$ 的任意非零元素，且 $A_{\mathrm{inf}}$ 上的拓扑为 $(p, [\pi])$-adic 拓扑。
+
+> 比如说Fontaine选择的 $\pi^{(0)}=-p$ 满足 $|\pi|=|p|=\frac{1}{p}$ ...
+
 正如我们将在 §5.2 中看到的拓扑空间 $|\mathcal{Y}|$，$\Delta_{\mathrm{inf}}$ 上的 Frobenius 诱导了 $\mathcal{Y}$ 上完全不连续的 Frobenius 作用，因此：
 
 $$

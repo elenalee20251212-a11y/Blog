@@ -24,7 +24,7 @@ $C$ 的倾斜（tilt）$F = C^\flat$ 是一个具有类似性质但特征为 $p$
 
 域 $C$ 与其倾斜 $C^\flat$ 具有相同的剩余域，并存在一个乘性映射 $\#: C^\flat \to C$（称为 untilting map）。
 
-倾斜 $C^\flat$ 作为集合的定义为：$$C^\flat := \{(a_0, a_1, \dots) : a_i \in C, a_i^p = a_{i-1}\}$$在 $C^\flat$ 中，乘法是逐项进行的，加法则定义为：$$\begin{aligned}(a_0, a_1, \dots) + (b_0, b_1, \dots) &:= (c_0, c_1, \dots) \\\text{其中 } c_i &:= \lim_{i\le n \to \infty} (a_n + b_n)^{p^{n-i}}\end{aligned}$$其中极限在完备域 $C$ 中是收敛的。这些运算赋予了 $C^\flat$ 特征为 $p$ 的完美域结构 ( 这就是Fontaine书上定义的 $\operatorname{Fr}R$ ) 。
+倾斜 $C^\flat$ 作为集合的定义为：$$C^\flat := \{(a_0, a_1, \dots) : a_i \in C, a_i^p = a_{i-1}\}$$在 $C^\flat$ 中，乘法是逐项进行的，加法则定义为：$$\begin{aligned}(a_0, a_1, \dots) + (b_0, b_1, \dots) &:= (c_0, c_1, \dots) \\\text{其中 } c_i &:= \lim_{i\le n \to \infty} (a_n + b_n)^{p^{n-i}}\end{aligned}$$其中极限在完备域 $C$ 中是收敛的。这些运算赋予了 $C^\flat$ 特征为 $p$ 的完美域结构 ( 这就是Fontaine书上定义的 $\operatorname{Fr}R(C)$ ) 。
 
 untilting 映射 $\#: C^\flat \to C$ 是投影映射：$$\alpha = (a_0, a_1, \dots) \mapsto \alpha^\# := a_0$$由 $|\alpha|_{C^\flat} := |\alpha^\#|_C$ 诱导的绝对值使 $C^\flat$ 在其下完备，并通过 Hensel 引理可证其亦为代数封闭的。
 
@@ -40,7 +40,7 @@ $F$ 的一个 **untilt** 定义为数对 $(C, \iota)$，其中 $C$ 满足 $(\mat
 给定 $F$ 的一个 untilt $(C, \iota)$，可以通过绝对 Frobenius 自同构 $\varphi: F \xrightarrow{\sim} F$（$x \mapsto x^p$）构造新的 untilt $(C, \iota \circ \varphi^m)$ ($m \in \mathbb{Z}$)。
 若存在 $m \in \mathbb{Z}$ 使得 $(C, \iota)$ 与 $(C', \iota' \circ \varphi^m)$ 等价，则称这两个 untilt 是 **Frobenius 等价** 的。其等价类的商空间为：$$|Y_F|/\varphi^{\mathbb{Z}}$$其中无限循环群 $\varphi^\mathbb{Z}$ 作用于 $|Y_F|$ 的方式为 $\varphi^m(C, \iota) := (C, \iota \circ \varphi^m)$。
 
-**定理 2.3 (Fargues-Fontaine)**：存在一个完备曲线 $X_{\mathrm{FF}}^F$，其闭点与 $|Y_F|/\varphi^{\mathbb{Z}}$ 存在自然双射。此外，对应于给定 untilt $(C, \iota)$ 的点，其剩余域为 $C$。
+**定理 2.3 (Fargues-Fontaine)**：存在一个完备曲线 $X_{\mathrm{FF}}^F$，其闭点与 $|Y_F|/\varphi^{\mathbb{Z}}$ 存在自然双射。此外，对应于给定 untilt $(C, \iota)$ 的点的剩余域为 $C$。
 
 简写：$|Y| = |Y_F|$，$X^{\mathrm{FF}} = X_{\mathrm{FF}}^F$。
 
@@ -67,7 +67,7 @@ Fargues–Fontaine 曲线可以通过将 $p$-进 Hodge 理论中的周期环谱�
 
 代数 $\mathbb{P}^1$ 的典型例子是 $(\mathbb{C}[z], \mathrm{ord}_\infty)$。
 
-现在用 $p$-进 Hodge 理论中的晶体和 de Rham 周期环 $B_{\mathrm{crys}}$ 和 $B_{\mathrm{dR}}$（均为大型 $\mathbb{Q}_p$-代数）来近似刻画 Fargues-Fontaine 曲线。它们满足：
+现在用 $p$-进 Hodge 理论中的晶体和 de Rham 周期环 $B_{\mathrm{crys}}$ 和 $B_{\mathrm{dR}}$（均为很大的 $\mathbb{Q}_p$-代数）来近似刻画 Fargues-Fontaine 曲线。它们满足：
 1. $B_{\mathrm{dR}}$ 是一个剩余特征为 0 的完备离散赋值域（赋值记为 $\nu_{\mathrm{dR}}$）；
 2. $B_{\mathrm{crys}}$ 是 $B_{\mathrm{dR}}$ 的子环；
 3. $B_{\mathrm{crys}}$ 装备了被称为 Frobenius 的内同态 $\varphi$。
@@ -86,7 +86,13 @@ Fargues–Fontaine 曲线可以通过将 $p$-进 Hodge 理论中的周期环谱�
 
 **定义 2.6**：一个**曲线**（curve）是指一个正则、Noether、分离、连通、一维的概形 $X$；如果对 $X$ 函数域中的所有 $f$，度数公式 $\sum_{x\in X}\mathrm{ord}_x(f) = 0$ 成立，则称其为**完备的**。
 
-对于一个完备曲线 $X$ 及其上的一个点 $\infty \in X$，使得 $X \setminus \{\infty\} = \mathrm{Spec}(B)$ 是仿射的：
+曲线与代数 $\mathbb{P}^1$之间的联系如下：对于一个完备曲线 $X$ 及其上的一个点 $\infty \in X$，使得 $X \setminus \{\infty\} = \mathrm{Spec}(B)$ 是仿射的。点 $\infty$ 在 $\text{Frac}(B)$（即 $X$ 的函数域 ）上定义了赋值 $\text{ord}_\infty$。我们希望纯粹通过 $X$ 和 $\infty$ 的几何性质，来刻画 $(B, \text{ord}_\infty)$ 是否为一个代数 $\mathbb{P}^1$ ：
+
+Weil 除子 $\sum_{x \in X} n_x [x]$ 的degree定义为 $\sum_{x \in X} n_x$；$X$ 完备意味着任何有理函数的除子上该degree均平凡，从而它诱导了映射 $\text{deg} : \text{Pic}(X) \to \mathbb{Z}$ . 由此直接有[16, prop.5.4.2]，$B$ 是一个PID当且仅当 $\text{deg} : \text{Pic}(X) \to \mathbb{Z}$ 是同构。
+
+设 $\mathcal{O}_X(1) := \mathcal{O}_X(\infty)$ 为 $X$ 上与 Weil 除子 $[\infty]$ 相关联的线丛；更一般地，对任意 $k \in \mathbb{Z}$，$\mathcal{O}_X(k) = \mathcal{O}_X(1)^{\otimes k}$ 是与 $k[\infty]$ 相关联的线丛。
+
+总结一下: 对于一个完备曲线 $X$ 及其上的一个点 $\infty \in X$，使得 $X \setminus \{\infty\} = \mathrm{Spec}(B)$ 是仿射的：
 * 完备性诱导了度数映射 $\mathrm{deg}: \mathrm{Pic}(X) \to \mathbb{Z}$。$B$ 是主理想整环当且仅当 $\mathrm{deg}: \mathrm{Pic}(X) \xrightarrow{\sim} \mathbb{Z}$ 是同构。
 * 设 $\mathcal{O}_X(1) := \mathcal{O}_X(\infty)$ 且 $\mathcal{O}_X(k) := \mathcal{O}_X(1)^{\otimes k}$。
 * $-\mathrm{ord}_\infty$ 在 $B$ 上定义一个欧几里得函数 $\iff$ 对所有 $k \ge -1$ 有 $H^1(X, \mathcal{O}_X(k)) = 0$（例如 $X = \mathbb{P}^1_{\mathbb{C}}$）。
@@ -94,11 +100,13 @@ Fargues–Fontaine 曲线可以通过将 $p$-进 Hodge 理论中的周期环谱�
 
 综上，几何与上同调假设：$$\mathrm{deg}: \mathrm{Pic}(X) \xrightarrow{\sim} \mathbb{Z} \quad \text{且} \quad H^1(X, \mathcal{O}_X(k)) = 0 \quad (\forall k \ge 0)\tag 6$$暗示了数对 $(B = H^0(X \setminus \{\infty\}, \mathcal{O}_X), \mathrm{ord}_\infty)$ 是一个完备的代数 $\mathbb{P}^1$。
 
-de Rham周期环和晶体周期环隐含的依赖对 $F$ 某个untilt的选取, 从而通过Thm 2.3 对应 $\infty \in X^{\mathrm{FF}}$。
+de Rham周期环和晶体周期环隐含的依赖对 $F$ 某个untilt的选取, 从而通过Thm 2.3 ( $|Y_F|/\varphi^{\mathbb{Z}}$ 一一对应于 $X_{\mathrm{FF}}^F$ 上闭点 ) 对应 $\infty \in X^{\mathrm{FF}}$。
 
 **定理 2.7 (Fargues-Fontaine)**：$X^{\mathrm{FF}}$ 是一个完备曲线，它与点 $\infty$ 一起满足性质 (6)；且其关联的代数 $\mathbb{P}^1$ 为 $(B_e, \nu_{\mathrm{dR}})$。
 
-需要注意的是，虽然全局正则函数环为 $H^0(X^{\mathrm{FF}}, \mathcal{O}_{X^{\mathrm{FF}}}) = \mathbb{Q}_p$，但该曲线不是 $\mathbb{Q}_p$ 上的有限类型（因为其余域均为代数封闭域，非 $\mathbb{Q}_p$ 的有限扩张）。
+因此, Fargues-Fontaine曲线将 $p$-adic Hodge 理论中的周期环"粘合"起来, 成为一个和黎曼球面有相近几何和上同调性质的曲线.
+
+需要注意的是，虽然全局正则函数环为 $H^0(X^{\mathrm{FF}}, \mathcal{O}_{X^{\mathrm{FF}}}) = \mathbb{Q}_p$ ( 通过使用基本正合列计算 $\mathcal{O}_{X^{\mathrm{FF}}}$ 的Cech上同调可知 ) ，但该曲线不是 $\mathbb{Q}_p$ 上有限型的（因为其剩余域均为代数闭域，非 $\mathbb{Q}_p$ 的有限扩张）。
 
 #### 2.3 曲线的第一种定义
 
