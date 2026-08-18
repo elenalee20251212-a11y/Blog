@@ -169,9 +169,7 @@ $$
 
 对任意非零 $f \in B^{\varphi=p^k}$，其除子满足 $\mathrm{div}(f) \in \mathrm{Div}^+(Y/\varphi^\mathbb{Z})$，从而诱导幺半群态射：
 
-$$
-\mathrm{div} : \bigsqcup_{k \ge 0} (B \setminus \{0\})^{\varphi=p^k} \longrightarrow \mathrm{Div}^+(Y/\varphi^\mathbb{Z})
-$$
+$$\mathrm{div} : \bigsqcup_{k \ge 0} (B \setminus \{0\})^{\varphi=p^k} \longrightarrow \mathrm{Div}^+(Y/\varphi^\mathbb{Z})$$
 
 ---
 
@@ -197,13 +195,7 @@ $$
 * **满射性：**
   $\mathrm{Div}^+(Y/\varphi^\mathbb{Z})$ 由形如 $\sum_{n \in \mathbb{Z}} [\varphi^n(y)]$（$y \in |Y|$）的轨道元素生成。只需对给定的 $y \in |Y|$，找到元素 $t_y \in B^{\varphi=p}$，使得 $\mathrm{div}(t_y) = \sum_{n \in \mathbb{Z}} [\varphi^n(y)]$（即在 $y$ 的所有 $\varphi^\mathbb{Z}$-轨道点处有一阶零点，其余位置无零点与极点）。
   设 $\xi_y = p - [x] \in A_{\mathrm{inf}}$（$x \in \mathfrak{m}_F$）为对应于 $y$ 的一次本原元。
-  1. 构造正向无穷乘积：
-
-$$
-\Pi^+(\xi_y) := \prod_{n \ge 0} \varphi^n\left(\frac{\xi_y}{p}\right) = \prod_{n \ge 0} \left(1 - \frac{[x^{p^n}]}{p}\right)
-$$
-
-     该乘积在 $B^+$ 中收敛，满足 $\xi_y \varphi(\Pi^+(\xi_y)) = p \Pi^+(\xi_y)$，且 $\mathrm{div}(\Pi^+(\xi_y)) = \sum_{n \ge 0} [\varphi^n(y)]$。
+  1. 构造正向无穷乘积：$$\Pi^+(\xi_y) := \prod_{n \ge 0} \varphi^n\left(\frac{\xi_y}{p}\right) = \prod_{n \ge 0} \left(1 - \frac{[x^{p^n}]}{p}\right)$$该乘积在 $B^+$ 中收敛，满足 $\xi_y \varphi(\Pi^+(\xi_y)) = p \Pi^+(\xi_y)$，且 $\mathrm{div}(\Pi^+(\xi_y)) = \sum_{n \ge 0} [\varphi^n(y)]$。
   2. 构造负向修正项：由于 $F$ 中存在 Artin–Schreier 根与 $p-1$ 次根，方程 $\varphi(T) = gT$ 对任意 $g \in B^b$ 在 $B^b$ 中均有非零解。特别地，存在非零元 $\Pi^-(\xi_y) \in B^b$ 满足 $\varphi(\Pi^-(\xi_y)) = \xi_y \Pi^-(\xi_y)$，其自动满足 $\mathrm{div}(\Pi^-(\xi_y)) = \sum_{n < 0} [\varphi^n(y)]$。
   3. 令 $t_y := \Pi^-(\xi_y) \Pi^+(\xi_y) \in B^{\varphi=p}$，即满足 $\mathrm{div}(t_y) = \sum_{n \in \mathbb{Z}} [\varphi^n(y)]$，满射性得证。 $\square$
 

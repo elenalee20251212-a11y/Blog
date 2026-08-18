@@ -25,7 +25,9 @@ category: miscellaneous/inbox/unclassified
 
 ##### Tate 环的例子
 *   **例子 1**：给定一个由非阿基米德绝对值 $|\cdot| : K \to \mathbb{R}_{\ge 0}$ 赋予拓扑的域 $K$，则 $K$ 是 Tate 环。
-*   **例子 2**：沿用 $K$ 的定义, 以下环也是 Tate 环：$$K\langle T \rangle := \left\{ \sum_{n \ge 0} a_n T^n : a_n \in K, a_n \to 0 \text{ 当 } n \to \infty \right\}$$这里 $R_0=\left\{ \sum a_nT^n: |a_n|\leqslant 1, |a_n|\to 0 \right\}$ 且 $\pi\in K$ 取某个 $0<|\pi|<1$ ( 对 $K\langle T \rangle$ 考虑 $|\cdot|_\infty$ 范数... )
+*   **例子 2**：沿用 $K$ 的定义, 以下环也是 Tate 环：$$K\langle T \rangle := \left\{ \sum_{n \ge 0} a_n T^n : a_n \in K, a_n \to 0 \text{ 当 } n \to \infty \right\}$$这里 $R_0=\left\{ \sum a_nT^n: |a_n|\leqslant 1, |a_n|\to 0 \right\}$ 且 $\pi\in K$ 取某个 $0<|\pi|<1$ ( 对 $K\langle T \rangle$ 考虑 $|\cdot|_\infty$ 范数... ). 
+
+> 注意到 $K\langle T \rangle$ 中幂级数收敛半径的下界是 $1$ , 因此 $K\langle T \rangle$ 可以视作闭圆盘上的解析函数 (?) 环.
 
 ##### Huber 对与 Tate-Huber 对的定义
 Huber 通过指定 $R$ 中的哪些元素应当对应于有界函数来丰富该拓扑。这种丰富形式化为选择一个子环 $R^+ \subseteq R$，它在 $R$ 中是开的、整闭的，并且其中的每个元素 $f \in R^+$ 都是“幂有界”的（即当 $n \to \infty$ 时，序列 $f^n$ 不趋于无穷）。数对 $\underline {R}=(R, R^+)$ 被称为 **Huber 对**。如果 $R$ 是 Tate 环，则称为 **Tate-Huber 对**。
@@ -114,7 +116,9 @@ Tate-Huber 对之间的同态是一个连续映射，且其限制在 $+$ 子环�
 那么就有untilt $S^+=W(S^{+\flat})/(\xi)$ , $S=S^{+}\left[ \frac{1}{\varpi} \right] $ , 这里同样定义的 $\theta_S:W(S^{+\flat})\to S^+$ 可以应用同样的论证说明 $\ker$ 由 $\xi$ 生成.
 
 ##### 代数簇的 Diamond 化
-任何 $\mathbb{Q}_p$ 上的代数簇 $X$ 都会产生一个 diamond $X^\diamond$。事实上，$X$ 是由各种 $\mathbb{Q}_p$-代数的谱构建的，我们可以通过 $p$-进完备化过程从中构建 Tate-Huber 对，然后粘合相关的 diamond 谱。映射 $X \mapsto X^\diamond$ 应当被视为倾斜的推广（适用于有限型对象，而倾斜本身仅适用于大型 perfectoid 对象）。且该过程在适当假设下不丢失信息：
+任何 $\mathbb{Q}_p$ 上的代数簇 $X$ 都会产生一个 diamond $X^\diamond$。事实上，$X$ 是由各种 $\mathbb{Q}_p$-代数的谱构建的，我们可以通过 $p$-进完备化过程从中构建 Tate-Huber 对，然后粘合相关的 diamond 谱。
+
+映射 $X \mapsto X^\diamond$ 应当被视为倾斜的推广（适用于有限型对象，而倾斜本身仅适用于大型 perfectoid 对象）。且该过程在适当假设下不丢失信息：
 *(注 15：将 $\mathbb{Q}_p$ 替换为任何完备扩域 $K$，任何 $K$ 上的刚性解析簇 $X$ 都允许一个 diamond 化 $X^\diamond \in \mathrm{Diam}$，且以下函子是全忠实的：)*
 
 $$
@@ -200,13 +204,11 @@ $$
 
 正如我们将在 §5.2 中看到的拓扑空间 $|\mathcal{Y}|$，$\Delta_{\mathrm{inf}}$ 上的 Frobenius 诱导了 $\mathcal{Y}$ 上完全不连续的 Frobenius 作用，因此：
 
-$$
-X^{\mathrm{FF}} := \mathcal{Y}/\varphi^{\mathbb{Z}}
-$$
+$$\mathcal{X}^{\mathrm{FF}} := \mathcal{Y}/\varphi^{\mathbb{Z}}$$
 
 是一个良定义的 adic 空间。
 
-存在环ed空间态射 $X^{\mathrm{FF}} \to X^{\mathrm{FF}}$，在其下 $X^{\mathrm{FF}}$ 的行为类似于 scheme $X^{\mathrm{FF}}$ 的解析化。特别地，GAGA 定理断言这两个空间具有相同的向量丛和上同调 [27, Th. 8.7.7] [12, Th. 3.5]。
+存在环化空间态射 $\mathcal{X}^{\mathrm{FF}} \to X^{\mathrm{FF}}$，在其下 $\mathcal{X}^{\mathrm{FF}}$ 的行为类似于 scheme $X^{\mathrm{FF}}$ 的解析化。特别地，GAGA 定理断言这两个空间具有相同的向量丛和上同调 [27, Th. 8.7.7] [12, Th. 3.5]。
 如 4.4 所述，存在一个与 adic Fargues-Fontaine 曲线相关的 diamond $X^{\mathrm{FF}\diamond}$。
 
 **定理 4.6**： 存在自然的 diamond 同构：
@@ -217,7 +219,7 @@ $$
 
 **证明**：我们将简述第一个同构，第二个同构通过对 $F$ 上的 Frobenius 作用取商获得。根据 §4.3 中解释的点函子视角，我们展示对所有完美 Tate-Huber 对 $\underline{S}$，$\mathcal{Y}^\diamond$ 和 $\mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p)$ 自然具有相同的 $\underline{S}$-点：
 
-根据 (7) 的全忠实性，$\mathrm{Spd}(F)$ 的 $S$-点就是 Tate-Huber 对的态射：$$f: (F, \mathcal{O}_F) \to (S, S^+)$$根据 (8)，$\mathrm{Spd}(\mathbb{Q}_p)$ 的 $\underline{S}$-点是 $\underline{S}$ 的一个 untilt $(\underline{T}, \iota)$。
+根据 (7) 的全忠实性，$\mathrm{Spd}(F)$ 的 $\underline{S}$-点就是 Tate-Huber 对的态射：$$f: (F, \mathcal{O}_F) \to (S, S^+)$$根据 (8)，$\mathrm{Spd}(\mathbb{Q}_p)$ 的 $\underline{S}$-点是 $\underline{S}$ 的一个 untilt $(\underline{T}, \iota)$。
 利用 $\mathcal{Y}_F$ 的定义和 diamond 化过程，可以证明 $\mathcal{Y}^\diamond$ 的 $S$-点是 $\underline{S}$ 的一个 untilt $(\underline{T}, \iota)$，以及一个连续同态 $A_{\mathrm{inf}} \to T^+$，且该同态可延拓为：$$A_{\mathrm{inf}}\left[\frac{1}{p}, \frac{1}{[\pi]}\right] \to T$$因此，为了产生 diamond 映射 $\mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p) \to \mathcal{Y}^\diamond$，我们应该说明，给定任何态射 $f: (F, \mathcal{O}_F) \to (S, S^+)$ 和 $S$ 的 untilt $(T, \iota)$，如何产生一个自然的连续同态 $A_{\mathrm{inf}} \to T^+$，其可延拓为 $A_{\mathrm{inf}}[\frac{1}{p}, \frac{1}{[\pi]}] \to T$。为此同态我们取：
 ```tikz {embedFontCss=true}
 \begin{tikzcd}

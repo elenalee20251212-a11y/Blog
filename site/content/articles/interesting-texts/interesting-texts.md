@@ -6,6 +6,9 @@ order: 1
 ---
 
 ## 代数几何
+
+### First Course
+
 William Fulton - **Algebraic Curves, An Introduction to Algebraic Geometry**
 Ravi Vakil - **The Rising Sea Foundations of Algebraic Geometry**
 
@@ -14,7 +17,17 @@ J.-P. Serre - **FAC (代数性凝聚层)**
 Peter Scholze - **Algebraic Geometry I/II** (Notes)
 Grothendieck - **Pursuit Stacks** https://thescrivener.github.io/PursuingStacks/ / https://arxiv.org/pdf/2111.01000.pdf
 **Fundamental algebraic geometry: Grothendieck’s FGA explained**
-David Cox, John Little, Donal O’ Shea - **Ideals, Varieties, and Algorithms: An Introduction to Computational Algebraic Geometry and Commutative Algebra**
+
+### Second Course
+
+Eisenbud–Harris, The Practice of Algebraic Curves
+Eisenbud–Harris, 3264 and All That
+Eisenbud, The Geometry of Syzygies
+Miles Reid - Chapters on Algebraic Surfaces
+Beauville, Complex Algebraic Surfaces
+Mumford, Lectures on Curves on an Algebraic Surface
+Mukai, An Introduction to Invariants and Moduli
+
 ### 复几何
 Griffiths, Harris - **Principles of Algebraic Geometry**
 Griffiths - **代数曲线**
@@ -33,6 +46,10 @@ https://kskedlaya.org/papers/ant-ptx.pdf ( https://kskedlaya.org/ant/ )
 
 https://kskedlaya.org/prismatic ( https://kskedlaya.org/papers/prismatic-ptx.pdf )
 https://kskedlaya.org/weil-cohom/ ( https://kskedlaya.org/papers/weil-cohom-ptx.pdf )
+Bjorn Poonen - Rational points on varieties https://math.mit.edu/~poonen/papers/Qpoints.pdf
+Silverman, The Arithmetic of Elliptic Curves
+Serre, Lectures on the Mordell–Weil Theorem
+Katz–Mazur, Arithmetic Moduli of Elliptic Curves
 
 ## 一些组合数学
 Serre - **Finite Group**
@@ -86,14 +103,11 @@ J.-P. Serre - **Complex Semisimple Lie Algebra**
 
 ## 黎曼面
 
+mcmullen
 Simon Donaldson - **Riemann Surfaces**
-Hermann Weyl - **The Concept of a Riemann Surface**
-Jürgen Jost - **Compact Riemann Surfaces**
-Lars Ahlfors - **Riemann Surfaces**
 
 ## 低维几何
 W. Thurston - **Three-Dimensional Geometry and Topology**
-Marvin J. Greenberg - **Euclidean and Non-Euclidean Geometries: Development and History**
 
 ## 代数拓扑
 Allen Hatcher - **Algebraic Topology**
@@ -110,8 +124,7 @@ Tammo tom Dieck  - **Algebraic Topology**
 > May的加细
 
 J. P. May, K. Ponto - **More Concise Algebraic Topology**
-Anatoly Fomenko, Dmitry Fuchs - **Homotopical Topology**
-Raoul Harry Bott - **Differential Forms in Algebraic Topology**
+Bott&Tu- **Differential Forms in Algebraic Topology**
 Glen Bredon - **Topology and Geometry**
 
 ## 几何拓扑
@@ -157,17 +170,10 @@ Jean Dieudonné - **History of Functional Analysis**
 
 Bartel Leenert van der Waerden - **A History of Algebra: From al-Khwārizmī to Emmy Noether**
 
-Nicolas Bourbaki - **Elements of the History of Mathematics**
-
 James, I. M. ((eds.)) - **History of Topology**
 
 Knoebel, A., Laubenbacher, R., Lodder, J. etc. - **Mathematical Masterpieces Further Chronicles by the Explorers**
 > 四个主题：离散与连续；数值求解方程; 曲率和空间的概念；二次互反律
-
-Marvin J. Greenberg - **Euclidean and Non-Euclidean Geometries: Development and History**
-> 平面几何与双曲几何
-
-Marcel Berger - **Riemannian Geometry During the Second Half of the Twentieth Century**
 
 Peter Dombrowski - **150 Years After Gauss’ “Disquisitiones generales circa superﬁcies curvas”**
 > Gauss与微分几何的诞生
@@ -179,62 +185,23 @@ Gessel, Ira (ed.) Rota, Gian-Carlo (ed.) - **Classic papers in combinatorics**
 
 Armand Borel - **Essays in the History of Lie Groups and Algebraic Groups**
 
-Pesic, Peter (ed.) - **Beyond geometry. Classic papers from Riemann to Einstein**
-
-Rodrigo A. Pérez - **A Brief but Historic Article of Siegel**
 Luc Illusie, with Alexander Beilinson, Spencer Bloch, Vladimir Drinfeld, et al. - **Reminiscences of Grothendieck and His School**
 
 Vladimir I. Arnold - **Huygens and Barrow, Newton and Hooke**
 Erdős Centennial
 > Erdős成就的一个survey
 
-**The Legacy of John von Neumann**
-> 1988会议论文集，阐述了冯·诺依曼的观念和思想及它们对当代数学的影响，以及关于冯诺依曼的若干回忆
-> 算子理论、博弈论、遍历理论、科学计算和数学史相关
-
-Camillo De Lellis - **The masterpieces of John Forbes Nash Jr.** (arxiv 1606.02551)
-> Nash成就的一个survey
-
 **The Legacy of Bernhard Riemann After One Hundred And Fifty Years Vol I/II**
 > 综述文集，黎曼的工作和思想在现代的发展
-
-**The Legacy of Norbert Wiener: A Centennial Symposium**
-> 1994年10月，在MIT的Wiener百年诞辰研讨会上发表的演讲合集
 
 Felix Klein - **Development of Mathematics in the Nineteenth Century (数学在十九世纪的发展)**
 
 ## 传记/个人文集
 
-Gregory Margulis - **Autobiography**
-
 Paul Halmos - **I Want to Be a Mathematician**
 > Halmos自传
 
-Heinz Hopf - **Selected Chapters of Geometry**
-> This is a write-up by Hans Samelson of lectures by Hopf in a course at ETH in the summer of 1940. The four chapters are: 
-Euler's Formula.
-Graphs.
-The Four Vertex Theorem and Related Matters.
-The Isoperimetric Inequality.
-These total just 41 pages. There is quite a bit of overlap with notes from another course of the same title taught by Hopf at New York University in 1946 and published as the first part of volume 1000 of the Springer Lecture Notes. The 1946 course seems to have covered slightly more material, but Samelson's write-up of the earlier course is more polished and has a more pleasing appearance, being in TEX with nice electronically-drawn figures.
-
 **黎曼全集**
-
-**David Hilbert - Collected works**
-> 分卷：Number theory/Algebra, theory of invariants, geometry/Analysis
-
-**Collected Papers of John Milnor**
-> 分卷：Geometry ; The Fundamental Group; Differential Topology; Homotopy, Homology and Manifolds; Algebra; Dynamical Systems (1953-2000); and Dynamical Systems (1984-2012)
-
-**Collected Works of John Tate: Parts I and II**
-**Collected Works of William P. Thurston with Commentary**
-> This four-part collection brings together in one place Thurston's major writings, many of which are appearing in publication for the first time. Volumes I–III contain commentaries by the Editors. Volume IV includes a preface by Steven P. Kerckhoff.
-
-**Selected Works of Eberhard Hopf with Commentaries**
-> The volume is presented in two main parts. The first section is dedicated to classical papers in analysis and fluid dynamics, and the second to ergodic theory. These works and all the others in the Selected Works carry commentaries by a stellar group of mathematicians who write of the origin of the problems, the important results that followed.
-
-**Selected Works of Phillip A. Griffiths with Commentary**
-> The four parts of Selected Works—Analytic Geometry, Algebraic Geometry, Variations of Hodge Structures, and Differential Systems—are organized according to the subject matter and are supplemented by Griffiths' brief, but extremely illuminating, personal reflections on the mathematical content and the times in which they were produced.
 
 Gian-Carlo Rota - **Indiscrete Thoughts**
 Gian-Carlo Rota - **Discrete Thoughts**
@@ -245,12 +212,6 @@ Gian-Carlo Rota - **Discrete Thoughts**
 
 Felix Klein - **Lectures on Mathematics (Klein数学讲座)**
 > 1893年芝加哥国际数学大会，F.Klein在美国西北大学作了为期两周的埃文斯顿学术报告会演讲，本书由他报告的讲义组成
-
-Felix Klein, W. F. Sheppard, P. A. MacMahon, J. L. Mordell - **Famous Problems and Other Monographs**
-> Klein: Famous Problems Of Elementary Geometry (初等几何的著名问题)
-> Sheppard: From Determinant to Tensor
-> MacMahon: Introduction to Combinatory Analysis
-> Moderll: Three Lectures on Fermat's Last Theorem
 
 Mikhail Gromov - **Gromov的数学世界**
 
@@ -264,34 +225,18 @@ Yuri I. Manin - **Mathematics as Metaphor**
 
 Miles Reid, Balázs Szendrői - **Geometry and Topology**
 
-David Hilbert, S. Cohn-Vossen - **Geometry and the Imagination**
 Jeffrey R.Weeks - **The Shape of Space**
 > 直观
 
 **The Princeton Companion to Mathematics**
 **The Princeton Companion to Applied Mathematics**
 
-Roger Penrose - **The Road to Reality**
-
 Felix Klein - **Lectures on Mathematics**
-
-Vladimir I. Arnold - **Real Algebraic Geometry**
-
-**代数结构与拓扑结构 (Structures Algébriques et Structures Topologiques)**
-
-Terence Tao - **Poincaré’s Legacies Part I/II**
-> Part I of the second-year posts focuses on ergodic theory, combinatorics, and number theory. Chapter 2 consists of lecture notes from Tao's course on topological dynamics and ergodic theory. By means of various correspondence principles, recurrence theorems about dynamical systems are used to prove some deep theorems in combinatorics and other areas of mathematics. In addition to these lectures, a variety of other topics are discussed, ranging from recent developments in additive prime number theory to expository articles on individual mathematical topics such as the law of large numbers and the Lucas–Lehmer test for Mersenne primes. Some selected comments and feedback from blog readers have also been incorporated into the articles.
-> Part I of the second-year posts focuses on geometry, topology, and partial differential equations. The major part of the book consists of lecture notes from Tao's course on the Poincaré conjecture and its recent spectacular solution by Perelman. The course incorporates a review of many of the basic concepts and results needed from Riemannian geometry and, to a lesser extent, from parabolic PDE. The aim is to cover in detail the high-level features of the argument, along with selected specific components of that argument, while sketching the remaining elements, with ample references to more complete treatments. In addition to these lectures, a variety of other topics are discussed, including expository articles on topics such as gauge theory, the Kakeya needle problem, and the Black–Scholes equation. Some selected comments and feedback from blog readers have also been incorporated into the articles.
-> The lectures are as self-contained as possible, focusing more on the “big picture” than on technical details.
 
 Terence Tao - **Compactness and Contradiction**
 
 V. B. Alekseev - **Abel's theorem in problems and solutions based on the lectures of professor V.I. Arnold**
 > 似乎拓扑Gal? 
-
-Kurt Gödel - **What is Cantor’s Continuum Problem?**
-V. I. Arnold - **Experimental Mathematics**
-Yuri I. Manin, Alexei A. Panchishkin - **Introduction to Modern Number Theory Fundamental Problems, Ideas and Theories**
 
 ## 数学哲学
 
