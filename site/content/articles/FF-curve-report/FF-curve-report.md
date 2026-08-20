@@ -11,31 +11,25 @@ category: miscellaneous/inbox/unclassified
 
 **启发式观点（Scholze）**：设 $C$ 是一个特征为 $p$ 的代数闭完备赋值域。那么$$\{\text{Untilts of }C\}/\simeq$$是 $\operatorname{Spec}(\mathbb Z)$ 的 $C$-值点集合的一个良好替代物。类似地，$$\{\text{Characteristic zero untilts of }C\}/\simeq$$是 $\operatorname{Spec}(\mathbb Q)$ 的 $C$-值点集合的一个良好替代物。
 
-这个思想的一个优点是，它使我们可以以非平凡的方式理解诸如$$\operatorname{Spec}(\mathbb Z)\times\operatorname{Spec}(\mathbb Z)$$这样的乘积。我们不再取概形范畴中的乘积（那样不会得到有趣的对象），而是应用启发式观点 9：如果 $C$ 是一个特征为 $p$ 的代数闭完备赋值域，那么我们应当把 $\operatorname{Spec}(\mathbb Z)\times\operatorname{Spec}(\mathbb Z)$ 的“$C$-值点”看成对应于 $C$ 的 untilt 对。这不同于启发式观点 9 对 $\operatorname{Spec}(\mathbb Z)$ 本身的解释：$C$ 只有一个 $\mathbb Z$-代数结构，却有许多不同的 untilt。
+这个思想的一个优点是，它使我们可以以非平凡的方式理解诸如$$\operatorname{Spec}(\mathbb Z)\times\operatorname{Spec}(\mathbb Z)$$这样的乘积。我们不再取概形范畴中的乘积（那样不会得到有趣的对象），而是应用启发式观点：如果 $C$ 是一个特征为 $p$ 的代数闭完备赋值域，那么我们应当把 $\operatorname{Spec}(\mathbb Z)\times\operatorname{Spec}(\mathbb Z)$ 的“$C$-值点”看成对应于 $C$ 的 untilt 对。
 
 为了有效利用这个思想，我们需要回答如下问题：
 
 **问题 10**：设 $C$ 是一个特征为 $p$ 的代数闭完备赋值域。关于 $C$ 的所有 untilt，可以说些什么？如何对它们进行分类？
 
-上面已经观察到，在同构意义下，$C$ 只有一个特征为 $p$ 的 untilt，即域 $C$ 自身。因此，我们将注意力限制在特征为零的 untilt 上。注意，由于 $C$ 是一个特征为 $p$ 的完美域，映射 $x\mapsto x^p$ 诱导出 $C$ 的一个自同构，称为 Frobenius 映射，记为$$\varphi_C:C\longrightarrow C.$$如果 $(K,\iota)$ 是 $C$ 的任意一个 untilt，那么可以构造 untilt 族$$\{(K,\varphi_C^n\circ\iota)\}_{n\in\mathbb Z}.$$当 $K$ 的特征为零时，这些 untilt 两两不同构，但仍应在某种意义下视为“相同”。因此，问题 10 可以改写为：
+上面已经观察到，在同构意义下，$C$ 只有一个特征为 $p$ 的 untilt，即域 $C$ 自身。因此，我们将注意力限制在特征为零的 untilt 上。注意，由于 $C$ 是一个特征为 $p$ 的完美域，映射 $x\mapsto x^p$ 诱导出 $C$ 的一个自同构，称为 Frobenius 映射，记为$$\varphi_C:C\longrightarrow C.$$如果 $(K,\iota)$ 是 $C$ 的任意一个 untilt，那么可以构造 untilt 族$$\{(K,\iota\circ \varphi_C^n)\}_{n\in\mathbb Z}.$$当 $K$ 的特征为零时，这些 untilt 两两不同构，但仍应在某种意义下视为“相同”。因此，问题 10 可以改写为：
 
 **问题 11**：设 $C$ 是一个特征为 $p$ 的代数闭完备赋值域。关于商集$$\frac{\{\text{Isomorphism classes of characteristic zero untilts of }C\}}{\varphi_C^{\mathbb Z}}$$可以说些什么？
 
 我们已知有FF曲线 $X=X_{\mathrm{FF}}^F$ 和对应 
 
-**定理 (Fargues-Fontaine)**：设 $C$ 是一个特征为 $p$ 的代数闭完备赋值域。存在一个 Dedekind 概形 $X$，并且存在一个双射
-```tikz {embedFontCss=true}
-\begin{tikzcd}[row sep=large]
-\{\text{Closed points }x\in X\}
-  \arrow[d, "\sim"']\\
-\{\text{Isomorphism classes of characteristic zero untilts of }C\}/\varphi_C^{\mathbb Z}
-\end{tikzcd}
-```
-对于每个闭点 $x\in X$，与之对应的 $C$ 的 untilt 可以辨认为 $X$ 在 $x$ 处的剩余域 $\kappa(x)$。定理 12 中的概形 $X$ 称为 **Fargues-Fontaine 曲线**。
+**定理 2.3 (Fargues-Fontaine)**：存在一个完备曲线 $X_{\mathrm{FF}}^F$，其闭点与 $|Y_F|/\varphi^{\mathbb{Z}}$ 存在自然双射。对于每个闭点 $x\in X$，与之对应的 $C$ 的 untilt 可以辨认为 $X$ 在 $x$ 处的剩余域 $\kappa(x)$。定理中的概形 $X$ 称为 **Fargues-Fontaine 曲线**。
 
 接下来我们希望提过上述启发式观点, 定义类似于概形的 diamond 谱. 为了陈述 diamond 谱的性质, 我们需要先说一下 Tate-Huber 对的概念. 
 
-Tate-Huber 对来自adic space理论, 形如 $\underline{R}=(R,R^+)$ . 经典的例子包括 $(K,\mathcal{O}_K)$ , $K$ 是完备非阿基米德赋值域. 正如任何环 $A$ 通过取素谱 $\mathrm{Spec}(A)$ 产生一个 scheme，任何 Tate-Huber 对 $\underline{R}$ 都会产生一个 diamond 谱 $\mathrm{Spd}(\underline{R})$。
+Tate-Huber 对来自adic space理论, 形如 $\underline{R}=(R,R^+)$ 并且满足一系列性质. 经典的例子包括 $(K,\mathcal{O}_K)$ , $K$ 是完备非阿基米德赋值域. 这里 $R^+$ 应当理解为 $R$ 中的"有界函数"
+
+正如任何环 $A$ 通过取素谱 $\mathrm{Spec}(A)$ 产生一个 scheme，任何 Tate-Huber 对 $\underline{R}$ 都会产生一个 diamond 谱 $\mathrm{Spd}(\underline{R})$。
 
 我们称一个 Tate-Huber 对 $S = (S, S^+)$ 是 **完美的**（perfect），如果 $S$ 是拓扑完备的，并且是一个完美 $\mathbb{F}_p$-代数（即 $S$ 的每个元素都有唯一的 $p$ 次方根）。
 
@@ -46,7 +40,7 @@ Tate-Huber 对来自adic space理论, 形如 $\underline{R}=(R,R^+)$ . 经典的
 
 特征 $p$ 的 Tate-Huber 对是 perfectoid 的当且仅当它是完美的. 若 $C$（或 $F$）满足 $(\mathrm{Pf}_0)$ ( 或 $(\mathrm{Pf}_p)$ ) ，则 $(C, \mathcal{O}_C)$（或 $(F, \mathcal{O}_F)$）是 perfectoid 的。
 
-并且tilt诱导了范畴等价：$$\{\text{perfectoid Tate-Huber pairs over } \underline{T}\} \overset{\sim}{\longrightarrow} \{\text{perfect Tate-Huber pairs over } \underline{T}^\flat\}$$
+某种意义上 perfectoid Tate-Huber 对应当理解为 perfect Tate-Huber 对的untilt. 具体来说, 对perfectoid的 $\underline{T}$ , tilt诱导了范畴等价：$$\{\text{perfectoid Tate-Huber pairs over } \underline{T}\} \overset{\sim}{\longrightarrow} \{\text{perfect Tate-Huber pairs over } \underline{T}^\flat\}$$
 
 回到 diamond 谱 $\operatorname{Spd}$ , 它将会满足如下一系列性质: 
 1. 反变函子是全忠实的 ( 不过对一般情况, 反变函子 $\underline{R} \mapsto \mathrm{Spd}(\underline{R})$ 会丢失信息 ) ：$$\mathrm{Spd} : \mathrm{Aff}\text{-}\mathrm{Perf} := \{\text{perfect Tate-Huber pairs}\} \longrightarrow \{\text{diamonds}\}$$
@@ -80,4 +74,6 @@ Diamond如此构造: 对每个 Huber 对 $\underline{R} = (R, R^+)$，关联其 
 
 **定理 4.6**： 存在自然的 diamond 同构：$$\mathcal{Y}^\diamond \cong \mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p), \quad X^{\mathrm{FF}\diamond} \cong \mathrm{Spd}(F)/\varphi^{\mathbb{Z}} \times \mathrm{Spd}(\mathbb{Q}_p)$$
 
-实际上这里第二个同构是第一个商去Frob的结果. 而第一个同构的点函子则直接按 $\operatorname{Spd}$ 给定的那些变成 $A_{\mathrm{inf}}$ 相关的抽象代数道理..
+实际上这里第二个同构是第一个商去Frob的结果. 而第一个同构的点函子则直接按 $\operatorname{Spd}$ 给定的那些性质变成 $A_{\mathrm{inf}}$ 相关的抽象代数道理, 通过 $A_{\mathrm{inf}}$ 作为Witt环的泛性质得到..
+
+某种意义上这说明了, 作为一个几何对象，$\mathcal{Y}^{\diamond}$ (resp. $\mathcal{X}^{FF\diamond}$ ) 在整个空间上对"untilt 等价类的几何族" ( resp. 模 $\varphi^{\mathbb{Z}}$ 的 untilt 等价类) 进行了模空间参数化 ( 如果 $M$ 的点函子分类了某类对象, 也就是 $\operatorname{Hom} (S,M)$ 是 $S$ 上这类对象的族, 那么称 $M$ 是这类对象的模空间... )
