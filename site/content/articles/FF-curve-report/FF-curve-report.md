@@ -13,19 +13,79 @@ category: miscellaneous/inbox/unclassified
 
 这个思想的一个优点是，它使我们可以以非平凡的方式理解诸如$$\operatorname{Spec}(\mathbb Z)\times\operatorname{Spec}(\mathbb Z)$$这样的乘积。我们不再取概形范畴中的乘积（那样不会得到有趣的对象），而是应用启发式观点：如果 $C$ 是一个特征为 $p$ 的代数闭完备赋值域，那么我们应当把 $\operatorname{Spec}(\mathbb Z)\times\operatorname{Spec}(\mathbb Z)$ 的“$C$-值点”看成对应于 $C$ 的 untilt 对。
 
-为了有效利用这个思想，我们需要回答如下问题：
+我们将通过这个观点, 来通过点函子定义diamond范畴以及diamond化. Diamond在这里是类似概形的事物.
 
-**问题 10**：设 $C$ 是一个特征为 $p$ 的代数闭完备赋值域。关于 $C$ 的所有 untilt，可以说些什么？如何对它们进行分类？
+> 我们这里将处理的基本代数对象是所谓 Tate-Huber 对. Tate-Huber 对形如 $\underline{T}=(T,T^+)$ , 可以理解为带有某些额外性质的交换环 $T$ , perfect / perfectoid 性质就像域的那样, tilting/untilting 的具体技术细节和域的情况也差不多. 具体细节见下文, 这里暂且先黑盒... 
 
-上面已经观察到，在同构意义下，$C$ 只有一个特征为 $p$ 的 untilt，即域 $C$ 自身。因此，我们将注意力限制在特征为零的 untilt 上。注意，由于 $C$ 是一个特征为 $p$ 的完美域，映射 $x\mapsto x^p$ 诱导出 $C$ 的一个自同构，称为 Frobenius 映射，记为$$\varphi_C:C\longrightarrow C.$$如果 $(K,\iota)$ 是 $C$ 的任意一个 untilt，那么可以构造 untilt 族$$\{(K,\iota\circ \varphi_C^n)\}_{n\in\mathbb Z}.$$当 $K$ 的特征为零时，这些 untilt 两两不同构，但仍应在某种意义下视为“相同”。因此，问题 10 可以改写为：
+具体来说 ( 更具体的在下文 ), 我们已知tilting给出特征 $0$ perfectoid 到特征 $p$ perfectoid 的等价. 但是具有某种 perfectoid 性质意味着这个对象相当大, 而我们想要一般的tilting的推广, 这就是所谓 diamond 化 $X\mapsto X^{\diamond}$ . 为任何解析 adic 空间 $X$（即由 Tate-Huber 对的 adic 谱 ( $\operatorname{Spa}$ ) 构建的空间）关联一个 diamond $X^\diamond$：$$X^\diamond : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } X \text{ 之上的 untilt 的等价类} \}$$diamond $X^\diamond$ 应该被视为 $X$ 的广义倾斜。
 
-**问题 11**：设 $C$ 是一个特征为 $p$ 的代数闭完备赋值域。关于商集$$\frac{\{\text{Isomorphism classes of characteristic zero untilts of }C\}}{\varphi_C^{\mathbb Z}}$$可以说些什么？
+这里的关系如下图所示. 我们希望对 Tate-Huber 对, 定义一个类似于 $\operatorname{Spec}$ 的函子 $\operatorname{Spd}$ , 它对任何 Tate-Huber 对有定义, 且限制在 perfect /特征 $0$ perfectoid上给出到 diamond 范畴的反变全忠实函子. 更一般的, 我们有将 Tate-Huber 对到解析adic空间的全忠实反变函子 $\operatorname{Spa}$ , 并且下图交换...
 
-我们已知有FF曲线 $X=X_{\mathrm{FF}}^F$ 和对应 
+```tikz {embedFontCss=true}
+\begin{tikzcd}[
+    row sep=2cm,
+    column sep=3.8cm
+]
+% 第一行
+\{\text{Perfectoid},\, \mathrm{char} = 0\} 
+    \arrow[r, "(-)^\flat"]
+    \arrow[d, hook]
+    \arrow[rd, "\text{fully faithful}"{sloped, pos=0.42}]
+    & 
+\{\text{Perfectoid},\, \mathrm{char} = p\} 
+    \arrow[d, hook, "\mathrm{Spd}"'] 
+\\
+% 第二行
+\{\text{Tate--Huber pair}\} 
+    \arrow[r, "\mathrm{Spd}"]
+    \arrow[d, hook, "\mathrm{Spa}"']
+    & 
+\mathrm{Diam} 
+\\
+% 第三行
+\{\text{analytic adic spaces}\} 
+    \arrow[ru, "(-)^\diamond"']
+    &
+\end{tikzcd}
+```
+下面简单陈述一下diamond的几条重要性质. 对 Tate-Huber 对 $\underline{R}$ , $\underline{R}$ 上的 Tate-Huber 对 $\underline{T}$ 是 Tate-Huber对, 且带有映射 $\underline{R}\to \underline{T}$ ( 它就像 $\underline{R}$-代数一样 ) . $\underline{S}$ 的一个untilt $\underline{T}$ 是 Tate-Huber 对配上同构 $\iota:\underline{T}^{\flat}\to \underline{S}$ .
 
-**定理 2.3 (Fargues-Fontaine)**：存在一个完备曲线 $X_{\mathrm{FF}}^F$，其闭点与 $|Y_F|/\varphi^{\mathbb{Z}}$ 存在自然双射。对于每个闭点 $x\in X$，与之对应的 $C$ 的 untilt 可以辨认为 $X$ 在 $x$ 处的剩余域 $\kappa(x)$。定理中的概形 $X$ 称为 **Fargues-Fontaine 曲线**。
+1. 反变函子$$\mathrm{Spd} : \mathrm{Aff}\text{-}\mathrm{Perf} := \{\text{perfect Tate-Huber pairs}\} \longrightarrow \{\text{diamonds}\}$$全忠实 ( 上面说过这个 )
+2. 与 $\mathrm{Spd}(\underline{R})$ 的点函子为：$$\underline{S} \mapsto \{ \underline{S} \text{ 在 } \underline{R} \text{ 之上的 untilt 的等价类} \}$$特别的与 diamond $\mathrm{Spd}(\mathbb{Q}_p) := \mathrm{Spd}(\mathbb{Q}_p, \mathbb{Z}_p)$ 关联的点函子为：$$\underline{S} \mapsto \{ \underline{S} \text{ 的特征 0 untilt 的等价类} \}$$
+3. 此外, 给定一个 diamond $X$，对完美 Tate-Huber 对 $\underline{S}$ 的 $\underline{S}$-值点是集合：$$X(\underline{S}) := \mathrm{Hom}_{\mathrm{diamonds}}(\mathrm{Spd}(\underline{S}), X)$$任何 diamond $X$ 均由其限制在 $\mathrm{Aff}\text{-}\mathrm{Perf}$ 的点函子确定：$$X(-) : \mathrm{Aff}\text{-}\mathrm{Perf} \longrightarrow \mathrm{Sets}$$
 
-接下来我们希望提过上述启发式观点, 定义类似于概形的 diamond 谱. 为了陈述 diamond 谱的性质, 我们需要先说一下 Tate-Huber 对的概念. 
+-----------------
+
+回忆, 设 $F$ 是一个特征为 $p$ 的代数闭完备赋值域, 我们已知有FF曲线 $X^{\mathrm{FF}}=X_{\mathrm{FF}}^F$ 和对应 
+
+**定理 2.3 (Fargues-Fontaine)**：存在一个完备曲线 ( Dedekind 概形 ) $X^{\mathrm{FF}}$，其闭点与 $|Y_F|/\varphi^{\mathbb{Z}}$ 存在自然双射。对于每个闭点 $x\in X^{\mathrm{FF}}$，与之对应的 $F$ 的 untilt 可以辨认为 $X^{\mathrm{FF}}$ 在 $x$ 处的剩余域 $\kappa(x)$。定理中的概形 $X^{\mathrm{FF}}$ 称为 **Fargues-Fontaine 曲线**。
+
+通过Diamond道理, 可以给这个对应以一种更好的解释. 回忆 $A_{\mathrm{inf}}=W(\mathcal{O}_F)$ , 令 $\mathcal{Y}$ 为从 $\mathrm{Spa}(A_{\mathrm{inf}}, A_{\mathrm{inf}})$ 中移除元素 $p, [\pi] \in A_{\mathrm{inf}}$ 的零点集得到的 adic 空间 ( $\pi$ 是任取的 $\mathfrak{m}_F$ 中非零元 ), 某种意义上它对应于环 $A_{\mathrm{inf}}\left[ \frac{1}{p},\frac{1}{[\pi]} \right]$ . 对 $\mathcal{Y}$ 商去Frob得到 $\mathcal{X}^{\mathrm{FF}} := \mathcal{Y}/\varphi^{\mathbb{Z}}$ .
+
+存在环化空间态射 $\mathcal{X}^{\mathrm{FF}} \to X^{\mathrm{FF}}$，在其下 $\mathcal{X}^{\mathrm{FF}}$ 的行为类似于 scheme $X^{\mathrm{FF}}$ 的解析化。特别地，GAGA 定理断言这两个空间具有相同的向量丛和上同调 [27, Th. 8.7.7] [12, Th. 3.5], 比如说它们上面向量丛的分类是相同的...
+
+**定理 4.6**： 存在自然的 diamond 同构：$$\mathcal{Y}^\diamond \cong \mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p), \quad X^{\mathrm{FF}\diamond} \cong \mathrm{Spd}(F)/\varphi^{\mathbb{Z}} \times \mathrm{Spd}(\mathbb{Q}_p)$$
+
+*证明*: 实际上这里第二个同构是第一个商去Frob的结果. 而第一个同构则来自点函子在 $\mathrm{Aff}\text{-}\mathrm{Perf}$ 上取值相同. 具体来说 $\underline{S}$-值各自如下
+$$\begin{aligned}
+\mathrm{Spd}(F)(\underline{S}) &= \{ f: (F, \mathcal{O}_F) \longrightarrow (S, S^+) \} \\
+\mathrm{Spd}(\mathbb{Q}_p)(\underline{S}) &= \{ (\underline{T}, \iota) : \underline{S} \text{ 的 untilt} \} / \sim \\
+\mathcal{Y}^\diamond(\underline{S}) &= \{ (\underline{T}, \iota, \theta) : \text{ untilt},\ \theta: A_{\mathrm{inf}} \to T^+ \text{ 延拓至 } A_{\mathrm{inf}}[\tfrac{1}{p}, \tfrac{1}{[\pi]}] \to T \} / \sim
+\end{aligned}$$这个自然双射$$\mathcal{Y}^\diamond(S) \;\cong\; \mathrm{Spd}(F)(S) \times \mathrm{Spd}(\mathbb{Q}_p)(S)$$ 具体的构造如下:
+
+**从右到左**: 给定 $\mathrm{Spd}(F)(\underline{S})\times \mathrm{Spd}(\mathbb{Q}_p)(\underline{S})$ 中元素, 可得连续同态： $$A_{\mathrm{inf}} = W(\mathcal{O}_F) \xrightarrow{\ W(f)\ } W(S^+) \xrightarrow{\ W(\iota)\ } W(T^{+\flat}) \xrightarrow{\ \theta_T\ } T^+$$ 该同态自然延拓到 $A_{\mathrm{inf}}\big[\frac{1}{p}, \frac{1}{[\pi]}\big] \to T$，从而确定了 $\mathcal{Y}^\diamond(S)$ 中的一个点。 
+
+**从左到右**： 根据 Witt 向量的泛性质，任何满足条件的同态 $A_{\mathrm{inf}} \to T^+$ 都可以唯一还原出环同态 $f : (F, \mathcal{O}_F) \to (S, S^+)$ . $\square$
+
+> 注: 这里我们有对应$$\operatorname{Hom}_{\text{cont, Ring}}(W(R), B) \;\cong\; \operatorname{Hom}_{\text{Ring}}(R, B^\flat)$$
+
+的点函子则直接按 $\operatorname{Spd}$ 给定的那些性质变成 $A_{\mathrm{inf}}$ 相关的抽象代数道理, 通过 $A_{\mathrm{inf}}$ 作为Witt环的泛性质得到..
+
+某种意义上这说明了, 作为一个几何对象，$\mathcal{Y}^{\diamond}$ (resp. $\mathcal{X}^{FF\diamond}$ ) 在整个空间上对"untilt 等价类的几何族" ( resp. 模 $\varphi^{\mathbb{Z}}$ 的 untilt 等价类) 进行了模空间参数化 ( 如果 $M$ 的点函子分类了某类对象, 也就是 $\operatorname{Hom} (S,M)$ 是 $S$ 上这类对象的族, 那么称 $M$ 是这类对象的模空间... )
+
+--------------
+
+一些具体废话. 为了陈述 diamond 谱的性质, 我们需要先说一下 Tate-Huber 对的概念. 
 
 Tate-Huber 对来自adic space理论, 形如 $\underline{R}=(R,R^+)$ 并且满足一系列性质. 经典的例子包括 $(K,\mathcal{O}_K)$ , $K$ 是完备非阿基米德赋值域. 这里 $R^+$ 应当理解为 $R$ 中的"有界函数"
 
@@ -66,14 +126,9 @@ Diamond如此构造: 对每个 Huber 对 $\underline{R} = (R, R^+)$，关联其 
 
 更一般地，命题 4.5 为任何解析 adic 空间 $X$（即由 Tate-Huber 对构建的空间）关联一个 diamond $X^\diamond$：$$X^\diamond : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } X \text{ 之上的 untilt 的等价类} \}$$diamond $X^\diamond$ 应该被视为 $X$ 的广义倾斜。
 
-现在我们使用diamond道理处理FF curve: 令 $\mathcal{Y}$ 为从 $\mathrm{Spa}(A_{\mathrm{inf}}, A_{\mathrm{inf}})$ 中移除元素 $p, [\pi] \in A_{\mathrm{inf}}$ 的零点集得到的 adic 空间, 并且商去Frob得到 $\mathcal{X}^{\mathrm{FF}} := \mathcal{Y}/\varphi^{\mathbb{Z}}$ .
 
-存在环化空间态射 $\mathcal{X}^{\mathrm{FF}} \to X^{\mathrm{FF}}$，在其下 $\mathcal{X}^{\mathrm{FF}}$ 的行为类似于 scheme $X^{\mathrm{FF}}$ 的解析化。特别地，GAGA 定理断言这两个空间具有相同的向量丛和上同调 [27, Th. 8.7.7] [12, Th. 3.5]。
 
-通过观察点函子可以得到: 
 
-**定理 4.6**： 存在自然的 diamond 同构：$$\mathcal{Y}^\diamond \cong \mathrm{Spd}(F) \times \mathrm{Spd}(\mathbb{Q}_p), \quad X^{\mathrm{FF}\diamond} \cong \mathrm{Spd}(F)/\varphi^{\mathbb{Z}} \times \mathrm{Spd}(\mathbb{Q}_p)$$
 
-实际上这里第二个同构是第一个商去Frob的结果. 而第一个同构的点函子则直接按 $\operatorname{Spd}$ 给定的那些性质变成 $A_{\mathrm{inf}}$ 相关的抽象代数道理, 通过 $A_{\mathrm{inf}}$ 作为Witt环的泛性质得到..
 
-某种意义上这说明了, 作为一个几何对象，$\mathcal{Y}^{\diamond}$ (resp. $\mathcal{X}^{FF\diamond}$ ) 在整个空间上对"untilt 等价类的几何族" ( resp. 模 $\varphi^{\mathbb{Z}}$ 的 untilt 等价类) 进行了模空间参数化 ( 如果 $M$ 的点函子分类了某类对象, 也就是 $\operatorname{Hom} (S,M)$ 是 $S$ 上这类对象的族, 那么称 $M$ 是这类对象的模空间... )
+
