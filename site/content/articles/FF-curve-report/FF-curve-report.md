@@ -17,9 +17,11 @@ category: miscellaneous/inbox/unclassified
 
 > 我们这里将处理的基本代数对象是所谓 Tate-Huber 对. Tate-Huber 对形如 $\underline{T}=(T,T^+)$ , 可以理解为带有某些额外性质的交换环 $T$ , perfect / perfectoid 性质就像域的那样, tilting/untilting 的具体技术细节和域的情况也差不多. 具体细节见下文, 这里暂且先黑盒... 
 
-具体来说 ( 更具体的在下文 ), 我们已知tilting给出特征 $0$ perfectoid 到特征 $p$ perfectoid 的等价. 但是具有某种 perfectoid 性质意味着这个对象相当大, 而我们想要一般的tilting的推广, 这就是所谓 diamond 化 $X\mapsto X^{\diamond}$ . 为任何解析 adic 空间 $X$（即由 Tate-Huber 对的 adic 谱 ( $\operatorname{Spa}$ ) 构建的空间）关联一个 diamond $X^\diamond$：$$X^\diamond : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } X \text{ 之上的 untilt 的等价类} \}$$diamond $X^\diamond$ 应该被视为 $X$ 的广义倾斜。
+具体来说 ( 更具体的在下文 ), 我们已知tilting给出特征 $0$ perfectoid 到特征 $p$ perfectoid 的 Tate-Huber 对范畴的等价. 但是具有某种 perfectoid 性质意味着这个对象相当大, 而我们想要对一般的元素也有类似tilting的推广, 这就是所谓 diamond 化 $X\mapsto X^{\diamond}$ . 
 
-这里的关系如下图所示. 我们希望对 Tate-Huber 对, 定义一个类似于 $\operatorname{Spec}$ 的函子 $\operatorname{Spd}$ , 它对任何 Tate-Huber 对有定义, 且限制在 perfect /特征 $0$ perfectoid上给出到 diamond 范畴的反变全忠实函子. 更一般的, 我们有将 Tate-Huber 对到解析adic空间的全忠实反变函子 $\operatorname{Spa}$ , 并且下图交换...
+为任何解析 adic 空间 $X$（即由 Tate-Huber 对的 adic 谱 ( $\operatorname{Spa}$ ) 构建的空间）关联一个 diamond $X^\diamond$：$$X^\diamond : \mathrm{Perf} \longrightarrow \mathrm{Sets}, \quad Z \mapsto \{ Z \text{ 在 } X \text{ 之上的 untilt 的等价类} \}$$diamond $X^\diamond$ 应该被视为 $X$ 的广义倾斜。
+
+这里的关系如下图所示. 我们希望对 Tate-Huber 对, 定义一个类似于 $\operatorname{Spec}$ 的函子 $\operatorname{Spd}$ , 定义在 Tate-Huber 对上, 且限制在 perfect 或 特征 $0$ perfectoid 的 Tate-Huber 对范畴上, 是到 diamond 范畴的全忠实反变函子. 更一般的, 我们有将 Tate-Huber 对嵌入解析adic空间的全忠实反变函子 $\operatorname{Spa}$ , $\operatorname{Spd}$ 关于它与 diamond 化相容, 也就是下图下图交换...
 
 ```tikz {embedFontCss=true}
 \begin{tikzcd}[
@@ -77,7 +79,7 @@ $$\begin{aligned}
 
 **从左到右**： 根据 Witt 向量的泛性质，任何满足条件的同态 $A_{\mathrm{inf}} \to T^+$ 都可以唯一还原出环同态 $f : (F, \mathcal{O}_F) \to (S, S^+)$ . $\square$
 
-> 注: 这里我们有对应$$\operatorname{Hom}_{\text{cont, Ring}}(W(R), B) \;\cong\; \operatorname{Hom}_{\text{Ring}}(R, B^\flat)$$
+> 注: 这里我们有对应$$\operatorname{Hom}_{\text{cont, Ring}}(W(R), B) \;\cong\; \operatorname{Hom}_{\text{Ring}}(R, B^\flat)$$并且 $F=\mathcal{O}_F[\frac{1}{\pi}]$ , 要求 $f$ 是 Huber 对映射相当于要求 $f(\pi)$ 在 $S$ 中必须可逆.
 
 的点函子则直接按 $\operatorname{Spd}$ 给定的那些性质变成 $A_{\mathrm{inf}}$ 相关的抽象代数道理, 通过 $A_{\mathrm{inf}}$ 作为Witt环的泛性质得到..
 
