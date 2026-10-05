@@ -106,9 +106,6 @@ J.-P. Serre - **Complex Semisimple Lie Algebra**
 mcmullen
 Simon Donaldson - **Riemann Surfaces**
 
-## 低维几何
-W. Thurston - **Three-Dimensional Geometry and Topology**
-
 ## 代数拓扑
 Allen Hatcher - **Algebraic Topology**
 > With extra chapter Chapter 5. Spectral Sequences and some extra exercises
@@ -135,15 +132,12 @@ Vaughan F.R. Jones - **The Jones Polynomial (exposition paper)**
 
 G. Wanner, E. Hairer - **Analysis by its history**
 Lynn Harold Loomis, Shlomo Sternberg - **Advanced Calculus**
-Elliott H. Lieb, Michael Loss - **Analysis**
-Jürgen Jost - **Postmodern Analysis**
 
 ## 复分析
 Elias M. Stein - **Complex Analysis**
 Tao - **246ABC Notes （Blog)**
 Lars Ahlfors - **Complex Analysis**
 Henri Cartan - **解析函数论**
-Gareth A. Jones, David Singerman - Complex Functions_ An Algebraic and Geometric Viewpoint
 
 ## 测度论
 Elias M. Stein - **Real Analysis**

@@ -5,11 +5,11 @@ articleId: morrow-FF-curve-3
 category: miscellaneous/inbox/unclassified
 ---
 
-### **3. 向量丛 (VECTOR BUNDLES)**
+### 3. 向量丛 (VECTOR BUNDLES)
 
 本节主要介绍 Fargues–Fontaine 曲线上的向量丛与 $p$-进 Galois 表示以及 $p$-进 Hodge 理论中出现的各类线性代数范畴之间的联系。
 
-#### **3.1. Harder–Narasimhan 理论**
+#### 3.1. Harder–Narasimhan 理论
 
 * **经典曲线上的 slope 理论**：
   设 $X$ 是一个黎曼曲面或代数闭域上的光滑射影曲线。对于 $X$ 上的任意向量丛 $E$，我们可以关联两个基本不变量：
@@ -127,7 +127,7 @@ category: miscellaneous/inbox/unclassified
 
 ---
 
-### **3.3. 在 p-进 Galois 表示中的应用 (第1150-18页)**
+### 3.3. 在 p-进 Galois 表示中的应用 (第1150-18页)
 
 这一节展示了上述向量丛分类定理在 $p$-进 Galois 表示理论中的核心应用。
 
@@ -171,9 +171,9 @@ category: miscellaneous/inbox/unclassified
 
 ---
 
-### **3.3. 在 $p$-进 Galois 表示中的应用 (续及完结)**
+### 3.3. 在 $p$-进 Galois 表示中的应用 (续及完结)
 
-#### **背景与形式化描述**
+#### 背景与形式化描述
 设 $K$ 为 $\mathbb{Q}_p$ 的扩张，$G_K = \text{Gal}(\bar{K}/K)$ 为其绝对 Galois 群。
 设 $K_0 = \text{Frac}(W(k)) \subseteq K$ 是 $K$ 的最大无分歧子扩张，其中 $k$ 为 $K$ 的剩余域（读者可设 $K = K_0 = \mathbb{Q}_p$）。
 用 $\text{Rep}(G_K)$ 表示 $G_K$ 在有限维 $\mathbb{Q}_p$-向量空间上的连续表示范畴。
@@ -248,7 +248,7 @@ $$
 
 ---
 
-### **Fontaine 猜想（弱容许即容许）**
+### Fontaine 猜想（弱容许即容许）
 
 Fontaine 猜想：一个过滤晶体处于 $D_{crys}$ 的本质像中，当且仅当它是**弱容许的 (weakly admissible)**。
 在上述基于 $\varphi\text{-ModFil}_{K/K_0}$ 的 Harder–Narasimhan 理论中，**弱容许**重合于：它是**半稳定的且斜率 (slope) 为零**。

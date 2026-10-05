@@ -119,11 +119,7 @@ $$ef = n$$
 
 $$w(x) = \frac{1}{f} v(N_{L/K}(x))$$
 
-> *注*：这意味着 $L$ 的拓扑可以用如下范数定义
-
-$$\Vert x\Vert _L = \Vert N_{L/K}(x)\Vert _K$$
-
-若 $K$ 局部紧且 $\Vert  \cdot \Vert _K$ 已规范化，则 $\Vert  \cdot \Vert _L$ 同样是规范化的。
+> *注*：这意味着 $L$ 的拓扑可以用如下范数定义$$\Vert x\Vert _L = \Vert N_{L/K}(x)\Vert _K$$若 $K$ 局部紧且 $\Vert  \cdot \Vert _K$ 已规范化，则 $\Vert  \cdot \Vert _L$ 同样是规范化的。
 
 ### 3. §2 练习内容
 
@@ -133,11 +129,7 @@ $\mathrm{Ex.}\ 1.$ **Krasner 引理（Krasner's Lemma）**：设 $E/K$ 是完备
 
 $\mathrm{Ex.}\ 2.$ 设 $K$ 是完备域，$f(X) \in K[X]$ 是次数为 $n$ 的可分不可约多项式。令 $L/K$ 是由 $f$ 定义的 $n$ 次扩张。证明对于任何在系数上足够接近 $f$ 的 $n$ 次多项式 $h(X)$，$h(X)$ 也是不可约的，且由其定义的扩张 $L_h/K$ 与 $L$ 同构。
 
-> 假设 $y$ 是 $h(X)$ 的一个根, $x_i$ 是 $f(X)$ 的根. 假设 $f$ 和 $h$ 的每个系数都满足 $\left\Vert f_i-h_i \right\Vert<\varepsilon$ , 那么
-
-$$\left\Vert f(y) \right\Vert\leqslant \left\Vert h(y) \right\Vert+\left\Vert (f-h)(y) \right\Vert\leqslant C\varepsilon$$
-
-而 $f(y)=\prod (y-x_i)$ , 因此至少有一个 $\left\Vert y-x_i \right\Vert\leqslant C'\varepsilon^{\frac{1}{n}}$ , 对充分小的 $\varepsilon$ , 因为 $f$ 可分, 它小于其它一切 $\left\Vert y-x_j \right\Vert$ , 从而由第一题 $x_i\in K(y)$ , 而 $h,f$ 同次数, 因此 $h$ 不可约且 $K(x_i)=K(y)$ . 
+> 假设 $y$ 是 $h(X)$ 的一个根, $x_i$ 是 $f(X)$ 的根. 假设 $f$ 和 $h$ 的每个系数都满足 $\left\Vert f_i-h_i \right\Vert<\varepsilon$ , 那么$$\left\Vert f(y) \right\Vert\leqslant \left\Vert h(y) \right\Vert+\left\Vert (f-h)(y) \right\Vert\leqslant C\varepsilon$$而 $f(y)=\prod (y-x_i)$ , 因此至少有一个 $\left\Vert y-x_i \right\Vert\leqslant C'\varepsilon^{\frac{1}{n}}$ , 对充分小的 $\varepsilon$ , 因为 $f$ 可分, 它小于其它一切 $\left\Vert y-x_j \right\Vert$ , 从而由第一题 $x_i\in K(y)$ , 而 $h,f$ 同次数, 因此 $h$ 不可约且 $K(x_i)=K(y)$ . 
 
 $\mathrm{Ex.}\ 3.$ 利用exer. 8 of Bourbaki, A/g., Chap. VII, §3直接证明 $B$ 是有限型 $A$-模。
 
@@ -160,14 +152,11 @@ $\mathrm{Ex.}\ 3.$ 设 $K$ 在离散赋值 $v$ 下完备，$\Omega$ 为其代数
 **定理 1**：设 $L/K$ 是 $n$ 次有限扩张，$v$ 是 $K$ 的离散赋值（其环为 $A$），$B$ 是 $A$ 在 $L$ 中的整闭包。假设 $B$ 是有限生成 $A$-模。令 $w_i$ 为 $v$ 在 $L$ 上的不同延拓，且 $e_i, f_i$ 为相应的参数。设 $\hat{K}$ 和 $\hat{L}_i$ 分别为 $K$ 和 $L$ 关于 $v$ 和 $w_i$ 的完备化。则：
 1. 域 $\hat{L}_i$ 是 $\hat{K}$ 的扩张，其次数为 $n_i = e_i f_i$。
 2. 赋值 $\hat{w}_i$ 是 $\hat{L}_i$ 上延拓 $\hat{v}$ 的唯一赋值，且满足 $e_i = e(\hat{L}_i/\hat{K})$ 且 $f_i = f(\hat{L}_i/\hat{K})$。
-3. 规范同态
+3. 典范同态$$\varphi: L \otimes_K \hat{K} \rightarrow \prod_i \hat{L}_i$$是同构。
 
-$$\varphi: L \otimes_K \hat{K} \rightarrow \prod_i \hat{L}_i$$
+> 注: 第三条的典范同态来自自然的嵌入 $L\hookrightarrow \widehat{L}_i$ 与关于 $\widehat{L}_i$ 的 $w_i$ 诱导拓扑给出的 $\widehat{K}\hookrightarrow \widehat{L}_i$ , $\widehat{L}_i$ 从而成为 $L$ 与 $\widehat{K}$ 的image的复合.
 
-是一个同构。
-
-**证明**：
-断言 (ii) 在上一节基础上是显然的, 并蕴含断言 (i). 对于 (iii)，积拓扑使 $\prod \hat{L}_i$ 成为 $\hat{K}$ 上一个 $n$ 维的豪斯多夫拓扑向量空间。根据Approximation Lemma , $\varphi(L)$ 在 $\prod \hat{L}_i$ 中稠密，因此其张量积像 $\varphi(L \otimes_K \hat{K})$ 也是稠密的. 作为 $\hat{K}$-线性空间, 因为完备域上有限维线性空间完备, 所以有限维线性空间都必须是闭子集, 从而稠密的子空间就是全空间. 这个映射是满射，从而是双射. 
+**证明**：断言 (ii) 在上一节基础上是显然的, 并蕴含断言 (i). 对于 (iii)，积拓扑使 $\prod \hat{L}_i$ 成为 $\hat{K}$ 上一个 $n$ 维的豪斯多夫拓扑向量空间。根据Approximation Lemma , $\varphi(L)$ 在 $\prod \hat{L}_i$ 中稠密，因此其张量积像 $\varphi(L \otimes_K \hat{K})$ 也是稠密的. 作为 $\hat{K}$-线性空间, 因为完备域上有限维线性空间完备, 所以有限维线性空间都必须是闭子集, 从而稠密的子空间就是全空间. 这个映射是满射，从而是双射. 
 
 **推论 1**：域 $\hat{L}_i$ 是扩张域 $\hat{K}$ 和 $L$ 在 $K$ 上的复合域
 
