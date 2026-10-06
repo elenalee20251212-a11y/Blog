@@ -236,4 +236,116 @@ $$
 1. 当 $K$ 与 $k$ 具有相同特征时，$K$ 同构于 $k((T))$（参见第二章 §4）。如果 $k'/k$ 是有限可分扩张，则相应的非分歧扩张为 $K'=k'((T))=k'\otimes_kK$ . 当 $k$ 是特征 $p>0$ 的完美域时，类似地有 $K'=W(k')\otimes_{W(k)}K$ , 其中 $W(k)$ 表示系数在 $k$ 中的 Witt 向量环。
 2. 本节的结果可以推广到任意完备局部诺特环；参见 Grothendieck 的研讨班 [29] §1。
 
+## §6. 不同与判别式的计算
+
+沿用 §§3、4 的记号与假设。
+
+**命题 11**：令 $n=[L:K]$，令 $C$ 为包含 $A$ 的 $B$ 的一个子环，并假设 $C$ 作为 $A$-模的一组基由某个元素 $x$ 的幂 $x^i$ , $0\leqslant i\leqslant n-1$ 组成 . 令 $f$ 为 $x$ 的特征多项式。则：
+1. $f$ 的系数属于 $A$；
+2. $C^*$ 是自由 $A$-模 ( 注意 $C$ 的 $A$-秩等于 $n=[L:K]$ , 因此 $C$ 是 $L$ 的格 ) ，其一组基为 $\frac{x^i}{f'(x)}$ , $0\leq i\leq n-1$ , 其中 $f'(X)$ 表示 $f(X)$ 的导数。
+
+**证明**：$f$ 的系数在 $A$ 上整，并且属于 $K$；由于 $A$ 是整闭的，它们属于 $A$，这证明了第 1 部分。（注意，环 $C$ 同构于环 $B_f=A[X]/(f)$ , 参见第一章 §6。）
+
+第 2 部分的证明要用到下面的结果。
+
+**引理 2（Euler）**：$\operatorname{Tr}\left(\frac{x^i}{f'(x)}\right)=0$ 对 $0\leq i\leq n-2$ , 以及 $\operatorname{Tr}\left(\frac{x^{n-1}}{f'(x)}\right)=1$ .
+
+**证明**：令 $x_k$（$k=1,\ldots,n$）为 $x$ 在 $L$ 的某个适当扩张中的共轭元, 我们需要计算 $\sum_{k=1}^n\frac{x_k^i}{f'(x_k)}$ . 注意恒等式$$\frac1{f(T)}=\sum_{k=1}^n\frac1{f'(x_k)(T-x_k)}\tag{*}$$( 这是将有理函数 $1/f(T)$ 分解为"简单部分" $\frac{a_k}{T-x_k}$ 之和所得的 , 通过待定系数不难得到上式, 具体来说注意到 $f'(x_k)=\prod _{j\ne k}(x_k-x_j)$ , 所以这些系数就来自 $1$ 的拉格朗日插值... ). 若将 $1/f(T)$ 展开为关于 $1/T$ 的幂级数 ( 提出 $1/T^n$ 并按 $\frac{1}{1+x}$ 泰勒展开 ) ，则最低次数项为 $1/T^n$；将这个展开与 (*) 的右端 ( 也展开为 $1/T$ 幂级数 ) 比较，便得到所需公式。$\square$
+
+回到命题 11。只需证明矩阵 $r_{ij}=\operatorname{Tr}\left(\frac{x^{i+j}}{f'(x)}\right)$ 在 $A$ 上可逆。根据引理 2，当 $i+j\leq n-2$ 时 $r_{ij}=0$，当 $i+j=n-1$ 时 $r_{ij}=1$。当 $i+j\geq n$ 时，有$$r_{ij}=\operatorname{Tr}\left(\frac{x^n x^{i+j-n}}{f'(x)}\right)$$由于 $x^n$ 是 $x^i$（$0\leq i<n$）关于 $A$ 的一个线性组合，归纳可知 $r_{ij}\in A$。计算这个反三角矩阵的行列式，得到 $\det(r_{ij})=(-1)^{n(n-1)/2}$ . $\square$
+
+仍保持命题 11 的假设。令 $\mathfrak r$ 为所有满足 $tB\subset C$ 的 $t\in C$ 所成的集合；它既是 $C$ 的理想，也是 $B$ 的理想，称为 $B$ 在 $C$ 中的导子。
+
+**推论 1**：在上述记号与假设下$$\mathfrak r=f'(x)\mathfrak D_{B/A}^{-1}$$
+
+**证明**：为简化书写，令 $b=f'(x)$ , 对于 $t\in L$，有如下等价关系：
+$$
+t\in\mathfrak r
+\Longleftrightarrow tB\subset C
+\Longleftrightarrow b^{-1}tB\subset C^*
+\Longleftrightarrow \operatorname{Tr}(b^{-1}tB)\subset A
+\Longleftrightarrow b^{-1}t\in\mathfrak D_{B/A}^{-1}
+\Longleftrightarrow t\in b\mathfrak D_{B/A}^{-1}，
+$$从而得到推论。$\square$
+
+> 实际上前已证明 $C^*=\frac{1}{f'(x)}C$ , 而 $tB\subset C$ 等价于 $tC^*\subset B^*$ , 等价于 $t/f'(x)\in B^*=\mathfrak D_{B/A}^{-1}$ .
+
+**推论 2**：差积 $\mathfrak D_{B/A}$ 整除主理想 $(f'(x))$。这两个理想相等的充要条件是 $B=C$（即 $B=A[x]$ ）。
+
+**证明**：第一个断言由 $(f'(x))=\mathfrak r\mathfrak D_{B/A}$ 得到。同一个公式表明，$\mathfrak D_{B/A}=(f'(x))$ 当且仅当 $\mathfrak r=1$，也就是当且仅当 $B=C$。$\square$
+
+推论 2 使我们能够在 $B$ 具有形式 $A[x]$ 时计算差积 $\mathfrak D_{B/A}$。下面给出一个保证这种情形发生的条件。
+
+**命题 12**：假设 $B$（因而 $A$ 也）是DVR；若记这两个环的剩余域为 $l$、$k$，并假设扩张 $l/k$ 是可分的，则 $B$ 作为 $A$-模有一组由某个元素 $x$ 的幂 $1,x,\ldots,x^{n-1}$ 组成的基。
+
+注: 这个命题特别适用于 $A$ 为剩余域完美的完备DVR的情形。
+
+**证明**：令 $e$ 为 $L/K$ 的分歧指数，令 $f=[l:k]$ , 于是 $n=ef$ . 令 $\pi$ 为 $B$ 的一个一致化元，并令 $x\in B$ 代表扩张 $l/k$ 的一个本原元 $\overline x$。我们需要两个引理。
+
+**引理 3**：乘积 $x^i\pi^j$ , $0\leq i<f$ , $0\leq j<e$ 构成 $B$ 作为 $A$-模的一组基。
+
+**证明**：这些乘积共有 $ef$ 个，因此只需证明它们张成 $B$；只需证明它们的剩余类张成 $B/\mathfrak pB$（其中 $\mathfrak p$ 是 $A$ 的极大理想）。由于 $\mathfrak pB=\pi^eB$ , 并且诸 $x^i$ 模 $\pi$ 下张成 $l$ , 通过和将 $B$ 中元素写成 $\pi$ 的幂级数的过程相同的算法, 可知诸 $x^i\pi^j$ 张成 $B/\pi^e$ . $\square$
+
+**引理 4**：可以通过适当选取, 使得元素 $x$ 满足, 存在一个系数在 $A$ 中、次数为 $f$ 的首一多项式 $R(X)$，满足 $R(x)$ 是 $B$ 的一个一致化元。
+
+**证明**：先选取满足 $\ell=k(x)$ 的 $x$。令 $R$ 为一个系数在 $A$ 中的首一多项式，其约化 $\overline R$ 是 $x$ 的极小多项式。若 $w$ 表示 $B$ 的赋值，则由于 $R(x)$ 在 $\ell$ 中的像为零，有 $w(R(x))\geq1$ . 若等号成立，则 $x$ 已经满足要求；否则 $w(R(x))\geq2$。令 $h$ 为任意赋值为 $1$ 的元素，并应用 Taylor 公式$$R(x+h)=R(x)+hR'(x)+h^2b,\qquad b\in B$$由于 $\ell/k$ 可分，有 $R'(x)\ne0$ , 所以 $R'(x)$ 可逆，而 $hR'(x)$ 的赋值为 $1$；由于 $R(x+h)$ 中的其他项的赋值都至少为 $2$，可知 $w(R(x+h))=1$ , 因此 $x+h$ 就是所求的元素。$\square$
+
+现在可以完成命题 12 的证明。选取引理 4 中的 $x$，并令 $\pi=R(x)$ . 引理 3 表明，乘积 $x^iR(x)^j$, $0\leq i<f$, $0\leq j<e$ 构成 $B$ 的一组基。因此 $B=A[x]$ , 并且由于 $x$ 满足一个次数为 $n$ 的首一方程，幂 $1,x,\ldots,x^{n-1}$ 构成一组基。$\square$
+
+注：命题 12 在仅假设 $A$ 是离散赋值环时不成立；参见习题 3。
+
+**命题 13**：令 $\mathfrak q$ 为 $B$ 的一个非零素理想，令 $\mathfrak P=\mathfrak q\cap A$ , 令 $\overline L_{\mathfrak q}$、$\overline K_{\mathfrak P}$ 为相应的剩余域，并假设剩余域扩张是可分的。则 $\mathfrak q$ 在差积 $\mathfrak D_{B/A}$ 中的指数满足 $v_{\mathfrak q}(\mathfrak D_{B/A})\geq e_{\mathfrak q}-1$ , 其中 $e_{\mathfrak q}$ 表示分歧指数；并且等号成立当且仅当 $e_{\mathfrak q}$ 与剩余域 $\overline K_{\mathfrak P}$ 的特征互素。
+
+**证明**：通过局部化与完备化，可以归约到 $A$、$B$ 都是完备离散赋值环的情形；再利用定理 3 的推论 3，可以进一步假设 $L/K$ 是完全分歧的。若 $\pi$ 是 $B$ 的一致化元，则根据第一章 §6，$\pi$ 满足一个 Eisenstein 方程 $f(\pi)=0$ , 其中$$f(X)=X^e+a_1X^{e-1}+\cdots+a_e,\qquad a_i\in\mathfrak P, e=e_{\mathfrak q}=[L:K]$$此外 $B=A[\pi]$ , 因此可以对命题 11 应用推论 2：差积 $\mathfrak D_{B/A}$ 由 $f'(\pi)$ 生成。现在有
+$$
+f'(\pi)=e\pi^{e-1}
++\sum_{i=1}^{e-1}(e-i)a_i\pi^{e-i-1}。\tag{*}
+$$
+
+令 $w$ 为 $B$ 的赋值，则 $w(\pi)=1$ 且 $w(a_i)\geq e$ , 于是 $f'(\pi)=e\pi^{e-1}+b$ , 其中 $w(b)\geq e$ , 因此 $w(f'(\pi))\geq e-1$ , 并且等号成立当且仅当 $w(e)=0$，即当且仅当 $e$ 与剩余特征互素。$\square$
+
+注：
+1. 命题 13 给出了差积指数的一个下界。下面的上界同样有用：$$v_{\mathfrak q}(\mathfrak D_{B/A})\leq e_{\mathfrak q}-1+w(e_{\mathfrak q})$$事实上，如前面一样归约到完全分歧的情形。对所有 $a\in A$，有 $w(a)\equiv0\pmod e$ , 因而当 $(e-i)a_i\ne0$ 时，$$w\left((e-i)a_i\pi^{e-i-1}\right)\equiv-i-1\pmod e$$这表明公式 (*) 中 $f'(\pi)$ 的所有非零项具有互不相同的赋值；甚至它们模 $e$ 也互不相同。因此$$w(f'(\pi))=\inf_{0\leq i<e}w\left((e-i)a_i\pi^{e-i-1}\right)$$取 $i=0$，得到 $w(f'(\pi))\leq e-1+w(e)$ . $\square$
+这个局部结果给出了数域判别式的一个上界，它只依赖于次数以及发生分歧的素数。这个上界由 Dedekind 在其关于判别式的论文末尾提出猜想（Werke I, S.351），并由 Hensel 证明（Crelle J. 113 (1894), 61，以及 Gött. Nach. (1897), 247）。
+2. 当剩余特征整除 $e_{\mathfrak q}$ 时，差积中 $\mathfrak q$ 的指数不再只由 $e_{\mathfrak q}$ 决定；为了计算它，需要使用“分歧群”（参见下一章 §1 的命题 4）。
+
+### 习题
+
+1. 在命题 12 的假设下，证明：如果 $B=A[x]$，且 $y$ 足够接近 $x$，则 $B=A[y]$ .
+
+> 此时因为足够接近, 首先 $y$ 和 $x$ 在剩余域中的image相同, 其次 $R(y)=R(x+h)=R(x)+h(\cdots)$ 具有相同的赋值, $R(y)$ 也是uniformizer, 直接应用命题 12 相同的论证即可... 当然其实也有一个更直接的证明: 考虑到 $(x+h)^i-x^i\equiv 0 \pmod{\mathfrak{p}}$ , 从而 $1,x,\cdots,x^{n-1}$ 到 $1,y,\cdots,y^{n-1}$ 基变换的矩阵 $M$ 满足 $M\equiv I_n\pmod{\mathfrak{p}}$ , 从而 $\det(M)\in A^{\times }$ , 诸 $y^i$ 也给出 $B$ 的 $A$-基. 
+2. 在一般情形下，令 $\mathfrak P$ 为 $B$ 的一个素理想，并假设相应的剩余域扩张可分。证明存在一个 $x\in B$，它生成扩张 $L/K$，并且 $B$ 在 $A[x]$ 中的导子 $\mathfrak r$ 与 $\mathfrak P$ 互素（对 $B$ 与 $A$ 的完备化应用命题 12 及习题 1）。
+> $\mathfrak{r}$ 与 $\mathfrak{P}$ 互素相当于说 $\mathfrak{r}\not\subset \mathfrak{P}$ , 存在 $s\in B\backslash \mathfrak{P}$ 使得 $s(B/A[x])=0$ . 此时因为 $sB\subset A[x]$ , 自然有 $K(x)=L$ .
+>
+> 对 $\mathfrak{P}$ 取完备化, 那么由命题12 $\hat{B}=\hat{A}[\theta]$ , 并且 $\theta$ 是剩余域的本原元. 由上一题存在 $x\in B$ 充分接近 $\theta$ , 即 $x\equiv \theta\pmod{\mathfrak{P}^N}$ , 使得 $\hat{B}=\hat{A}[x]$ . 同时由CRT可以使得对任何其它 $\mathfrak{p}$ 上的素理想 $\mathfrak{P}'$ 有 $x\equiv 0\pmod{\mathfrak{P}'}$ , 因此取 $x$ 在剩余域上的极小多项式的提升 $R\in A[t]$ , 有 $R(x)\in \mathfrak{P}$ 且 $R(x)$ 不属于其它 $\mathfrak{P}'$ ( 模 $\mathfrak{P}'$ 剩余域里 $\bar{x}=0$ ) , 因此 $\mathfrak{P}$ 是唯一 $B$ 中在 $\mathfrak{q}=\mathfrak{P}\cap A[x]$ 上的理想, 从而 $B_{\mathfrak{P}}=B_{\mathfrak{q}}$ , 且 $B_{\mathfrak{P}}$ 是有限生成 $A[x]_{\mathfrak{q}}$-模.
+>
+> 现在因为 $\hat{B}=\hat{A}[x]$ , 两边分是 $B_{\mathfrak{P}}$ 和 $A[x]_{\mathfrak{q}}$ 的 $\mathfrak{p}$-进完备化 ( $\bar{A}[x]$ 在DVR $\hat{A}$ 上有限从而自由, 因此完备.. ), 完备化不影响商去 $\mathfrak{p}$ 的结果, 从而得到 $B_{\mathfrak{P}}=A[x]_{\mathfrak{q}}+\mathfrak{p}B_{\mathfrak{P}}$ , 由Nakayama引理 $B_{\mathfrak{P}}/A[x]_{\mathfrak{q}}=0$ , 因此 $B_{\mathfrak{P}}=A[x]_{\mathfrak{q}}$ , 因而 $(B/A[x])_{\mathfrak{q}}=0$ , 这个可以推出互素. 
+
+3. 假设 $A$ 是离散赋值环，且 $B$ 是“完全分解”的，即在 $A$ 的素理想 $\mathfrak p$ 上方有 $n=[L:K]$ 个 $B$ 的素理想。证明存在 $x\in B$ 使 $B=A[x]$ 的充要条件是 $n\leq\operatorname{Card}(k)$ , 其中 $k$ 是 $A$ 的剩余域。
+
+> 此时所有 $\mathfrak{p}$ 上素理想 $\mathfrak{P}_i$ 的剩余域都是 $k$ . 由Nakayama只需要证明存在 $x$ 使得 $B/\mathfrak{p}B=k[\bar{x}]$ . 由于完全分解, 由CRT $B/\mathfrak{p}B\cong k^n$ ( 这里 $A/\mathfrak{p}$ 以对角嵌入 $k^n$ ) . 如果 $|k|\geqslant n$ , 现在取 $x$ 使得 $k^n$ 中 $\bar{x}$ 各分量互不相同, 则 $1,x,x^2,\cdots,x^{n-1}$ 线性无关 ( 范德蒙特道理.. ), 从而张成 $k^n$ ; 反过来如果这样的 $x$ 存在, 一组基是 $1,x,x^2,\cdots,x^n$ ...
+
+## §7. 差积的微分刻画
+
+令 $B$ 为任意交换的 $A$-代数。映射 $(x,y)\longmapsto xy$ 定义了一个同态$$\theta:B\otimes_A B\longrightarrow B$$令 $I$ 为它的核，并置 $\Omega_A(B)=I/I^2=I\otimes_{B\otimes_A B}B$ ; 这给出了一个 $B$-模，称为环 $B$ 的**相对于 $A$ 的微分模**（这个定义归功于 E. Kähler）。若 $dx$ 表示 $x\otimes1-1\otimes x$ 在 $I/I^2$ 中的像，则 $\Omega_A(B)$ 的每个元素都可以写成 $\sum_i y_i\,dx_i$ 形式, 并且有
+$$
+\begin{aligned}
+d(xy)&=x\,dy+y\,dx \\
+da&=0\quad \text{if}a\in A
+\end{aligned}$$事实上，$\Omega_A(B)$ 对上述性质具有泛性质（参见 [12]，第 13 讲，以及 [46]）。
+
+**命题 14**：令 $A$ 为分式域为 $K$ 的 Dedekind 环；令 $L$ 为 $K$ 的有限可分扩张，令 $B$ 为 $A$ 在 $L$ 中的整闭包。假设对于 $B$ 的每个素理想 $\mathfrak q$，相应的剩余域扩张都是可分的。则 $B$-模 $\Omega_A(B)$ 可以由一个元素生成，并且它的湮灭子是差积 $\mathfrak D_{B/A}$ .
+
+**证明**：容易证明，若 $A'$ 是任意交换的 $A$-代数，且 $B'=B\otimes_A A'$ , 则 $\Omega_{A'}(B')=\Omega_A(B)\otimes_AA'$ . 因此，微分模与局部化、完备化相容，这使我们可以归约到 $A$ 是完备离散赋值环的情形。由命题 12，此时有 $B=A[X]/(f)$ , 其中 $f$ 是首一多项式。若 $x$ 表示 $X$ 在 $B$ 中的像，则可验证（参见 [12]，同上）$\Omega_A(B)$ 由 $dx$ 生成，而 $dx$ 的湮灭子是 $f'(x)$ . 但是根据命题 11 的推论 2，$\mathfrak D_{B/A}$ 是由 $f'(x)$ 生成的主理想。$\square$
+
+注：如果能给出上一个命题的更直接证明，并且研究“$m$ 阶主部” $P_m(B/A)=\left(B\otimes_A B\right)/I^{m+1}$ 将会很有意思。
+
+### 习题
+
+1. 在命题 14 的假设下，证明存在一个元素 $x\in B$，使得 $dx$ 生成 $\Omega_A(B)$。
+2. 用微分的语言表述命题 14 与习题 1。
+3. 给出一个可分扩张 $L/K$ 的例子，使其剩余域扩张 $\overline L/\overline K$ 是高度为 $1$ 的纯不可分扩张但不是单扩张。证明对于这样的扩张，$\Omega_A(B)$ 不可能由一个元素生成。
+
+
+
 
