@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>博客用法</title><link rel="stylesheet" href="/Blog/_files/f522bee2ff6c461f10b8281e/assets/style.css"><meta name="blog-base" content="/Blog/"></head><body><main style="margin:30px auto;padding:20px;max-width:900px"><a href="/Blog/">← 返回博客</a><h1>博客用法</h1><pre style="white-space:pre-wrap">博客 · 新建、预览、生成、上传
+
+用法：blog &lt;操作&gt; [参数]
+直接输入 blog 查看本页；完整名称与简称等效。
+
+常用操作
+  blog new "&lt;文章文件名&gt;"   (n) 新建文章；图片和 PDF 放在同一文件夹
+  blog server               (s) 本地预览，保存后自动刷新
+  blog generate             (g) 生成完整静态网站
+  blog deploy               (d) 生成、备份源码并上传网站
+  blog close                关闭本目录启动的预览
+  blog help [操作]          (h) 查看帮助；可填写具体操作
+
+文章与分类
+  blog drafts                              列出草稿及文件位置
+  blog publish "&lt;草稿文件名&gt;" [分类名字]   将整篇草稿及附件移入文章区
+  blog rename "&lt;原名&gt;" "&lt;新名&gt;"            整篇改名，同时更新内部引用和旧网址
+  blog remove "&lt;文章文件名&gt;"               删除文章或草稿，整份放入博客回收站
+  blog trash                               查看博客回收站：已删除的名字、时间和恢复命令
+  blog restore ["&lt;文章文件名&gt;"]            按原名字从博客回收站恢复正文和附件
+  blog update                              (u) 接受分类整理并报告改动
+  blog history [条数]                      查看本博客执行过的命令和成功、失败结果
+  blog undo [次数]                         撤销最近若干次分类整理，保留后续正文和附件
+
+检查与维护
+  blog preview   查看最近生成的静态网站
+  blog check     只检查文章、分类及资源
+  blog recover   恢复中断的文件操作；冲突时保留全部版本
+  blog clean     清理可重建网页和临时编译输入
+
+详细用法：blog help &lt;操作&gt;，例如 blog help new。
+&lt;…&gt; 填写所需内容；[…] 表示可以省略。
+新建：content/articles/&lt;文章文件名&gt;/&lt;文章文件名&gt;.md，附件放在同一文件夹。
+预览、生成和上传包含内容更新。完整说明见 README.md。
+</pre><p>文件规则见项目中的 README.md；代码接口与检查见 DESIGN.md。</p></main></body></html>

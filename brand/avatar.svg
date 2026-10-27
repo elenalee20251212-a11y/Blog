@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Default abstract avatar</title>
+  <desc id="desc">A minimal orbit and point design in warm gold.</desc>
+  <rect width="200" height="200" rx="100" fill="#fffdf8"/>
+  <circle cx="100" cy="100" r="69" fill="none" stroke="#d39a36" stroke-width="3"/>
+  <ellipse cx="100" cy="100" rx="58" ry="24" fill="none" stroke="#d39a36" stroke-width="3" transform="rotate(-28 100 100)"/>
+  <ellipse cx="100" cy="100" rx="58" ry="24" fill="none" stroke="#d39a36" stroke-width="3" transform="rotate(32 100 100)"/>
+  <circle cx="100" cy="100" r="8" fill="#d39a36"/>
+  <circle cx="151" cy="69" r="6" fill="#1f2422"/>
+</svg>
