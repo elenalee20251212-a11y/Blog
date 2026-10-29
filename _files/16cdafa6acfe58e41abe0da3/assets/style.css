@@ -8,6 +8,9 @@
   --accent: #a94f7a;
   --sidebar: clamp(280px, 21vw, 306px);
   --header: 64px;
+  --header-height: var(--header);
+  --local-nav-height: 0px;
+  --navigation-height: calc(var(--header-height) + var(--local-nav-height));
   --content-size: 18px;
   --home-size: 18px;
   font-family: Roboto, Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
@@ -47,7 +50,9 @@ input:focus-visible {
   outline-offset: 3px;
 }
 [id] {
-  scroll-margin-top: calc(var(--header) + 48px);
+  scroll-margin-top: calc(
+    var(--header-height) + max(48px, var(--local-nav-height) + 5px)
+  );
 }
 [hidden] {
   display: none !important;
@@ -65,10 +70,12 @@ input:focus-visible {
 }
 /* Header and responsive navigation share the original three destinations. */
 .site-header {
-  height: var(--header);
-  padding: 0 32px;
+  min-height: var(--header);
+  padding: 9px 32px;
   gap: 32px;
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
   align-items: center;
   border-bottom: 1px solid #e6e4df;
   background: #fff;
@@ -83,7 +90,10 @@ input:focus-visible {
   color: var(--ink);
   font-size: 24px;
   font-weight: 700;
-  white-space: nowrap;
+  white-space: normal;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
 .brand:hover {
   text-decoration: none;
@@ -92,6 +102,7 @@ input:focus-visible {
   width: 34px;
   height: 44px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 .search-trigger {
   display: flex;
@@ -103,6 +114,7 @@ input:focus-visible {
   padding: 8px 12px;
   font-size: 15px;
   margin-left: 32px;
+  flex-shrink: 0;
 }
 .search-trigger svg {
   width: 19px;
@@ -122,11 +134,15 @@ input:focus-visible {
   margin-left: auto;
   display: flex;
   gap: 28px;
+  flex-shrink: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 .top-nav a {
   font-weight: 500;
   color: var(--ink);
   font-size: 16px;
+  white-space: nowrap;
 }
 .local-nav {
   display: none;
@@ -138,7 +154,7 @@ input:focus-visible {
 #sidebar {
   position: fixed;
   left: 0;
-  top: var(--header);
+  top: var(--header-height);
   bottom: 0;
   width: var(--sidebar);
   padding: 24px 9px 32px 24px;
@@ -385,6 +401,9 @@ details[open] > summary > .arrow {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.25em 0;
+  min-width: 0;
+  max-width: 100%;
+  overscroll-behavior-x: contain;
 }
 .markdown-preview svg {
   max-width: 100%;
@@ -396,6 +415,7 @@ details[open] > summary > .arrow {
   overflow-x: auto;
   text-align: center;
   margin: 0.75em 0;
+  overscroll-behavior-x: contain;
 }
 .markdown-preview .tikz svg {
   height: auto;
@@ -403,8 +423,8 @@ details[open] > summary > .arrow {
 }
 #toc {
   position: sticky;
-  top: calc(var(--header) + 32px);
-  max-height: calc(100vh - var(--header) - 70px);
+  top: calc(var(--header-height) + 32px);
+  max-height: calc(100vh - var(--header-height) - 70px);
   overflow-y: auto;
   min-width: 0;
   scrollbar-width: thin;
@@ -537,12 +557,19 @@ details[open] > summary > .arrow {
 }
 .article-list li {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   align-items: baseline;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   padding: 12px 0;
   margin: 0;
+}
+.article-list li > div {
+  flex: 1 1 min-content;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 .article-list li a {
   color: var(--ink);
@@ -554,6 +581,7 @@ details[open] > summary > .arrow {
   color: #929793;
   font-size: 0.72em;
   font-family: Consolas, monospace;
+  max-width: 100%;
 }
 .article-note {
   font-size: 0.78em;
@@ -584,6 +612,7 @@ details[open] > summary > .arrow {
 /* Homepage follows the existing hero / structure / recent-changes composition. */
 .home-shell {
   font-size: var(--home-size);
+  overflow-wrap: break-word;
 }
 .home-hero {
   min-height: calc(100vh - 9rem);
@@ -609,6 +638,8 @@ details[open] > summary > .arrow {
   line-height: 1.2;
   letter-spacing: -0.035em;
   margin: 28px 0 24px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 .home-rule {
   width: 15rem;
@@ -731,8 +762,13 @@ details[open] > summary > .arrow {
   color: #8b918d;
   align-self: center;
 }
-.home-recent li > a {
+.home-recent .recent-content {
+  display: contents;
+}
+.home-recent a {
   color: var(--ink);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .home-recent .recent-category {
   font-size: 0.8em;
@@ -870,7 +906,9 @@ dialog::backdrop {
     display: flex;
     justify-content: flex-end;
     position: sticky;
-    top: var(--header);
+    top: var(--header-height);
+    flex-wrap: wrap;
+    row-gap: 4px;
     z-index: 9;
     margin-left: var(--sidebar);
     padding: 8px 28px;
@@ -891,9 +929,9 @@ dialog::backdrop {
     display: none;
     position: fixed;
     right: 24px;
-    top: calc(var(--header) + 40px);
+    top: calc(var(--navigation-height) + 3px);
     max-height: 65vh;
-    width: 280px;
+    width: min(280px, calc(100% - 48px));
     background: white;
     padding: 18px;
     box-shadow: 0 8px 30px #0002;
@@ -910,7 +948,7 @@ dialog::backdrop {
     --sidebar: 280px;
   }
   .site-header {
-    padding: 0 24px;
+    padding-inline: 24px;
     gap: 20px;
   }
   .brand {
@@ -940,7 +978,7 @@ dialog::backdrop {
   #sidebar {
     display: none;
     z-index: 14;
-    top: calc(var(--header) + 37px);
+    top: var(--navigation-height);
     width: min(300px, 85vw);
     box-shadow: 8px 0 30px #0002;
   }
@@ -950,7 +988,7 @@ dialog::backdrop {
   body.menu-open .sidebar-backdrop {
     display: block;
     position: fixed;
-    inset: calc(var(--header) + 37px) 0 0;
+    inset: var(--navigation-height) 0 0;
     border: 0;
     background: #0004;
     z-index: 13;
@@ -964,7 +1002,7 @@ dialog::backdrop {
 }
 @media (max-width: 767px) {
   .site-header {
-    padding: 0 18px;
+    padding-inline: 18px;
     gap: 16px;
   }
   .brand {
@@ -1040,11 +1078,21 @@ dialog::backdrop {
     padding-bottom: 55px;
   }
   .home-recent li {
-    grid-template-columns: 5.2rem minmax(0, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 4px 14px;
   }
+  .home-recent time {
+    flex: 0 1 5.2rem;
+    max-width: 100%;
+  }
+  .home-recent .recent-content {
+    display: grid;
+    flex: 1 1 16ch;
+    min-width: 0;
+    gap: 4px;
+  }
   .home-recent .recent-category {
-    grid-column: 2;
     text-align: left;
   }
   .article-list time {
@@ -1066,7 +1114,7 @@ dialog::backdrop {
   }
   .site-header {
     gap: 10px;
-    padding: 0 14px;
+    padding-inline: 14px;
   }
   .brand {
     font-size: 18px;

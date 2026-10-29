@@ -1,5 +1,29 @@
 const base = document.querySelector('meta[name="blog-base"]')?.content ?? "/";
 const url = (path) => base.slice(0, -1) + path;
+// Both sticky bars share their measured layout heights with every offset.
+const header = document.querySelector(".site-header");
+const localNavigation = document.querySelector(".local-nav");
+function measureNavigation(entries = []) {
+  for (const [element, property] of [
+    [header, "--header-height"],
+    [localNavigation, "--local-nav-height"],
+  ]) {
+    const entry = entries.find((item) => item.target === element);
+    const height =
+      entry?.borderBoxSize?.[0]?.blockSize ?? element?.offsetHeight ?? 0;
+    document.documentElement.style.setProperty(property, height + "px");
+  }
+}
+measureNavigation();
+if (typeof ResizeObserver !== "undefined") {
+  const navigationObserver = new ResizeObserver(measureNavigation);
+  for (const element of [header, localNavigation])
+    if (element) navigationObserver.observe(element);
+} else {
+  window.addEventListener("resize", () => measureNavigation(), {
+    passive: true,
+  });
+}
 const menu = document.getElementById("menu"),
   outlineMenu = document.getElementById("outline-menu");
 const toggle = (kind, button, force) => {
